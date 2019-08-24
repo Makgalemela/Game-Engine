@@ -35,6 +35,11 @@ void Game::start(){
     }
 }
 
+
+void Game::gameLoop(){
+    
+    ///
+}
 void Game::input(){
     
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
@@ -49,6 +54,11 @@ void Game::input(){
         _cannon.moveRight();
     else 
         _cannon.stopRight();
+        
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+        _cannon.moveUp();
+    else 
+        _cannon.stopUp();
 }
 
 void Game::update(float dtAsSeconds){

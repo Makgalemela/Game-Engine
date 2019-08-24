@@ -8,6 +8,7 @@ class Game
 public:
     Game();
     void start();
+    void gameLoop();
     ~Game();
 
 private:
