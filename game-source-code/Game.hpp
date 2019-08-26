@@ -3,6 +3,7 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/System.hpp>
 #include "Cannon.hpp"
+#include "SplashScreen.hpp"
 class Game
 {
 public:
@@ -15,9 +16,8 @@ private:
     sf::RenderWindow _window;
     sf::Sprite _backgroundSprite;
     sf::Texture _backgroundTexture;
-    
+    SplashScreen _splash;
     Cannon _cannon;
-    
     void input();
     void update(float dtAsSeconds);
     void draw();

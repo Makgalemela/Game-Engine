@@ -7,6 +7,7 @@ Cannon::Cannon()
  _cannonSpeed = 320;
  _texture.loadFromFile("../executables/resources/Laser_Cannon.png");
  _cannon.setTexture(_texture);
+ _cannon.scale(sf::Vector2f(0.5 , 0.5));
  
 _position.x = 400.f;
 _position.y = 635.f;
