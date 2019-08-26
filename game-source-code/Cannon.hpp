@@ -22,6 +22,7 @@ public:
     void StopLeft();
     void stopRight();
     void moveUp();
+    void moveDown();
     void stopDown();
     void stopUp();
     void rotate();

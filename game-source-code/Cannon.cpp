@@ -8,8 +8,8 @@ Cannon::Cannon()
  _texture.loadFromFile("../executables/resources/Laser_Cannon.png");
  _cannon.setTexture(_texture);
  
-_position.x = 400;
-_position.y = 635;
+_position.x = 400.f;
+_position.y = 635.f;
  
  
 }
@@ -19,13 +19,13 @@ sf::Sprite Cannon::getSprite() const{
 }
 
 void Cannon::moveLeft(){
-    if(_cannon.getPosition().x >  0.f)
+    if(_cannon.getPosition().x >  0.f && (_cannon.getPosition().y >= 650.f || _cannon.getPosition().y - 50/2 < 15.f))
         _moveLeft = true;
     else _moveLeft = false;
 }
 
 void Cannon::moveRight(){
-    if(_cannon.getPosition().x + 113/2 <  753.f)
+    if(_cannon.getPosition().x + 113/2 <  752.f && (_cannon.getPosition().y >= 650.f || _cannon.getPosition().y - 50/2 < 15.f))
         _moveRight = true;
     else _moveRight = false;
 }
@@ -44,6 +44,18 @@ void Cannon::moveUp(){
 void Cannon::stopUp(){
     _moveUp = false;
 }
+
+
+void Cannon::moveDown(){
+    
+    if(_cannon.getPosition().y + 62/2 <  690.f)
+        _moveDown = true;
+    else _moveDown = false;
+}
+
+void Cannon::stopDown(){
+    _moveDown = false;
+}
 void Cannon::StopLeft(){
     _moveLeft = false;
 }
@@ -57,6 +69,9 @@ void Cannon::update(float elapsedTime){
     
     else if(_moveUp)
         _position.y -= _cannonSpeed*elapsedTime;
+        
+    else if(_moveDown)
+        _position.y += _cannonSpeed*elapsedTime;
        
     rotate();
     _cannon.setPosition(_position);

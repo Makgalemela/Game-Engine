@@ -59,6 +59,11 @@ void Game::input(){
         _cannon.moveUp();
     else 
         _cannon.stopUp();
+        
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+        _cannon.moveDown();
+    else 
+        _cannon.stopDown();
 }
 
 void Game::update(float dtAsSeconds){
