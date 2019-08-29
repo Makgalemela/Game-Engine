@@ -4,6 +4,8 @@
 #include <SFML/System.hpp>
 #include "Cannon.hpp"
 #include "SplashScreen.hpp"
+#include "Aliens.hpp"
+#include "Bullet.hpp"
 class Game
 {
 public:
@@ -13,14 +15,18 @@ public:
     ~Game();
 
 private:
+    
     sf::RenderWindow _window;
     sf::Sprite _backgroundSprite;
     sf::Texture _backgroundTexture;
     SplashScreen _splash;
     Cannon _cannon;
+    Aliens aliens;
+    Bullet bullet;
     void input();
     void update(float dtAsSeconds);
     void draw();
+    ///void draw(const Aliens& aliens);
 
 };
 

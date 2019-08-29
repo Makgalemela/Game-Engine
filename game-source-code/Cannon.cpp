@@ -1,19 +1,20 @@
 #include "Cannon.hpp"
-
+#include <iostream>
 Cannon::Cannon()
 {
     ///This should be refactored as the time goes on;
     
- _cannonSpeed = 320;
+ _cannonSpeed = 320.f;
  _texture.loadFromFile("../executables/resources/Laser_Cannon.png");
  _cannon.setTexture(_texture);
  _cannon.scale(sf::Vector2f(0.5 , 0.5));
  
 _position.x = 400.f;
-_position.y = 635.f;
+_position.y = 695.f;
  
  
 }
+
 
 sf::Sprite Cannon::getSprite() const{
     return _cannon;
@@ -26,7 +27,7 @@ void Cannon::moveLeft(){
 }
 
 void Cannon::moveRight(){
-    if(_cannon.getPosition().x + 113/2 <  752.f && (_cannon.getPosition().y >= 650.f || _cannon.getPosition().y - 50/2 < 15.f))
+    if(_cannon.getPosition().x + 113/2 <  790.f && (_cannon.getPosition().y >= 650.f || _cannon.getPosition().y - 50/2 < 15.f))
         _moveRight = true;
     else _moveRight = false;
 }
@@ -49,7 +50,7 @@ void Cannon::stopUp(){
 
 void Cannon::moveDown(){
     
-    if(_cannon.getPosition().y + 62/2 <  690.f)
+    if(_cannon.getPosition().y + 62/2 <  720.f)
         _moveDown = true;
     else _moveDown = false;
 }
@@ -76,6 +77,12 @@ void Cannon::update(float elapsedTime){
        
     rotate();
     _cannon.setPosition(_position);
+}
+
+
+
+sf::Vector2f Cannon::getCannonCenterFirePosion() const {
+    return _position;
 }
 
 

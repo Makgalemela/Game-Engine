@@ -2,9 +2,9 @@
 #define CANNON_HPP
 
 #include <SFML/Graphics.hpp>
+#include "Bullet.hpp"
 
-
-class Cannon
+class Cannon : public Bullet
 {
 public:
     Cannon();
@@ -28,6 +28,8 @@ public:
     void rotate();
     void anotherMove(Direction direction);
     void update(float elaspseTime);
+    
+    sf::Vector2f getCannonCenterFirePosion() const;
     
 private: 
     sf::Vector2f _position;
