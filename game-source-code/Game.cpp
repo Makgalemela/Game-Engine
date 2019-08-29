@@ -103,11 +103,14 @@ void Game::draw(){
     _window.draw(_cannon.getSprite());
     _cannon.fireBullet(_window, _cannon.getCannonCenterFirePosion());
     auto[_aliens, _alienPosition]  = aliens.aliensSprite();
-    for(auto it =  _aliens.begin(); it != _aliens.end(); ++it){
-        sf::Sprite _currSprite = *it;
-         _currSprite.setPosition(_alienPosition);
-        _window.draw(_currSprite);
-        _alienPosition.x +=30.f;
+    for(auto it =  0u; it != _aliens.size(); ++it){
+        if(it == 18 || it == 36){
+                _alienPosition.x -=540.f;
+                _alienPosition.y +=30.f;
+        }
+            _aliens.at(it).setPosition(_alienPosition);
+            _window.draw(_aliens.at(it));
+            _alienPosition.x +=30.f;
     }
     
     

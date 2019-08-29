@@ -3,7 +3,7 @@
 
 Bullet::Bullet()
 {
-    _bulletSpeed = -0.5f;
+    _bulletSpeed = -200.f;
     _bulletTexture.loadFromFile("../executables/resources/bullet.png");
     _bulletSprite.setTexture(_bulletTexture);
     _bulletSprite.scale(0.01f , 0.01f);
@@ -14,15 +14,19 @@ void Bullet::startFiring(){
 }
 
  void Bullet::collusion(){
-     auto[aliens , _alienPosition] = _aliens.aliensSprite();
+     ///std::cout<<aliens.size()<<std::endl;
      for(auto it = 0u ; it < _bullets.size(); ++it){
-         for(auto i = 0u ; i < aliens.size(); ++i){
-             std::cout<<aliens.at(i).getPosition().y<<" + "<<_bullets.at(it).getPosition().y<<std::endl;
-             if(aliens.at(i).getPosition().y == _bullets.at(it).getPosition().y){
+         if(_bullets.at(it).getPosition().y < 20.f){
              _bullets.erase(_bullets.begin() + it);
-              aliens.erase(aliens.begin() + i);
-            }
          }
+//         for(auto i = 0u ; i < aliens.size(); ++i){
+//             if(aliens.at(i).getPosition().y == _bullets.at(it).getPosition().y){
+//             _bullets.erase(_bullets.begin() + it);
+//             ///aliens.erase(aliens.begin() + i);
+//             
+//             std::cout<<aliens.at(i).getPosition().y << " "<< _bullets.at(it).getPosition().y<<std::endl;
+//            }
+//         }
          
      }
  }
