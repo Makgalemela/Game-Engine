@@ -71,22 +71,22 @@ void Game::input(){
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
         _window.close();
         
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::A))
         _cannon.moveLeft();
     else 
         _cannon.StopLeft();
         
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::D))
         _cannon.moveRight();
     else 
         _cannon.stopRight();
         
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::E))
         _cannon.moveUp();
     else 
         _cannon.stopUp();
         
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::S))
         _cannon.moveDown();
     else 
         _cannon.stopDown();
