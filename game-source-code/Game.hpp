@@ -7,10 +7,26 @@
 #include "Aliens.hpp"
 #include "Bullet.hpp"
 #include "DefenseBlocks.hpp"
+
+// *****************************************************************
+// 
+// 
+// the class is the main enginer it contain the game loop and
+// draws game game window
+// 
+// *****************************************************************
 class Game
 {
 public:
     Game();
+    
+//    **********************************************************************************
+//    the method contain the main game loop and calls all other objects and their method;
+//    
+//    
+//    \param return
+//    
+//    ********************************************************************************
     void start();
     void gameLoop();
     ~Game();
@@ -25,8 +41,40 @@ private:
     Aliens aliens;
     Bullet bullet;
     DefenseBlocks _defense;
-    void input();
+    
+//    **************************************************************************************
+//    
+//    this private methods is responsible for capturing the user imputs
+//    
+//    \param return 
+//    
+//    ****************************************************************************************
+    
+//    ****************************************************************************************
+  
+     void input();
+//    
+//    this method update the game time and position of the sprites on the Screen
+//    
+//    \param return
+//    
+//    
+//    *****************************************************************************************
     void update(float dtAsSeconds);
+    
+    
+//    
+//    ******************************************************************************************
+//    
+//    this method draw objects of the windows
+//    
+//    
+//    \param return 
+//    
+//
+//    ******************************************************************************************
+    
+    
     void draw();
     ///void draw(const Aliens& aliens);
 
