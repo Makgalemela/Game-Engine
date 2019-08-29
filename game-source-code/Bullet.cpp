@@ -4,7 +4,9 @@
 Bullet::Bullet()
 {
     _bulletSpeed = -200.f;
-    _bulletTexture.loadFromFile("../executables/resources/bullet.png");
+    if(!_bulletTexture.loadFromFile("../executables/resources/bullet.png")){
+        std::cerr<<"Failed to load bullet sprite"<<std::endl;
+    }
     _bulletSprite.setTexture(_bulletTexture);
     _bulletSprite.scale(0.01f , 0.01f);
 }

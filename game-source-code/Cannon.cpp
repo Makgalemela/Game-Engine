@@ -5,7 +5,9 @@ Cannon::Cannon()
     ///This should be refactored as the time goes on;
     
  _cannonSpeed = 320.f;
- _texture.loadFromFile("../executables/resources/Laser_Cannon.png");
+ if(!_texture.loadFromFile("../executables/resources/Laser_Cannon.png")){
+     std::cerr<<"Could not load cannon shooter sprite"<<std::endl;
+ }
  _cannon.setTexture(_texture);
  _cannon.scale(sf::Vector2f(0.5 , 0.5));
  

@@ -1,8 +1,10 @@
 #include "SplashScreen.hpp"
-
+#include <iostream>
 SplashScreen::SplashScreen()
 {
-    _splashTexture.loadFromFile("../executables/resources/splash.png");
+   if(! _splashTexture.loadFromFile("../executables/resources/splash.png")){
+       std::cerr<<"Could not load splash screen"<<std::endl;
+   }
         ///throw "Invalid splashscreen ";
     _position.x = 0.f;
     _position.y = 0.f;
