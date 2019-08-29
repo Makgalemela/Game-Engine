@@ -3,16 +3,38 @@
 #include <SFML/Graphics.hpp>
 #include <vector>
 #include "Aliens.hpp"
-
+///*****************************************************************
+//    /description - this class exclusivelly load and create Bullet
+//    the class create utility method for bullet functionalities as
+//    methods which allow bullet to accessed,
+//    furthermore the class as also create different bullets for different weapons
+//*****************************************************************/
 class Bullet
 {
 public:
 
     Bullet();
     ~Bullet();
+//    ******************************************************************
+//        the method fires a bullet and draws it's movement of the the screen
+//    ********************************************************************
     
     void fireBullet(sf::RenderWindow &_window , sf::Vector2f _bulletPosition);
+    
+//    **********************************************************************
+//    the method is called when keyboard key F is pressed
+//    it set bool _fire to true signalling that the bullet can be fired
+//    **********************************************************************
+    
     void startFiring();
+    
+    
+//     ******************************************************************************
+//     the method detect the bullet colusion with other object - e.g aliens , cannon.
+//     futher more also detect when the bullet is going off the screen
+//     and erase it
+//     *******************************************************************************
+//     
     void collusion();
 private:
      Aliens _aliens;

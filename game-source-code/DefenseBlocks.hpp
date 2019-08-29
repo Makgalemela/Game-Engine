@@ -4,12 +4,23 @@
 #include <SFML/Graphics.hpp>
 #include <vector>
 #include <tuple>
+
+
+//****************************************************************
+//This class load and create the blocks which shield the cannon from the fire power of aliens
+//*****************************************************************
+
 class DefenseBlocks
 {
 public:
     DefenseBlocks();
     ~DefenseBlocks();
-    
+//    *******************************************************
+//    Utility function returns vector of Blocks
+//    and the postion where they are start on each other
+//    this position is the start position where the blocks will be draw
+//    param tuple<vector, vector?
+//    ******************************************************
     std::tuple<std::vector<sf::Sprite> , sf::Vector2f> Blocks() const;
     
     void loadBlocks();

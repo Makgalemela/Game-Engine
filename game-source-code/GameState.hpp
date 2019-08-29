@@ -1,6 +1,16 @@
 #ifndef GAMESTATE_HPP
 #define GAMESTATE_HPP
 
+
+//****************************************************
+//
+// the class create and iniatialise game states
+// 
+// the class will be linked 
+// 
+//
+//***************************************************
+
 class GameState
 {
 public:

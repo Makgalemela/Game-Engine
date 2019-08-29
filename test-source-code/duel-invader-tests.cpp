@@ -15,7 +15,7 @@ TEST_CASE("Correct that correct number of enemie aliens is loaded")
 
 TEST_CASE("Cannon is able to move to the left")
 {
-     auto _cannon = Cannon{};
+    auto _cannon = Cannon{};
     auto _game = Game{};
     _game.Start();
     sf::Vector2f _position  = _cannon.getCannonCenterFirePosion();
