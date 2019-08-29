@@ -3,7 +3,7 @@
 
 Bullet::Bullet()
 {
-    _bulletSpeed = -200.f;
+    _bulletSpeed = -0.5f;
     if(!_bulletTexture.loadFromFile("../executables/resources/bullet.png")){
         std::cerr<<"Failed to load bullet sprite"<<std::endl;
     }
