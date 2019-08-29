@@ -15,6 +15,7 @@ Game::Game()
 
 void Game::start(){
    aliens.loadAliens();
+   _defense.loadBlocks();
     sf::Clock _clock;
     auto gamePlaying = false;
     while(_window.isOpen()){
@@ -105,6 +106,7 @@ void Game::draw(){
     _window.draw(_cannon.getSprite());
     _cannon.fireBullet(_window, _cannon.getCannonCenterFirePosion());
     auto[_aliens, _alienPosition]  = aliens.aliensSprite();
+    auto[_blocks, _blockPosition] = _defense.Blocks();
     for(auto it =  0u; it != _aliens.size(); ++it){
         if(it == 18 || it == 36){
                 _alienPosition.x -=540.f;
@@ -114,6 +116,12 @@ void Game::draw(){
             _window.draw(_aliens.at(it));
             _alienPosition.x +=30.f;
     }
+    for(auto it =  0u; it != _blocks.size(); ++it){
+       _blocks.at(it).setPosition(_blockPosition);
+       _window.draw(_blocks.at(it));
+       _blockPosition.x +=130;
+    }
+    
     
     
    _window.display();

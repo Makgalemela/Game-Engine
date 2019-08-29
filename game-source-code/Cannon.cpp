@@ -18,6 +18,7 @@ _position.y = 695.f;
 }
 
 
+
 sf::Sprite Cannon::getSprite() const{
     return _cannon;
 }

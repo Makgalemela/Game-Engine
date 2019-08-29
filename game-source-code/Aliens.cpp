@@ -45,7 +45,6 @@ void Aliens::loadAliens() {
              aliens.push_back(_alienSprite3);
         }
          
-         
     }
     
 }

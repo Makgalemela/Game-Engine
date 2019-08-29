@@ -6,6 +6,7 @@
 #include "SplashScreen.hpp"
 #include "Aliens.hpp"
 #include "Bullet.hpp"
+#include "DefenseBlocks.hpp"
 class Game
 {
 public:
@@ -23,6 +24,7 @@ private:
     Cannon _cannon;
     Aliens aliens;
     Bullet bullet;
+    DefenseBlocks _defense;
     void input();
     void update(float dtAsSeconds);
     void draw();
