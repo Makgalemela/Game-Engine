@@ -2,9 +2,8 @@
 #include <iostream>
 Game::Game()
 {
-    sf::Vector2f _resolution;
-    _resolution.x = 800.f;
-    _resolution.y = 720.f;
+    _resolution.x = 1000.f;
+    _resolution.y = 600.f;
     _window.create(sf::VideoMode(_resolution.x, _resolution.y), "Duel Invader", sf::Style::Default);
    if(! _backgroundTexture.loadFromFile("../executables/resources/background.png")){
      std::cerr<<"Could not load the background image"<<std::endl;
@@ -16,6 +15,7 @@ Game::Game()
 void Game::start(){
    aliens.loadAliens();
    _defense.loadBlocks();
+   _cannon.setInitPosOfCannon(_resolution);
     sf::Clock _clock;
     auto gamePlaying = false;
     while(_window.isOpen()){

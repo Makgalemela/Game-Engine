@@ -133,6 +133,8 @@ public:
 //    ***************************************
     sf::Vector2f getCannonCenterFirePosion() const;
     
+    void setInitPosOfCannon(sf::Vector2f _position);
+    
 private: 
     sf::Vector2f _position;
     sf::Sprite _cannon;

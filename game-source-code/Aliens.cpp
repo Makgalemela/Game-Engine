@@ -19,7 +19,7 @@ Aliens::Aliens()
     // _alienTexture3.loadFromFile("../executables/resources/alien3.png");
      _alienSprite3.setTexture(_alienTexture3);
      _alienSprite3.scale(sf::Vector2f(0.040f , 0.040f));
-     _position.x = 150.f;
+     _position.x = 240.f;
      _position.y = 370.f;
 }
 
@@ -33,7 +33,7 @@ vector<sf::Sprite> Aliens::aliensSpriteAlone() const{
 
 
 void Aliens::loadAliens() {
-    
+    std::cout<<"hello world"<<std::endl;
     for(auto it = 0 ; it !=54; ++it){
         if(it < 18){
             aliens.push_back(_alienSprite);

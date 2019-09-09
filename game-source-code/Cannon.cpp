@@ -3,7 +3,6 @@
 Cannon::Cannon()
 {
     ///This should be refactored as the time goes on;
-    
  _cannonSpeed = 320.f;
  if(!_texture.loadFromFile("../executables/resources/Laser_Cannon.png")){
      std::cerr<<"Could not load cannon shooter sprite"<<std::endl;
@@ -11,26 +10,29 @@ Cannon::Cannon()
  _cannon.setTexture(_texture);
  _cannon.scale(sf::Vector2f(0.5 , 0.5));
  
-_position.x = 400.f;
-_position.y = 695.f;
- 
- 
+//_position.x = 500.f;
+//_position.y = 550.f;
+// 
 }
 
-
+void Cannon::setInitPosOfCannon(sf::Vector2f _position){
+    this->_position.x = _position.x/2;
+    this->_position.y = _position.y-30.f;
+    return;
+}
 
 sf::Sprite Cannon::getSprite() const{
     return _cannon;
 }
 
 void Cannon::moveLeft(){
-    if(_cannon.getPosition().x >  15.f && (_cannon.getPosition().y >= 650.f || _cannon.getPosition().y - 50/2 < 15.f))
+    if(_cannon.getPosition().x >  15.f && (_cannon.getPosition().y >= 550.f || _cannon.getPosition().y - 50/2 < 15.f))
         _moveLeft = true;
     else _moveLeft = false;
 }
 
 void Cannon::moveRight(){
-    if(_cannon.getPosition().x + 113/2 <  800.f && (_cannon.getPosition().y >= 650.f || _cannon.getPosition().y - 50/2 < 15.f))
+    if(_cannon.getPosition().x + 113/2 <  800.f && (_cannon.getPosition().y >= 550.f || _cannon.getPosition().y - 50/2 < 15.f))
         _moveRight = true;
     else _moveRight = false;
 }
@@ -53,7 +55,7 @@ void Cannon::stopUp(){
 
 void Cannon::moveDown(){
     
-    if(_cannon.getPosition().y + 62/2 <  720.f)
+    if(_cannon.getPosition().y + 0 <  570.f)
         _moveDown = true;
     else _moveDown = false;
 }

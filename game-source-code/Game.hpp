@@ -41,6 +41,7 @@ private:
     Aliens aliens;
     Bullet bullet;
     DefenseBlocks _defense;
+    sf::Vector2f _resolution;
     
 //    **************************************************************************************
 //    
