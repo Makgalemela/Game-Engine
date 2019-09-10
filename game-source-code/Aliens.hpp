@@ -37,7 +37,7 @@ public:
 //    \param return tuple<vector, vector>
 //    
 //    **************************************************************************
-    tuple<vector<sf::Sprite> , sf::Vector2f> aliensSprite() const;
+    tuple<vector<sf::Sprite> ,vector<sf::Sprite>,sf::Vector2f ,sf::Vector2f> aliensSprite() const;
     
     
 //    **************************************************************************
@@ -51,6 +51,7 @@ public:
     
     std::vector<sf::Sprite> aliensSpriteAlone() const;
 private:
+    ///buttom aliens
     sf::Texture _alienTexture;
     sf::Texture _alienTexture2;
     sf::Texture _alienTexture3;
@@ -59,6 +60,16 @@ private:
     sf::Sprite _alienSprite3;
     vector<sf::Sprite> aliens;
     sf::Vector2f _position;
+    ///upper aliens
+    
+    sf::Texture _alienTextureu;
+    sf::Texture _alienTexture2u;
+    sf::Texture _alienTexture3u;
+    sf::Sprite _alienSpriteu;
+    sf::Sprite _alienSprite2u;
+    sf::Sprite _alienSprite3u;
+    vector<sf::Sprite> aliensu;
+    sf::Vector2f _positionu;
 };
 
 #endif // ALIENS_HPP

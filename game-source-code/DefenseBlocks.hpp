@@ -25,9 +25,11 @@ public:
     
     void loadBlocks();
 private:
-
+    
     sf::Sprite _blockSprite;
     sf::Texture _blockTexture;
+    sf::Sprite _blockSprite2;
+    sf::Texture _blockTexture2;
     std::vector<sf::Sprite> _blocks;
     sf::Vector2f _position;
     

@@ -29,6 +29,7 @@ public:
 //    \param return sprite
 //    ***************************************
     sf::Sprite getSprite() const;
+    sf::Sprite getSprite2() const;
 //  / *enum class Direction {
 //        Left,
 //        Right,
@@ -136,9 +137,16 @@ public:
     void setInitPosOfCannon(sf::Vector2f _position);
     
 private: 
+    //first cannon
     sf::Vector2f _position;
     sf::Sprite _cannon;
     sf::Texture _texture;
+    
+    //second cannon
+    sf::Vector2f _position2;
+    sf::Sprite _cannon2;
+    sf::Texture _texture2;
+    
     //Direction direction;
     bool _moveLeft;
     bool _moveRight;

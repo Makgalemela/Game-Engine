@@ -108,19 +108,33 @@ void Game::draw(){
     _window.clear(sf::Color::White);
     _window.draw(_backgroundSprite);
     _window.draw(_cannon.getSprite());
+    _window.draw(_cannon.getSprite2());
     _cannon.fireBullet(_window, _cannon.getCannonCenterFirePosion());
-    auto[_aliens, _alienPosition]  = aliens.aliensSprite();
+    auto[_aliens, _aliensu, _alienPosition, _alienPositionu]  = aliens.aliensSprite();
     auto[_blocks, _blockPosition] = _defense.Blocks();
     for(auto it =  0u; it != _aliens.size(); ++it){
         if(it == 18 || it == 36){
                 _alienPosition.x -=540.f;
-                _alienPosition.y +=30.f;
+                _alienPosition.y +=35.f;
+                _alienPositionu.x -=540.f;
+                _alienPositionu.y +=35.f;
         }
+            
             _aliens.at(it).setPosition(_alienPosition);
             _window.draw(_aliens.at(it));
             _alienPosition.x +=30.f;
+            
+            ///upper positioned aliens
+            
+            _aliensu.at(it).setPosition(_alienPositionu);
+            _window.draw(_aliensu.at(it));
+            _alienPositionu.x +=30.f;
     }
     for(auto it =  0u; it != _blocks.size(); ++it){
+        if(it == 4 ){
+            _blockPosition.y = 540.f;
+            _blockPosition.x -= 520.f;
+        }
        _blocks.at(it).setPosition(_blockPosition);
        _window.draw(_blocks.at(it));
        _blockPosition.x +=130;
