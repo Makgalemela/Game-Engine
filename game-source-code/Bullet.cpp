@@ -4,7 +4,7 @@
 
 Bullet::Bullet()
 {
-    _bulletSpeed = -0.5f;
+    _bulletSpeed = -10.f;
     if(!_bulletTexture.loadFromFile("../executables/resources/bullet.png")){
         std::cerr<<"Failed to load bullet sprite"<<std::endl;
     }
@@ -16,20 +16,22 @@ void Bullet::startFiring(){
     _fire = true;
 }
 
- void Bullet::collusion(){
-     ///std::cout<<aliens.size()<<std::endl;
+ void Bullet::collusion(vector<sf::Sprite> aliens){
+    
      for(auto it = 0u ; it < _bullets.size(); ++it){
-         if(_bullets.at(it).getPosition().y < 20.f){
-             _bullets.erase(_bullets.begin() + it);
-         }
-//         for(auto i = 0u ; i < aliens.size(); ++i){
-//             if(aliens.at(i).getPosition().y == _bullets.at(it).getPosition().y){
+//         if(_bullets.at(it).getPosition().y < 20.f){
 //             _bullets.erase(_bullets.begin() + it);
-//             ///aliens.erase(aliens.begin() + i);
-//             
-//             std::cout<<aliens.at(i).getPosition().y << " "<< _bullets.at(it).getPosition().y<<std::endl;
-//            }
 //         }
+//            std::cout<<"Matome-->"<<aliens.size()<<std::endl;
+         for(auto i = 0u ; i < aliens.size(); ++i){
+             if(aliens.at(i).getPosition().y == _bullets.at(it).getPosition().y &&
+             aliens.at(i).getPosition().x == _bullets.at(it).getPosition().x ){
+             ///_bullets.erase(_bullets.begin() + it);
+             ///aliens.erase(aliens.begin() + i);
+             ///std::cout<<aliens.at(i).getPosition().y << " "<< _bullets.at(it).getPosition().y<<std::endl;
+             std::cout<<"Collussion detected"<<std::endl;
+            }
+         }
          
      }
  }
@@ -43,7 +45,6 @@ void Bullet::fireBullet(sf::RenderWindow &_window , sf::Vector2f _bulletPosition
         _fire = false;
     }
     for(auto it =  0u; it != _bullets.size() ; ++it){
-        
              _window.draw(_bullets.at(it));
             _bullets.at(it).move(0, _bulletSpeed);
     }

@@ -8,9 +8,9 @@ DefenseBlocks::DefenseBlocks()
     }
     
     _blockSprite.setTexture(_blockTexture);
-    _blockSprite.scale(sf::Vector2f(1.f , 0.5f));
-    _position.x = 150.f;
-    _position.y = 610.f;
+    _blockSprite.scale(sf::Vector2f(0.7f , 0.3f));
+    _position.x = 275.f;
+    _position.y = 540.f;
 }
 
  std::tuple<std::vector<sf::Sprite> , sf::Vector2f> DefenseBlocks::Blocks() const {

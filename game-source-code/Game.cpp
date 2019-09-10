@@ -42,7 +42,7 @@ void Game::start(){
             input();
             update(dtAsSeconds);
             draw();
-            _cannon.collusion();
+            _cannon.collusion(aliens.aliensSpriteAlone());
         }
         
     }
