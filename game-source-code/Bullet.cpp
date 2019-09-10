@@ -4,12 +4,12 @@
 
 Bullet::Bullet()
 {
-    _bulletSpeed = -0.5f;
+    _bulletSpeed = -0.1f;
     if(!_bulletTexture.loadFromFile("../executables/resources/bullet.png")){
         std::cerr<<"Failed to load bullet sprite"<<std::endl;
     }
     _bulletSprite.setTexture(_bulletTexture);
-    _bulletSprite.scale(0.01f , 0.01f);
+    _bulletSprite.scale(0.04f , 0.02f);
 }
 
 void Bullet::startFiring(){

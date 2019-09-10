@@ -4,6 +4,7 @@ Game::Game()
 {
     _resolution.x = 1000.f;
     _resolution.y = 600.f;
+    shotFired = false;
     _window.create(sf::VideoMode(_resolution.x, _resolution.y), "Duel Invader", sf::Style::Default);
    if(! _backgroundTexture.loadFromFile("../executables/resources/background.png")){
      std::cerr<<"Could not load the background image"<<std::endl;
@@ -16,6 +17,7 @@ void Game::start(){
    aliens.loadAliens();
    _defense.loadBlocks();
    _cannon.setInitPosOfCannon(_resolution);
+   _window.setKeyRepeatEnabled(false);
     sf::Clock _clock;
     auto gamePlaying = false;
     while(_window.isOpen()){
@@ -36,10 +38,14 @@ void Game::start(){
                     gamePlaying = true;
             }
         }
+        if((event.type == sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::F) && gamePlaying)
+                    _cannon.startFiring();
         }
         
         if(gamePlaying){
-            input();
+            
+        
+            input(event);
             update(dtAsSeconds);
             draw();
             _cannon.collusion(aliens.aliensSpriteAlone());
@@ -63,12 +69,14 @@ void Game::start(){
 //    
 //}
 
-void Game::gameLoop(){
-    
-    ///
-}
-void Game::input(){
-    
+//void Game::gameLoop(){
+//    
+//    ///
+//}
+
+
+void Game::input(sf::Event event){
+     ///_window.setKeyRepeatEnabled(false);
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
         _window.close();
         
@@ -95,8 +103,8 @@ void Game::input(){
     else 
         _cannon.stopDown();
         
-     if(sf::Keyboard::isKeyPressed(sf::Keyboard::F))
-        _cannon.startFiring();
+//     if(sf::Keyboard::isKeyPressed(sf::Keyboard::F) && !shotFired)
+     
 }
 
 void Game::update(float dtAsSeconds){

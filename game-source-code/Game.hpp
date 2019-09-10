@@ -44,6 +44,7 @@ private:
     collusion _collide;
     DefenseBlocks _defense;
     sf::Vector2f _resolution;
+    bool shotFired;
     
 //    **************************************************************************************
 //    
@@ -55,7 +56,7 @@ private:
     
 //    ****************************************************************************************
   
-     void input();
+     void input(sf::Event event);
 //    
 //    this method update the game time and position of the sprites on the Screen
 //    
