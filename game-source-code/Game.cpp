@@ -42,7 +42,8 @@ void Game::start(){
             input();
             update(dtAsSeconds);
             draw();
-            _cannon.collusion();
+            _cannon.collusion(aliens.aliensSpriteAlone());
+            
         }
         
     }
@@ -82,7 +83,10 @@ void Game::input(){
         _cannon.stopRight();
         
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::E))
-        _cannon.moveUp();
+        if(!_collide.lowerCannonBlocks(_defense, _cannon))
+            _cannon.moveUp();
+        else
+            _cannon.stopUp();
     else 
         _cannon.stopUp();
         
@@ -121,9 +125,6 @@ void Game::draw(){
        _window.draw(_blocks.at(it));
        _blockPosition.x +=130;
     }
-    
-    
-    
    _window.display();
 }
 Game::~Game()

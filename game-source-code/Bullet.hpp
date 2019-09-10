@@ -35,7 +35,7 @@ public:
 //     and erase it
 //     *******************************************************************************
 //     
-    void collusion();
+    void collusion(vector<sf::Sprite> aliens);
 private:
      Aliens _aliens;
      float _bulletSpeed;
