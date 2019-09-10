@@ -7,6 +7,7 @@
 #include "Aliens.hpp"
 #include "Bullet.hpp"
 #include "DefenseBlocks.hpp"
+#include "collusion.hpp"
 
 // *****************************************************************
 // 
@@ -40,6 +41,7 @@ private:
     Cannon _cannon;
     Aliens aliens;
     Bullet bullet;
+    collusion _collide;
     DefenseBlocks _defense;
     sf::Vector2f _resolution;
     

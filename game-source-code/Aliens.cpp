@@ -36,13 +36,13 @@ void Aliens::loadAliens() {
     std::cout<<"hello world"<<std::endl;
     for(auto it = 0 ; it !=54; ++it){
         if(it < 18){
-            aliens.push_back(_alienSprite);
-        }
-        else if(it < 36){
             aliens.push_back(_alienSprite2);
         }
+        else if(it < 36){
+            aliens.push_back(_alienSprite3);
+        }
         else{
-             aliens.push_back(_alienSprite3);
+             aliens.push_back(_alienSprite);
         }
          
     }
