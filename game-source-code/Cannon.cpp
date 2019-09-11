@@ -22,7 +22,7 @@ void Cannon::setInitPosOfCannon(sf::Vector2f _position){
     this->_position.x = _position.x/2;
     this->_position.y = _position.y-30.f;
     this->_position2.x = _position.x/2;
-    this->_position2.y = 5.f;
+    this->_position2.y = 45.f;
     return;
 }
 

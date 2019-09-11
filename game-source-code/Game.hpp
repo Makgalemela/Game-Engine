@@ -8,6 +8,7 @@
 #include "Bullet.hpp"
 #include "DefenseBlocks.hpp"
 #include "collusion.hpp"
+#include "Screen.hpp"
 
 // *****************************************************************
 // 
@@ -16,8 +17,7 @@
 // draws game game window
 // 
 // *****************************************************************
-class Game
-{
+class Game : public Screen {
 public:
     Game();
     

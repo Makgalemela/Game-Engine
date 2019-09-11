@@ -41,7 +41,7 @@ Aliens::Aliens()
      _alienSprite3u.setTexture(_alienTexture3u);
      _alienSprite3u.scale(sf::Vector2f(0.040f , 0.040f));
      _positionu.x = 240.f;
-     _positionu.y = 200.f;
+     _positionu.y = 240.f;
     _changeAlienDirection = false;
 }
 

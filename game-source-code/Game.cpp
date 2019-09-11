@@ -123,6 +123,8 @@ void Game::draw(){
        _window.draw(_blocks.at(it));
        _blockPosition.x +=130;
     }
+    
+    sampleText(_window);
    _window.display();
 }
 Game::~Game()

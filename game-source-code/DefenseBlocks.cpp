@@ -16,7 +16,7 @@ DefenseBlocks::DefenseBlocks()
     
     _position.x = 275.f;
     //_position.y = 540.f;
-    _position.y = 30.f;
+    _position.y = 75.f;
 }
 
  std::tuple<std::vector<sf::Sprite> , sf::Vector2f> DefenseBlocks::Blocks() const {
