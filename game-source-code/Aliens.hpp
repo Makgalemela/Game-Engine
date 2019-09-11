@@ -50,6 +50,9 @@ public:
 //    **************************************************************************
     
     std::vector<sf::Sprite> aliensSpriteAlone() const;
+    
+    
+    void AlienMovement();
 private:
     ///buttom aliens
     sf::Texture _alienTexture;

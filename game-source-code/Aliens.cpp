@@ -71,6 +71,16 @@ void Aliens::loadAliens() {
     }
     
 }
+
+
+void Aliens::AlienMovement(){
+    for(auto it =  0u; it != aliens.size() ; ++it){
+            aliens.at(it).move(0, -20.f);
+            if(_position.x > 10){
+                _position.x-=1;
+            }
+    }
+}
 Aliens::~Aliens()
 {
 }

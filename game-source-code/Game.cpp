@@ -23,7 +23,6 @@ void Game::start(){
     while(_window.isOpen()){
         sf::Time datestamp = _clock.restart();
         float dtAsSeconds = datestamp.asSeconds();
-        
         sf::Event event;
         while (_window.pollEvent(event))
         {
@@ -31,7 +30,6 @@ void Game::start(){
             if (event.type == sf::Event::Closed)
             _window.close();
             if(!gamePlaying){
-            ///_window.clear(sf::Color::White);
             _window.draw(_splash.getSplash());
              _window.display();
                 if((event.type == sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::Space)){
@@ -43,9 +41,7 @@ void Game::start(){
         }
         
         if(gamePlaying){
-            
-        
-            input(event);
+            input();
             update(dtAsSeconds);
             draw();
             _cannon.collusion(aliens.aliensSpriteAlone());
@@ -57,26 +53,7 @@ void Game::start(){
 
 
 
-//void Game::draw()
-//    auto[_aliens, _alienPosition]  = aliens.aliensSprite();
-//    for(auto it =  _aliens.begin(); it != _aliens.end(); ++it){
-//        //it.setPosition(_alienPosition);
-//        sf::Sprite _currSprite = *it;
-//         _currSprite.setPosition(_alienPosition);
-//        _window.draw(_currSprite);
-//        _alienPosition.x +=30.f;
-//    }
-//    
-//}
-
-//void Game::gameLoop(){
-//    
-//    ///
-//}
-
-
-void Game::input(sf::Event event){
-     ///_window.setKeyRepeatEnabled(false);
+void Game::input(){
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
         _window.close();
         
@@ -102,9 +79,7 @@ void Game::input(sf::Event event){
         _cannon.moveDown();
     else 
         _cannon.stopDown();
-        
-//     if(sf::Keyboard::isKeyPressed(sf::Keyboard::F) && !shotFired)
-     
+            
 }
 
 void Game::update(float dtAsSeconds){
@@ -131,8 +106,6 @@ void Game::draw(){
             _aliens.at(it).setPosition(_alienPosition);
             _window.draw(_aliens.at(it));
             _alienPosition.x +=30.f;
-            
-            ///upper positioned aliens
             
             _aliensu.at(it).setPosition(_alienPositionu);
             _window.draw(_aliensu.at(it));

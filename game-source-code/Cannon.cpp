@@ -87,8 +87,7 @@ void Cannon::update(float elapsedTime){
         
     else if(_moveDown)
         _position.y += _cannonSpeed*elapsedTime;
-       
-    rotate();
+        
     _cannon.setPosition(_position);
     _cannon2.setPosition(_position2);
 }

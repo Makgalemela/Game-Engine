@@ -56,7 +56,7 @@ private:
     
 //    ****************************************************************************************
   
-     void input(sf::Event event);
+     void input();
 //    
 //    this method update the game time and position of the sprites on the Screen
 //    
