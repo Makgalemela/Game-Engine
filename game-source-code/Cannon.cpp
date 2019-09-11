@@ -34,13 +34,15 @@ sf::Sprite Cannon::getSprite2() const{
 }
 
 void Cannon::moveLeft(){
-    if(_cannon.getPosition().x >  15.f && (_cannon.getPosition().y >= 550.f || _cannon.getPosition().y - 50/2 < 15.f))
+    if(_cannon.getPosition().x >  15.f && (_cannon.getPosition().y >= 550.f ||
+        _cannon.getPosition().y - 50/2 < 15.f))
         _moveLeft = true;
     else _moveLeft = false;
 }
 
 void Cannon::moveRight(){
-    if(_cannon.getPosition().x + 113/2 <  800.f && (_cannon.getPosition().y >= 550.f || _cannon.getPosition().y - 50/2 < 15.f))
+    if(_cannon.getPosition().x + 113/2 <  800.f && (_cannon.getPosition().y >= 550.f ||
+        _cannon.getPosition().y - 50/2 < 15.f))
         _moveRight = true;
     else _moveRight = false;
 }

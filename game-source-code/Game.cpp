@@ -45,7 +45,7 @@ void Game::start(){
             input();
             update(dtAsSeconds);
             draw();
-            _cannon.collusion(aliens.aliensSpriteAlone());
+            ///_cannon.collusion(aliens.aliensSpriteAlone());
             
         }
         
@@ -102,17 +102,27 @@ void Game::draw(){
         if(it == 18 || it == 36){
                 _alienPosition.x -=540.f;
                 _alienPosition.y +=35.f;
-                _alienPositionu.x -=540.f;
-                _alienPositionu.y +=35.f;
         }
             
             _aliens.at(it).setPosition(_alienPosition);
             _window.draw(_aliens.at(it));
             _alienPosition.x +=30.f;
+
+            if(_aliens.size() != 0 && _cannon.collusion(_aliens.at(it).getPosition().x ,_aliens.at(it).getPosition().y )){
+               aliens.deleteCollidedAlien(it);
+            }
+    }
+       for(auto it =  0u; it != _aliensu.size(); ++it){
+        if(it == 18 || it == 36){
+
+                _alienPositionu.x -=540.f;
+                _alienPositionu.y +=35.f;
+        }
             
             _aliensu.at(it).setPosition(_alienPositionu);
             _window.draw(_aliensu.at(it));
             _alienPositionu.x +=30.f;
+
     }
     for(auto it =  0u; it != _blocks.size(); ++it){
         if(it == 4 ){

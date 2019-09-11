@@ -1,11 +1,8 @@
 #include "Bullet.hpp"
 #include <iostream>
-
-
-
 Bullet::Bullet()
 {
-    _bulletSpeed = -0.1f;
+    _bulletSpeed = -10.f;
     _fire = false;
     if(!_bulletTexture.loadFromFile("../executables/resources/bullet.png")){
         std::cerr<<"Failed to load bullet sprite"<<std::endl;
@@ -18,23 +15,20 @@ void Bullet::startFiring(){
     _fire = true;
 }
 
- void Bullet::collusion(vector<sf::Sprite> aliens){
+ bool Bullet::collusion(const float& positionx ,const float& positiony ){
     
+
      for(auto it = 0u ; it < _bullets.size(); ++it){
          if(_bullets.at(it).getPosition().y < 20.f){
              _bullets.erase(_bullets.begin() + it);
          }
-         for(auto i = 0u ; i < aliens.size(); ++i){
-             if( _bullets.size() != 0 && aliens.at(i).getPosition().y == _bullets.at(it).getPosition().y &&
-             aliens.at(i).getPosition().x == _bullets.at(it).getPosition().x ){
-             ///_bullets.erase(_bullets.begin() + it);
-             ///aliens.erase(aliens.begin() + i);
-             ///std::cout<<aliens.at(i).getPosition().y << " "<< _bullets.at(it).getPosition().y<<std::endl;
-             std::cout<<"Collussion detected"<<std::endl;
-            }
+         if(_bullets.size() != 0 && abs(positionx - _bullets.at(it).getPosition().x) <10 && abs(positiony - _bullets.at(it).getPosition().y) <10){
+              _bullets.erase(_bullets.begin() + it);
+             return true;
          }
-         
+    
      }
+     return false;
  }
 void Bullet::fireBullet(sf::RenderWindow &_window , sf::Vector2f _bulletPosition)
 {   

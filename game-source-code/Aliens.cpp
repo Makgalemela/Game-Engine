@@ -101,6 +101,10 @@ void Aliens::AlienMovement(){
        
    }
 }
+
+void Aliens::deleteCollidedAlien(int index){
+    aliens.erase(aliens.begin() + index);
+}
 Aliens::~Aliens()
 {
 }

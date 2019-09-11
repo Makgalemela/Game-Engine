@@ -3,6 +3,7 @@
 #include <SFML/Graphics.hpp>
 #include <vector>
 #include "Aliens.hpp"
+#include <cmath>
 ///*****************************************************************
 //    /description - this class exclusivelly load and create Bullet
 //    the class create utility method for bullet functionalities as
@@ -35,7 +36,7 @@ public:
 //     and erase it
 //     *******************************************************************************
 //     
-    void collusion(vector<sf::Sprite> aliens);
+    bool collusion(const float& positionx, const float& positiony);
 private:
      Aliens _aliens;
      float _bulletSpeed;
