@@ -5,6 +5,7 @@ Game::Game()
     _resolution.x = 1000.f;
     _resolution.y = 600.f;
     shotFired = false;
+  
     _window.create(sf::VideoMode(_resolution.x, _resolution.y), "Duel Invader", sf::Style::Default);
    if(! _backgroundTexture.loadFromFile("../executables/resources/background.png")){
      std::cerr<<"Could not load the background image"<<std::endl;
@@ -94,7 +95,9 @@ void Game::draw(){
     _window.draw(_cannon.getSprite2());
     _cannon.fireBullet(_window, _cannon.getCannonCenterFirePosion());
     auto[_aliens, _aliensu, _alienPosition, _alienPositionu]  = aliens.aliensSprite();
+    aliens.AlienMovement();
     auto[_blocks, _blockPosition] = _defense.Blocks();
+    
     for(auto it =  0u; it != _aliens.size(); ++it){
         if(it == 18 || it == 36){
                 _alienPosition.x -=540.f;

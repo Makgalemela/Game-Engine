@@ -3,6 +3,7 @@
 #include <vector>
 #include <tuple>
 #include <SFML/Graphics.hpp>
+#include "StopWatch.h"
 
 
 //*******************************************************
@@ -73,6 +74,9 @@ private:
     sf::Sprite _alienSprite3u;
     vector<sf::Sprite> aliensu;
     sf::Vector2f _positionu;
+    
+    bool _changeAlienDirection;
+    StopWatch _watch;
 };
 
 #endif // ALIENS_HPP

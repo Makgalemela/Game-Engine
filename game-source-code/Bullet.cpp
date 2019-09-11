@@ -2,6 +2,7 @@
 #include <iostream>
 
 
+
 Bullet::Bullet()
 {
     _bulletSpeed = -0.1f;

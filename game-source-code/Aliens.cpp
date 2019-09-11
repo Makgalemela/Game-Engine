@@ -20,7 +20,7 @@ Aliens::Aliens()
      _alienSprite3.setTexture(_alienTexture3);
      _alienSprite3.scale(sf::Vector2f(0.040f , 0.040f));
      _position.x = 240.f;
-     _position.y = 350.f;
+     _position.y = 340.f;
      
      
      //upper positioned aliens
@@ -42,6 +42,7 @@ Aliens::Aliens()
      _alienSprite3u.scale(sf::Vector2f(0.040f , 0.040f));
      _positionu.x = 240.f;
      _positionu.y = 200.f;
+    _changeAlienDirection = false;
 }
 
 tuple<vector<sf::Sprite> ,vector<sf::Sprite>,sf::Vector2f ,sf::Vector2f> Aliens::aliensSprite() const{
@@ -74,12 +75,31 @@ void Aliens::loadAliens() {
 
 
 void Aliens::AlienMovement(){
-    for(auto it =  0u; it != aliens.size() ; ++it){
-            aliens.at(it).move(0, -20.f);
-            if(_position.x > 10){
-                _position.x-=1;
-            }
-    }
+   if(_watch.timerForMovement()){
+      if(!_changeAlienDirection){
+           if(_position.x > 25.f){
+            _positionu.x +=20.f;
+            _position.x -=20.f;
+        }
+        else {
+            _changeAlienDirection = true;
+             _positionu.y -=30.f;
+            _position.y +=30.f;
+        }
+      }
+      else{
+           if(_positionu.x > 25.f){
+            _positionu.x -=20.f;
+            _position.x +=20.f;
+        }
+        else {
+            _changeAlienDirection = false;
+             _positionu.y -=30.f;
+            _position.y +=30.f;
+        }
+      }
+       
+   }
 }
 Aliens::~Aliens()
 {
