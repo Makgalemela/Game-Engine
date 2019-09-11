@@ -77,7 +77,7 @@ void Aliens::loadAliens() {
 void Aliens::AlienMovement(){
    if(_watch.timerForMovement()){
       if(!_changeAlienDirection){
-           if(_position.x > 25.f){
+           if(_position.x > 20.f){
             _positionu.x +=20.f;
             _position.x -=20.f;
         }
@@ -88,7 +88,7 @@ void Aliens::AlienMovement(){
         }
       }
       else{
-           if(_positionu.x > 25.f){
+           if(_positionu.x > 20.f){
             _positionu.x -=20.f;
             _position.x +=20.f;
         }

@@ -2,8 +2,9 @@
 #define CANNON_HPP
 
 #include <SFML/Graphics.hpp>
+#include "collusion.hpp"
+#include "DefenseBlocks.hpp"
 #include "Bullet.hpp"
-
 //***************************************************************
 //
 //
@@ -30,14 +31,6 @@ public:
 //    ***************************************
     sf::Sprite getSprite() const;
     sf::Sprite getSprite2() const;
-//  / *enum class Direction {
-//        Left,
-//        Right,
-//        Up,
-//        Down
-//        };
-//        */
-
 
 //    **************************************
 //    
@@ -46,6 +39,7 @@ public:
 //    \param return
 //    ***************************************
     void moveLeft();
+    void moveLeftTop();
     
     
     
@@ -56,6 +50,7 @@ public:
 //    \param return
 //    ***************************************
     void moveRight();
+    void moveRightTop();
     
 //    **************************************
 //    
@@ -64,6 +59,7 @@ public:
 //    \param return
 //    ***************************************
     void StopLeft();
+    void StopLeftTop();
     
     
 //    **************************************
@@ -73,6 +69,7 @@ public:
 //    \param return
 //    ***************************************
     void stopRight();
+    void stopRightTop();
     
     
     
@@ -150,10 +147,12 @@ private:
     //Direction direction;
     bool _moveLeft;
     bool _moveRight;
+    bool _moveLeftTop;
+    bool _moveRightTop;
     bool _moveUp;
     bool _moveDown;
     float _cannonSpeed;
-
+    DefenseBlocks _defense;
 };
 
 #endif // CANNON_HPP

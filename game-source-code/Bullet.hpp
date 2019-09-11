@@ -4,6 +4,7 @@
 #include <vector>
 #include "Aliens.hpp"
 #include <cmath>
+
 ///*****************************************************************
 //    /description - this class exclusivelly load and create Bullet
 //    the class create utility method for bullet functionalities as
@@ -27,7 +28,7 @@ public:
 //    it set bool _fire to true signalling that the bullet can be fired
 //    **********************************************************************
     
-    void startFiring();
+    void startFiring(float _bulletSpeed= -10.f);
     
     
 //     ******************************************************************************
@@ -43,6 +44,8 @@ private:
      float _bulletTimer;
      float _ellaspsedTime;
      bool _fire;
+    
+     
      
      sf::Vector2f _bulletPosition;
      sf::Sprite _bulletSprite;

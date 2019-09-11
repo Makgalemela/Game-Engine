@@ -6,15 +6,14 @@ collusion::collusion()
 }
 
 
-bool collusion::lowerCannonBlocks(const DefenseBlocks& def , const Cannon & _cannon){
+bool collusion::lowerCannonBlocks(const DefenseBlocks& def , sf::Sprite _cannon){
   
     auto[_blocks , _position] = def.Blocks();
-    sf::Sprite cannon = _cannon.getSprite();
+    
+//    sf::Sprite cannon = _cannon.getSprite();
     for(auto it = 0u ; it != _blocks.size(); ++it){
-        if(cannon.getGlobalBounds().intersects(_blocks.at(it).getGlobalBounds())){
-            std::cout<<"Bumped"<<std::endl;
-            //_cannon.const_cast<Cannon*> (this)->stopUp();
-           /// _cannon.stopUp();
+        if(abs(_blocks.at(it).getPosition().x -_cannon.getPosition().x) < 8.f && 
+            abs(_blocks.at(it).getPosition().y -_cannon.getPosition().y) < 8.f  ){
             return true;
         }
     }

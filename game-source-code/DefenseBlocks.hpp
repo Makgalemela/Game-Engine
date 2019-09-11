@@ -4,7 +4,7 @@
 #include <SFML/Graphics.hpp>
 #include <vector>
 #include <tuple>
-
+//#include "collusion.hpp"
 
 //****************************************************************
 //This class load and create the blocks which shield the cannon from the fire power of aliens
@@ -32,7 +32,6 @@ private:
     sf::Texture _blockTexture2;
     std::vector<sf::Sprite> _blocks;
     sf::Vector2f _position;
-    
 };
 
 #endif // DEFENSEBLOCKS_HPP

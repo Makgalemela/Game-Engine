@@ -38,29 +38,53 @@ void Cannon::moveLeft(){
         _cannon.getPosition().y - 50/2 < 15.f))
         _moveLeft = true;
     else _moveLeft = false;
+    
+    
+}
+
+void Cannon::moveLeftTop(){
+    if(_cannon2.getPosition().x >  15.f)
+        _moveLeftTop = true;
+    else _moveLeftTop = false;
 }
 
 void Cannon::moveRight(){
-    if(_cannon.getPosition().x + 113/2 <  800.f && (_cannon.getPosition().y >= 550.f ||
+    if(_cannon.getPosition().x + 113/2 <  1000.f && (_cannon.getPosition().y >= 550.f ||
         _cannon.getPosition().y - 50/2 < 15.f))
         _moveRight = true;
     else _moveRight = false;
 }
 
+
+void Cannon::moveRightTop(){
+    if(_cannon2.getPosition().x + 113/2 <  1000.f )
+        _moveRightTop = true;
+    else _moveRightTop = false;
+}
+
+
 void Cannon::stopRight(){
     _moveRight = false;
 }
-
-void Cannon::moveUp(){
-    
-    if(_cannon.getPosition().y > 2.0f)
-        _moveUp  = true;
-    else _moveUp = false;
+void Cannon::stopRightTop(){
+    _moveRightTop = false;
 }
 
 void Cannon::stopUp(){
     _moveUp = false;
 }
+void Cannon::StopLeftTop(){
+    _moveLeftTop = false;
+}
+
+void Cannon::moveUp(){
+//    _collide.lowerCannonBlocks(_defense, _cannon);
+    if(_cannon.getPosition().y > 2.0f)
+        _moveUp  = true;
+    else _moveUp = false;
+    
+}
+
 
 
 void Cannon::moveDown(){
@@ -83,6 +107,12 @@ void Cannon::update(float elapsedTime){
         
     else if(_moveRight)
         _position.x += _cannonSpeed*elapsedTime;
+        
+     if(_moveLeftTop)
+        _position2.x -= _cannonSpeed*elapsedTime;
+        
+    else if(_moveRightTop)
+        _position2.x += _cannonSpeed*elapsedTime;
     
     else if(_moveUp)
         _position.y -= _cannonSpeed*elapsedTime;
@@ -97,7 +127,7 @@ void Cannon::update(float elapsedTime){
 
 
 sf::Vector2f Cannon::getCannonCenterFirePosion() const {
-    return _position;
+    return _position2;
 }
 
 

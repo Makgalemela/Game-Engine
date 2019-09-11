@@ -38,8 +38,12 @@ void Game::start(){
             }
         }
         if((event.type == sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::F) && gamePlaying)
-                    _cannon.startFiring();
+                    _cannon.startFiring(-10.f);
+        if((event.type == sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::Up) && gamePlaying)
+                    _cannon.startFiring(+10.f);
         }
+        
+        
         
         if(gamePlaying){
             input();
@@ -69,10 +73,7 @@ void Game::input(){
         _cannon.stopRight();
         
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::E))
-        if(!_collide.lowerCannonBlocks(_defense, _cannon))
             _cannon.moveUp();
-        else
-            _cannon.stopUp();
     else 
         _cannon.stopUp();
         
@@ -80,6 +81,21 @@ void Game::input(){
         _cannon.moveDown();
     else 
         _cannon.stopDown();
+        
+    
+    
+    ///Top cannon
+    
+
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+        _cannon.moveLeftTop();
+    else 
+        _cannon.StopLeftTop();
+        
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+        _cannon.moveRightTop();
+    else 
+        _cannon.stopRightTop();
             
 }
 
@@ -96,7 +112,7 @@ void Game::draw(){
     _cannon.fireBullet(_window, _cannon.getCannonCenterFirePosion());
     auto[_aliens, _aliensu, _alienPosition, _alienPositionu]  = aliens.aliensSprite();
     aliens.AlienMovement();
-    auto[_blocks, _blockPosition] = _defense.Blocks();
+//    auto[_blocks, _blockPosition] = _defense.Blocks();
     
     for(auto it =  0u; it != _aliens.size(); ++it){
         if(it == 18 || it == 36){
@@ -124,15 +140,15 @@ void Game::draw(){
             _alienPositionu.x +=30.f;
 
     }
-    for(auto it =  0u; it != _blocks.size(); ++it){
-        if(it == 4 ){
-            _blockPosition.y = 540.f;
-            _blockPosition.x -= 520.f;
-        }
-       _blocks.at(it).setPosition(_blockPosition);
-       _window.draw(_blocks.at(it));
-       _blockPosition.x +=130;
-    }
+//    for(auto it =  0u; it != _blocks.size(); ++it){
+//        if(it == 4 ){
+//            _blockPosition.y = 540.f;
+//            _blockPosition.x -= 520.f;
+//        }
+//       _blocks.at(it).setPosition(_blockPosition);
+//       _window.draw(_blocks.at(it));
+//       _blockPosition.x +=130;
+//    }
     
     sampleText(_window);
    _window.display();
