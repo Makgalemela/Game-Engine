@@ -44,7 +44,7 @@ public:
 //    \param return tuple<vector, vector>
 //    
 //    **************************************************************************
-    tuple<vector<sf::Sprite> ,vector<sf::Sprite>,sf::Vector2f ,sf::Vector2f> aliensSprite() const;
+    tuple<vector<sf::Sprite> ,vector<sf::Sprite>> aliensSprite() const;
     
     
 //    **************************************************************************
@@ -60,8 +60,8 @@ public:
     
     
     void AlienMovement();
-    
-    void deleteCollidedAlien(int index, const AliensDirection& ad = AliensDirection::DownFace);
+    void setAlienPosition();
+    void deleteCollidedAlien(std::vector<sf::Sprite>::iterator index, const AliensDirection& ad = AliensDirection::DownFace);
 private:
     ///buttom aliens
     sf::Texture _alienTexture;

@@ -45,8 +45,10 @@ public:
 //     *******************************************************************************
 //     
     bool collusion2(const float& positionx, const float& positiony);
-    bool collusion(const float& positionx, const float& positiony);
+    bool collusion(sf::Vector2f _Pos , AliensDirection ad);
     void BulletsCollusion(sf::RenderWindow& _window);
+    
+    void BulletOutOfScreen(AliensDirection ad);
 private:
      Aliens _aliens;
      float _bulletSpeed;

@@ -19,6 +19,8 @@ void Game::start(){
    _defense.loadBlocks();
    _cannon.setInitPosOfCannon(_resolution);
    _window.setKeyRepeatEnabled(false);
+    aliens.setAlienPosition();
+    
     sf::Clock _clock;
     auto gamePlaying = false;
     while(_window.isOpen()){
@@ -26,8 +28,7 @@ void Game::start(){
         float dtAsSeconds = datestamp.asSeconds();
         sf::Event event;
         while (_window.pollEvent(event))
-        {
-       // Request for closing the window
+        { 
             if (event.type == sf::Event::Closed)
             _window.close();
             if(!gamePlaying){
@@ -44,15 +45,11 @@ void Game::start(){
         if((event.type == sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::F) && gamePlaying)
                   _cannon.startFiring(FiringDirection::down);
         }
-        
-        
-        
+
         if(gamePlaying){
             input();
             update(dtAsSeconds);
             draw();
-            ///_cannon.collusion(aliens.aliensSpriteAlone());
-            
         }
         
     }
@@ -108,7 +105,7 @@ void Game::update(float dtAsSeconds){
 
 ///This need to be factored out
 void Game::draw(){
-    
+     
     _window.clear(sf::Color::White);
     _window.draw(_backgroundSprite);
     _window.draw(_cannon.getSprite());
@@ -116,59 +113,25 @@ void Game::draw(){
     
     _cannon.fireBullet(_window, _cannon.getCannonCenterFirePosition());
     _cannon.fireBullet2(_window, _cannon.getCannon2CenterFirePosition());
+    _cannon.BulletOutOfScreen(AliensDirection::UpFace);
+    auto[_aliens, _aliensu]  = aliens.aliensSprite();
+    _cannon.BulletOutOfScreen(AliensDirection::DownFace);
     
-  
-    auto[_aliens, _aliensu, _alienPosition, _alienPositionu]  = aliens.aliensSprite();
-    
-//    auto[_blocks, _blockPosition] = _defense.Blocks();
-    
-    for(auto it =  0u; it != _aliens.size(); ++it){
-        if(it == 18 || it == 36){
-                _alienPosition.x -=540.f;
-                _alienPosition.y +=35.f;
-        }
-            _aliens.at(it).setPosition(_alienPosition);
-            _window.draw(_aliens.at(it));
-            _alienPosition.x +=30.f;
-
-            if(_aliens.size() != 0 && _cannon.collusion(_aliens.at(it).getPosition().x ,_aliens.at(it).getPosition().y )){
-               aliens.deleteCollidedAlien(it);
-                }
-//            else if(_aliens.size() != 0 && _cannon.collusion2(_aliens.at(it).getPosition().x ,_aliens.at(it).getPosition().y )){
-//               aliens.deleteCollidedAlien(it,AliensDirection::UpFace);
-//            }
-    }
-    
-    
-       for(auto it =  0u; it != _aliensu.size(); ++it){
-            if(it == 18 || it == 36){
-                _alienPositionu.x -=540.f;
-                _alienPositionu.y +=35.f;
-            }
-            
-            _aliensu.at(it).setPosition(_alienPositionu);
-            _window.draw(_aliensu.at(it));
-            _alienPositionu.x +=30.f;
-            
-//              if(_aliensu.size() != 0 && _cannon.collusion(_aliensu.at(it).getPosition().x ,_aliensu.at(it).getPosition().y )){
-//               aliens.deleteCollidedAlien(it);
-//                }
-             if(_aliensu.size() != 0 && _cannon.collusion2(_aliensu.at(it).getPosition().x ,_aliensu.at(it).getPosition().y )){
-               aliens.deleteCollidedAlien(it, AliensDirection::UpFace);
-            }
-
-    }
-    _cannon.BulletsCollusion(_window);
-//    for(auto it =  0u; it != _blocks.size(); ++it){
-//        if(it == 4 ){
-//            _blockPosition.y = 540.f;
-//            _blockPosition.x -= 520.f;
-//        }
-//       _blocks.at(it).setPosition(_blockPosition);
-//       _window.draw(_blocks.at(it));
-//       _blockPosition.x +=130;
+//    for(auto it = _aliens.begin();  it != _aliens.end(); ++it){
+//        //_window.draw(*it);
+//       // if(it != _aliens.end() && _cannon.collusion((*it).getPosition().x ,(*it).getPosition().y ))
+//              // aliens.deleteCollidedAlien(it, AliensDirection::DownFace);
+//              _cannon.BulletOutOfScreen(AliensDirection::DownFace);
 //    }
-    
+//    for(auto it = _aliensu.begin();  it != _aliensu.end(); ++it){
+//        //_window.draw(*it);
+//       // if(it != _aliensu.end() && _cannon.collusion2((*it).getPosition().x ,(*it).getPosition().y ))
+//               //aliens.deleteCollidedAlien(it, AliensDirection::UpFace);
+//        _cannon.BulletOutOfScreen(AliensDirection::UpFace);
+//    }
+
+    _cannon.BulletsCollusion(_window);
+
     sampleText(_window);
     elapsedTime(_window);
     ScoreDraw(_window);
@@ -179,3 +142,90 @@ Game::~Game()
 {
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//    for(auto it =  0u; it != _blocks.size(); ++it){
+//        if(it == 4 ){
+//            _blockPosition.y = 540.f;
+//            _blockPosition.x -= 520.f;
+//        }
+//       _blocks.at(it).setPosition(_blockPosition);
+//       _window.draw(_blocks.at(it));
+//       _blockPosition.x +=130;
+//    }
+    
+
+
+//    auto[_blocks, _blockPosition] = _defense.Blocks();
+    
+//    for(auto it =  0u; it != _aliens.size(); ++it){
+//        if(it == 18 || it == 36){
+//                _alienPosition.x -=540.f;
+//                _alienPosition.y +=35.f;
+//        }
+//            _aliens.at(it).setPosition(_alienPosition);
+//            _window.draw(_aliens.at(it));
+//            _alienPosition.x +=30.f;
+//
+//            if(_aliens.size() != 0 && _cannon.collusion(_aliens.at(it).getPosition().x ,_aliens.at(it).getPosition().y )){
+//               aliens.deleteCollidedAlien(it);
+//                }
+////            else if(_aliens.size() != 0 && _cannon.collusion2(_aliens.at(it).getPosition().x ,_aliens.at(it).getPosition().y )){
+////               aliens.deleteCollidedAlien(it,AliensDirection::UpFace);
+////            }
+//    }
+//    
+//    
+//       for(auto it =  0u; it != _aliensu.size(); ++it){
+//            if(it == 18 || it == 36){
+//                _alienPositionu.x -=540.f;
+//                _alienPositionu.y +=35.f;
+//            }
+//            
+//            _aliensu.at(it).setPosition(_alienPositionu);
+//            _window.draw(_aliensu.at(it));
+//            _alienPositionu.x +=30.f;
+//            
+////              if(_aliensu.size() != 0 && _cannon.collusion(_aliensu.at(it).getPosition().x ,_aliensu.at(it).getPosition().y )){
+////               aliens.deleteCollidedAlien(it);
+////                }
+//             if(_aliensu.size() != 0 && _cannon.collusion2(_aliensu.at(it).getPosition().x ,_aliensu.at(it).getPosition().y )){
+//               aliens.deleteCollidedAlien(it, AliensDirection::UpFace);
+//            }
+//
+//    }
