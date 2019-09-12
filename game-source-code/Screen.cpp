@@ -32,7 +32,6 @@ void Screen::elapsedTime(sf::RenderWindow &_window){
 }
 
  void Screen::ScoreDraw(sf::RenderWindow &_window){
-        //int currScore =_score.getCurrentScore();
        std::ostringstream ss;   
        ss<<_score.getCurrentScore();
         std::string score_(ss.str());

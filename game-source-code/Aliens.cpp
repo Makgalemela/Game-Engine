@@ -102,9 +102,30 @@ void Aliens::AlienMovement(){
 }
 
 void Aliens::deleteCollidedAlien(int index, const AliensDirection& ad){
-    if(ad == AliensDirection::DownFace)
+    if(ad == AliensDirection::DownFace){
+        if(aliens.at(index).getTexture() == &_alienTexture)
+            _score.setScore(Scores::Ten);
+        else if(aliens.at(index).getTexture() == &_alienTexture3)
+            _score.setScore(Scores::Twenty);
+        else if(aliens.at(index).getTexture() == &_alienTexture2)
+            _score.setScore(Scores::ThirtyFive);
         aliens.erase(aliens.begin() + index);
-    else aliensu.erase(aliensu.begin() + index);
+    }
+        
+    else if(ad == AliensDirection::UpFace){
+        if(aliensu.at(index).getTexture() == &_alienTextureu)
+            _score.setScore(Scores::Ten);
+        else if(aliensu.at(index).getTexture() == &_alienTexture3u)
+            _score.setScore(Scores::Twenty);
+        else if(aliensu.at(index).getTexture() == &_alienTexture2u)
+            _score.setScore(Scores::ThirtyFive);
+            
+        aliensu.erase(aliensu.begin() + index);
+    }
+    
+    ///calculates the score 
+    
+    _score.writehighscore();
 }
 Aliens::~Aliens()
 {

@@ -17,8 +17,8 @@ TEST_CASE("Cannon is able to move to the left")
 {
     auto _cannon = Cannon{};
     auto _game = Game{};
-    _game.Start();
-    sf::Vector2f _position  = _cannon.getCannonCenterFirePosion();
+    _game.start();
+    sf::Vector2f _position  = _cannon.getCannonCenterFirePosition();
     CHECK(_position.x < 100.f);
 }
 
@@ -27,8 +27,8 @@ TEST_CASE("Cannon is able to move to the right")
 {
     auto _cannon = Cannon{};
     auto _game = Game{};
-    _game.Start();
-    sf::Vector2f _position  = _cannon.getCannonCenterFirePosion();
+    _game.start();
+    sf::Vector2f _position  = _cannon.getCannonCenterFirePosition();
     CHECK(_position.x > 500.f);
 }
 

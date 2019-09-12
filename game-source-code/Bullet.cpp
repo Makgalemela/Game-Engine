@@ -62,8 +62,6 @@ void Bullet::startFiring(FiringDirection fd){
              
              if((_bullets2.size() != 0 && _bullets.size() != 0) && abs(_bullets2.at(i).getPosition().x - _bullets.at(it).getPosition().x)<10 &&
                 abs(_bullets2.at(i).getPosition().y - _bullets.at(it).getPosition().y)<5){
-             
-              sf::Vector2f _pos;
               _bulletExplosionSprite.setPosition(_bullets2.at(i).getPosition().x-10,_bullets2.at(i).getPosition().y );
               for(auto t = 0u; t != 100 ;++t ){
                   _window.draw(_bulletExplosionSprite);

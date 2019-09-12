@@ -4,7 +4,7 @@
 #include <tuple>
 #include <SFML/Graphics.hpp>
 #include "StopWatch.h"
-
+#include "Score.hpp"
 
 //*******************************************************
 //
@@ -85,6 +85,7 @@ private:
     
     bool _changeAlienDirection;
     StopWatch _watch;
+    Score _score;
 };
 
 #endif // ALIENS_HPP

@@ -3,7 +3,8 @@
 Score::Score()
 {
     _highscore = 0;
-    in.open("highScore.txt", std::ios::in);
+    out.open("../executables/highScore.txt", std::ios::out);
+    in.open("../executables/highScore.txt", std::ios::in);
 }
 
 int Score::getCurrentScore() const{
@@ -11,18 +12,18 @@ int Score::getCurrentScore() const{
 }
 void Score::setScore(Scores _score){
     if(_score == Scores::Ten)
-        _highscore = _highscore+10;
+        _highscore +=10;
     else if(_score == Scores::Twenty)
-        _highscore = _highscore+20;
+        _highscore +=20;
     else if(_score == Scores::ThirtyFive)
-        _highscore = _highscore+35;
+        _highscore +=35;
 }
-//void Score::writehighscore(){
-//    out.open("highScore.txt", std::ios::out);
-//    out<<_highscore;
-//}
+void Score::writehighscore(){
+    
+    out<<_highscore;
+}
 int Score::readhighscore(){
-    int highscore = 100;
+    int highscore;
     if(in.is_open()){
          in>>highscore;
     }
