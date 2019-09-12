@@ -12,6 +12,12 @@
 //
 //
 //*********************************************************
+
+enum class AliensDirection{
+    UpFace =0,
+    DownFace
+    
+};
 using namespace std;
 class Aliens
 {
@@ -55,7 +61,7 @@ public:
     
     void AlienMovement();
     
-    void deleteCollidedAlien(int index);
+    void deleteCollidedAlien(int index, const AliensDirection& ad = AliensDirection::DownFace);
 private:
     ///buttom aliens
     sf::Texture _alienTexture;

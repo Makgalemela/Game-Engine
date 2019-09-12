@@ -1,7 +1,6 @@
 
 #include "Aliens.hpp"
 #include <iostream>
-
 Aliens::Aliens()
 {
     if(!_alienTexture.loadFromFile("../executables/resources/aliens.png") || 
@@ -102,8 +101,10 @@ void Aliens::AlienMovement(){
    }
 }
 
-void Aliens::deleteCollidedAlien(int index){
-    aliens.erase(aliens.begin() + index);
+void Aliens::deleteCollidedAlien(int index, const AliensDirection& ad){
+    if(ad == AliensDirection::DownFace)
+        aliens.erase(aliens.begin() + index);
+    else aliensu.erase(aliensu.begin() + index);
 }
 Aliens::~Aliens()
 {

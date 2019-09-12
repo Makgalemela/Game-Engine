@@ -1,21 +1,20 @@
 #ifndef SCREEN_HPP
 #define SCREEN_HPP
 #include <SFML/Graphics.hpp>
-class Screen 
+#include "StopWatch.h"
+#include <sstream>
+#include "Score.hpp"
+class Screen : public StopWatch
 {
 public:
     Screen();
     ~Screen();
-    void sampleText(sf::RenderWindow &_window){
-        sf::Text text("hello", font);
-        text.setCharacterSize(30);
-        text.setStyle(sf::Text::Bold);
-        text.setFillColor(sf::Color::Red);
-        text.setPosition(sf::Vector2f(150.f, 5.f));
-        _window.draw(text);
-    };
+    void sampleText(sf::RenderWindow &_window);
+    void elapsedTime(sf::RenderWindow &_window);
+    void ScoreDraw(sf::RenderWindow &_window);
 private:
  sf::Font font;
+ Score _score;
 };
 
 #endif // SCREEN_HPP

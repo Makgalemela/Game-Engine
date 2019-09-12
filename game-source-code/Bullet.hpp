@@ -44,6 +44,7 @@ public:
 //     and erase it
 //     *******************************************************************************
 //     
+    bool collusion2(const float& positionx, const float& positiony);
     bool collusion(const float& positionx, const float& positiony);
     void BulletsCollusion(sf::RenderWindow& _window);
 private:

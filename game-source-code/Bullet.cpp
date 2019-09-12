@@ -27,7 +27,7 @@ void Bullet::startFiring(FiringDirection fd){
  bool Bullet::collusion(const float& positionx ,const float& positiony ){
     
      for(auto it = 0u ; it < _bullets.size(); ++it){
-         if(_bullets.at(it).getPosition().y < 45.f){
+         if(_bullets.at(it).getPosition().y < 50.f){
              _bullets.erase(_bullets.begin() + it);
          }
          if(_bullets.size() != 0 && abs(positionx - _bullets.at(it).getPosition().x) <10 &&
@@ -39,6 +39,23 @@ void Bullet::startFiring(FiringDirection fd){
      return false;
  }
  
+ 
+  bool Bullet::collusion2(const float& positionx ,const float& positiony ){
+    
+     for(auto it = 0u ; it < _bullets2.size(); ++it){
+         if(_bullets2.at(it).getPosition().y > 560.f){
+             _bullets2.erase(_bullets2.begin() + it);
+         }
+         if(_bullets2.size() != 0 && abs(positionx - _bullets2.at(it).getPosition().x) <10 &&
+                abs(positiony - _bullets2.at(it).getPosition().y) <10){
+              _bullets2.erase(_bullets2.begin() + it);
+             return true;
+         }
+     }
+     return false;
+ }
+ 
+ 
  void Bullet::BulletsCollusion(sf::RenderWindow& _window){
      for(auto it = 0u; it != _bullets.size(); ++it){
          for(auto i = 0u; i != _bullets2.size();++i ){
@@ -48,10 +65,8 @@ void Bullet::startFiring(FiringDirection fd){
              
               sf::Vector2f _pos;
               _bulletExplosionSprite.setPosition(_bullets2.at(i).getPosition().x-10,_bullets2.at(i).getPosition().y );
-              for(auto t = 0u; t != 10 ;++t ){
+              for(auto t = 0u; t != 100 ;++t ){
                   _window.draw(_bulletExplosionSprite);
-                 //_bullets.erase(_bullets.begin() + it);
-                //_bullets2.erase(_bullets2.begin() + i);
               }
               return;
          }
@@ -59,6 +74,8 @@ void Bullet::startFiring(FiringDirection fd){
      }
      return;
  }
+ 
+ 
  
 void Bullet::fireBullet(sf::RenderWindow &_window , sf::Vector2f _bulletPosition)
 {   

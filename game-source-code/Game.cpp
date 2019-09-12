@@ -105,6 +105,8 @@ void Game::update(float dtAsSeconds){
     _cannon.update(dtAsSeconds);
 }
 
+
+///This need to be factored out
 void Game::draw(){
     
     _window.clear(sf::Color::White);
@@ -114,10 +116,10 @@ void Game::draw(){
     
     _cannon.fireBullet(_window, _cannon.getCannonCenterFirePosition());
     _cannon.fireBullet2(_window, _cannon.getCannon2CenterFirePosition());
-    _cannon.BulletsCollusion(_window);
+    
   
     auto[_aliens, _aliensu, _alienPosition, _alienPositionu]  = aliens.aliensSprite();
-    aliens.AlienMovement();
+    
 //    auto[_blocks, _blockPosition] = _defense.Blocks();
     
     for(auto it =  0u; it != _aliens.size(); ++it){
@@ -125,27 +127,38 @@ void Game::draw(){
                 _alienPosition.x -=540.f;
                 _alienPosition.y +=35.f;
         }
-            
             _aliens.at(it).setPosition(_alienPosition);
             _window.draw(_aliens.at(it));
             _alienPosition.x +=30.f;
 
             if(_aliens.size() != 0 && _cannon.collusion(_aliens.at(it).getPosition().x ,_aliens.at(it).getPosition().y )){
                aliens.deleteCollidedAlien(it);
-            }
+                }
+//            else if(_aliens.size() != 0 && _cannon.collusion2(_aliens.at(it).getPosition().x ,_aliens.at(it).getPosition().y )){
+//               aliens.deleteCollidedAlien(it,AliensDirection::UpFace);
+//            }
     }
+    
+    
        for(auto it =  0u; it != _aliensu.size(); ++it){
-        if(it == 18 || it == 36){
-
+            if(it == 18 || it == 36){
                 _alienPositionu.x -=540.f;
                 _alienPositionu.y +=35.f;
-        }
+            }
             
             _aliensu.at(it).setPosition(_alienPositionu);
             _window.draw(_aliensu.at(it));
             _alienPositionu.x +=30.f;
+            
+//              if(_aliensu.size() != 0 && _cannon.collusion(_aliensu.at(it).getPosition().x ,_aliensu.at(it).getPosition().y )){
+//               aliens.deleteCollidedAlien(it);
+//                }
+             if(_aliensu.size() != 0 && _cannon.collusion2(_aliensu.at(it).getPosition().x ,_aliensu.at(it).getPosition().y )){
+               aliens.deleteCollidedAlien(it, AliensDirection::UpFace);
+            }
 
     }
+    _cannon.BulletsCollusion(_window);
 //    for(auto it =  0u; it != _blocks.size(); ++it){
 //        if(it == 4 ){
 //            _blockPosition.y = 540.f;
@@ -157,6 +170,9 @@ void Game::draw(){
 //    }
     
     sampleText(_window);
+    elapsedTime(_window);
+    ScoreDraw(_window);
+    aliens.AlienMovement();
    _window.display();
 }
 Game::~Game()
