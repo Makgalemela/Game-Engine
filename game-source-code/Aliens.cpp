@@ -54,19 +54,19 @@ vector<sf::Sprite> Aliens::aliensSpriteAlone() const{
 
 
 void Aliens::loadAliens() {
-    for(auto it = 0 ; it !=54; ++it){
+    for(auto it = 0 ; it !=18; ++it){
         if(it < 18){
             aliens.push_back(_alienSprite2);
             aliensu.push_back(_alienSpriteu);
         }
-        else if(it < 36){
-            aliens.push_back(_alienSprite3);
-            aliensu.push_back(_alienSprite3u);
-        }
-        else{
-             aliens.push_back(_alienSprite);
-             aliensu.push_back(_alienSprite2u);
-        }
+//        else if(it < 36){
+//            aliens.push_back(_alienSprite3);
+//            aliensu.push_back(_alienSprite3u);
+//        }
+//        else{
+//             aliens.push_back(_alienSprite);
+//             aliensu.push_back(_alienSprite2u);
+//        }
     }
 }
 
@@ -128,12 +128,12 @@ void Aliens::deleteCollidedAlien(std::vector<sf::Sprite>::iterator index, const 
 
 void Aliens::setAlienPosition(){
     for(auto it = 0u; it != aliens.size(); ++it){
-        if(it == 18 || it == 36){
-            _position.x -=540.f;
-            _position.y +=35.f;
-            _positionu.x -=540.f;
-            _positionu.y +=35.f;
-        }
+//        if(it == 18 || it == 36){
+//            _position.x -=540.f;
+//            _position.y +=35.f;
+//            _positionu.x -=540.f;
+//            _positionu.y +=35.f;
+//        }
         aliens.at(it).setPosition(_position);
         aliensu.at(it).setPosition(_positionu);
         _position.x +=30.f;

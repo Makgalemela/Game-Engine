@@ -91,6 +91,19 @@ void Bullet::fireBullet2(sf::RenderWindow &_window , sf::Vector2f _bulletPositio
             _bullets2.at(it).move(0, +0.09f);
     }
 }
+
+void Bullet::alienShoot(sf::Sprite _alien){
+    float _posX = _alien.getPosition().x;
+    float _posY = _alien.getPosition().y;
+    
+    for(auto it = _bullets.begin(); it != _bullets.end(); ++it){
+        if(abs((*it).getPosition().x - _posX) <10.f  && abs((*it).getPosition().y - _posY) <10.f){
+            std::cout<<"Collusion"<<std::endl;
+        }
+    }
+    
+}
+
 Bullet::~Bullet()
 {
 }
