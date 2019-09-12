@@ -82,6 +82,8 @@ private:
     void draw();
     ///void draw(const Aliens& aliens);
 
+
+    FiringDirection fd;
 };
 
 #endif // GAME_HPP

@@ -37,10 +37,12 @@ void Game::start(){
                     gamePlaying = true;
             }
         }
-        if((event.type == sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::F) && gamePlaying)
-                    _cannon.startFiring(-10.f);
+        
+        fd = FiringDirection::defaultd;
         if((event.type == sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::Up) && gamePlaying)
-                    _cannon.startFiring(+10.f);
+                   _cannon.startFiring(FiringDirection::up);
+        if((event.type == sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::F) && gamePlaying)
+                  _cannon.startFiring(FiringDirection::down);
         }
         
         
@@ -109,7 +111,11 @@ void Game::draw(){
     _window.draw(_backgroundSprite);
     _window.draw(_cannon.getSprite());
     _window.draw(_cannon.getSprite2());
-    _cannon.fireBullet(_window, _cannon.getCannonCenterFirePosion());
+    
+    _cannon.fireBullet(_window, _cannon.getCannonCenterFirePosition());
+    _cannon.fireBullet2(_window, _cannon.getCannon2CenterFirePosition());
+    _cannon.BulletsCollusion(_window);
+  
     auto[_aliens, _aliensu, _alienPosition, _alienPositionu]  = aliens.aliensSprite();
     aliens.AlienMovement();
 //    auto[_blocks, _blockPosition] = _defense.Blocks();

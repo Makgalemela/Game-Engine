@@ -5,6 +5,7 @@
 #include "collusion.hpp"
 #include "DefenseBlocks.hpp"
 #include "Bullet.hpp"
+#include <tuple>
 //***************************************************************
 //
 //
@@ -129,7 +130,8 @@ public:
 //    
 //    \param return sf::Vector2f
 //    ***************************************
-    sf::Vector2f getCannonCenterFirePosion() const;
+    sf::Vector2f getCannon2CenterFirePosition() const;
+    sf::Vector2f getCannonCenterFirePosition() const;
     
     void setInitPosOfCannon(sf::Vector2f _position);
     

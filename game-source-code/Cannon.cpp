@@ -126,10 +126,13 @@ void Cannon::update(float elapsedTime){
 
 
 
-sf::Vector2f Cannon::getCannonCenterFirePosion() const {
-    return _position2;
+sf::Vector2f Cannon::getCannonCenterFirePosition() const {
+     return _position;
 }
 
+sf::Vector2f Cannon::getCannon2CenterFirePosition() const {
+     return _position2;
+}
 
 void Cannon::rotate(){
     
