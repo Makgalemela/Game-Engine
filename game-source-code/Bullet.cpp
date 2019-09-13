@@ -92,16 +92,29 @@ void Bullet::fireBullet2(sf::RenderWindow &_window , sf::Vector2f _bulletPositio
     }
 }
 
-bool Bullet::alienShoot(sf::Sprite _alien){
+bool Bullet::alienShoot(sf::Sprite _alien , AliensDirection dir){
     float _posX = _alien.getPosition().x;
     float _posY = _alien.getPosition().y;
-    
-    for(auto it = _bullets.begin(); it != _bullets.end(); ++it){
-        if(abs((*it).getPosition().x - _posX) <10.f  && abs((*it).getPosition().y - _posY) <5.f){
-            _bullets.erase(it--);
+    if(dir == AliensDirection::DownFace){
+        for(auto it = 0u; it != _bullets.size(); ++it){
+        if(abs((_bullets.at(it)).getPosition().x - _posX) <15.f 
+            && abs((_bullets.at(it)).getPosition().y - _posY) <15.f){
+            _bullets.erase(_bullets.begin()+it);
             return true;
         }
     }
+    }
+    
+    else{
+        for(auto it = 0u; it != _bullets2.size(); ++it){
+        if(abs((_bullets2.at(it)).getPosition().x - _posX) <15.f  
+        && abs((_bullets2.at(it)).getPosition().y - _posY) <15.f){
+            _bullets2.erase(_bullets2.begin()+it);
+            return true;
+        }
+    }
+    }
+    
     return false;
 }
 

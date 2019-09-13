@@ -20,7 +20,6 @@ void Game::start(){
    _cannon.setInitPosOfCannon(_resolution);
    _window.setKeyRepeatEnabled(false);
     aliens.setAlienPosition();
-    
     sf::Clock _clock;
     auto gamePlaying = false;
     while(_window.isOpen()){
@@ -116,26 +115,29 @@ void Game::draw(){
     _cannon.BulletOutOfScreen(AliensDirection::UpFace);
     auto[_aliens, _aliensu]  = aliens.aliensSprite();
     _cannon.BulletOutOfScreen(AliensDirection::DownFace);
-    
+  
     for(auto it = 0u;  it != _aliens.size(); ++it){
-        if(_cannon.alienShoot(_aliens.at(it))) aliens.alienIsShot(it);
-        if(aliens.getIsAlive(it)) _window.draw(_aliens.at(it));
-       // if(it != _aliens.end() && _cannon.collusion((*it).getPosition().x ,(*it).getPosition().y ))
-              // aliens.deleteCollidedAlien(it, AliensDirection::DownFace);
+          if(aliens.getIsAlive(it, AliensDirection::DownFace)){
+              if( _cannon.alienShoot(_aliens.at(it), AliensDirection::DownFace)) 
+                  aliens.alienIsShot(it,AliensDirection::DownFace);
+                _window.draw(_aliens.at(it));
+          }
+        
     }
-//    for(auto it = _aliensu.begin();  it != _aliensu.end(); ++it){
-//        _window.draw(*it);
-//       // if(it != _aliensu.end() && _cannon.collusion2((*it).getPosition().x ,(*it).getPosition().y ))
-//               //aliens.deleteCollidedAlien(it, AliensDirection::UpFace);
-//        //_cannon.BulletOutOfScreen(AliensDirection::UpFace);
-//    }
+    for(auto it = 0u;  it != _aliensu.size(); ++it){
+        if(if(aliens.getIsAlive(it, AliensDirection::UpFace)) ){
+             if(_cannon.alienShoot(_aliensu.at(it), AliensDirection::UpFace)) 
+            aliens.alienIsShot(it,AliensDirection::UpFace);
+            _window.draw(_aliensu.at(it));
+        }
+    }
 
     _cannon.BulletsCollusion(_window);
 
     sampleText(_window);
     elapsedTime(_window);
     ScoreDraw(_window);
-    aliens.AlienMovement(_window);
+    //aliens.AlienMovement(_window);
    _window.display();
 }
 Game::~Game()

@@ -49,7 +49,7 @@ public:
     void BulletsCollusion(sf::RenderWindow& _window);
     
     void BulletOutOfScreen(AliensDirection ad);
-    bool alienShoot(sf::Sprite _alien);
+    bool alienShoot(sf::Sprite _alien, AliensDirection dir);
 private:
      Aliens _aliens;
      float _bulletSpeed;

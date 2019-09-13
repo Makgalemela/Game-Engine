@@ -62,7 +62,7 @@ public:
     void AlienMovement(sf::RenderWindow &_windows);
     void setAlienPosition();
     void alienIsShot(const int& it, const AliensDirection& ad = AliensDirection::DownFace);
-    bool getIsAlive(const int& it) const;
+    bool getIsAlive(const int& it, const AliensDirection& dir) const;
 private:
     ///buttom aliens
     sf::Texture _alienTexture;
