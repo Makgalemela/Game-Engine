@@ -63,6 +63,8 @@ public:
     void setAlienPosition();
     void alienIsShot(const int& it, const AliensDirection& ad = AliensDirection::DownFace);
     bool getIsAlive(const int& it, const AliensDirection& dir) const;
+    bool updateGameOver() const;
+    bool allAliensKilled() const;
 private:
     ///buttom aliens
     sf::Texture _alienTexture;
@@ -92,6 +94,8 @@ private:
     std::vector<bool> isAlive2;
     
     void update(const float& _pixel);
+    void updateRows();
+    bool getTheReference() const;
 };
 
 #endif // ALIENS_HPP

@@ -39,7 +39,7 @@ Aliens::Aliens()
     // _alienTexture3.loadFromFile("../executables/resources/alien3.png");
      _alienSprite3u.setTexture(_alienTexture3u);
      _alienSprite3u.scale(sf::Vector2f(0.040f , 0.040f));
-     _positionu.x = 600.f;
+     _positionu.x = 620.f;
      _positionu.y = 210.f;
     _changeAlienDirection = false;
 }
@@ -79,23 +79,11 @@ void Aliens::loadAliens() {
 
 void Aliens::AlienMovement(sf::RenderWindow &_windows){
    if(_watch.timerForMovement()){
-      if(!_changeAlienDirection){
-        if(_position.x >= 950.f){
-            _changeAlienDirection = true;
-            _position.y += 30.f;
-            _positionu.y -= 30.f;
-            }
+      if(!_changeAlienDirection)
             update(40.f);
-        }
-        
-    else {
-        if(_position.x <= 5.f){
-            _changeAlienDirection = false;
-            _position.y += 30.f;
-            _positionu.y -= 30.f;
-        }
+        else 
             update(-40.f);
-        }
+        
     }
 }
    
@@ -129,15 +117,15 @@ void Aliens::alienIsShot(const int& index, const AliensDirection& ad){
 void Aliens::setAlienPosition(){
     for(auto it = 0u; it != aliens.size(); ++it){
         if(it == 10 || it == 20){
-            _position.x -=400.f;
-            _position.y +=35.f;
-            _positionu.x -=400.f;
-            _positionu.y +=35.f;
+            _position.x =_position.x-400.f;
+            _position.y =_position.y+35.f;
+            _positionu.x =_positionu.x-400.f;
+            _positionu.y =_positionu.y+35.f;
         }
         aliens.at(it).setPosition(_position);
         aliensu.at(it).setPosition(_positionu);
-        _position.x +=40.f;
-        _positionu.x +=40.f;
+        _position.x = _position.x+40.f;
+        _positionu.x = _positionu.x+40.f;
     }
     return;
 }
@@ -145,14 +133,30 @@ void Aliens::setAlienPosition(){
  void Aliens::update(const float& _pixel){
        for(auto it = aliens.begin(); it != aliens.end(); ++it){
              _position.x = (*it).getPosition().x+ _pixel;
-            (*it).setPosition(_position);
+             _position.y = (*it).getPosition().y;
+             (*it).setPosition(_position);
+            if(_position.x < 30.f){
+                updateRows();
+                _changeAlienDirection = false;
+            }
+             
        }
        for(auto it = aliensu.begin(); it != aliensu.end(); ++it){
              _positionu.x = (*it).getPosition().x-_pixel;
-            (*it).setPosition(_positionu);
+             _positionu.y = (*it).getPosition().y;
+               (*it).setPosition(_positionu);
+            if(_positionu.x < 30.f){
+                updateRows();
+                _changeAlienDirection =true;
+            }
+          
+            
        }
      return;
  }
+ 
+ 
+ 
  
  
  bool Aliens::getIsAlive(const int& it , const AliensDirection& dir) const{
@@ -160,6 +164,52 @@ void Aliens::setAlienPosition(){
         return isAlive.at(it);
     else return isAlive2.at(it);
  }
+ 
+ 
+bool Aliens::getTheReference() const{
+    
+    for(auto it = 0u; it != aliens.size(); ++it){
+        if(isAlive.at(it) && aliens.at(it).getPosition().x == 20.f)
+            return true;
+        else if(isAlive2.at(it)&& aliensu.at(it).getPosition().x==600.f)
+            return true;
+    }
+    return false;
+}
+
+
+void Aliens::updateRows(){
+    
+    for(auto it = 0u; it != aliens.size(); ++it){
+        _position.x = aliens.at(it).getPosition().x;
+        _positionu.x = aliensu.at(it).getPosition().x;
+        
+        _position.y = aliens.at(it).getPosition().y+4.f;
+        _positionu.y = aliensu.at(it).getPosition().y-4.f;
+        
+        aliens.at(it).setPosition(_position);
+        aliensu.at(it).setPosition(_positionu);
+    }
+}
+
+bool Aliens::updateGameOver() const{
+    for(auto it = 0u; it != aliens.size(); ++it){
+        
+       if(aliens.at(it).getPosition().y >=570.f)
+           return true;
+        if(aliensu.at(it).getPosition().y <= 60.f)
+            return true;
+    }
+    return false;
+}
+
+bool Aliens::allAliensKilled() const{
+    for(auto it = 0u; it != aliens.size(); ++it){
+       if(isAlive.at(it) || isAlive.at(it))
+           return false;
+    }
+    return true;
+}
 Aliens::~Aliens()
 {
 }

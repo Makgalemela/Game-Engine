@@ -48,7 +48,8 @@ private:
     DefenseBlocks _defense;
     sf::Vector2f _resolution;
     bool shotFired;
-    
+    sf::Sprite _GameOverSprite;
+    sf::Texture _GameOverTexture;
 //    **************************************************************************************
 //    
 //    this private methods is responsible for capturing the user imputs
@@ -87,6 +88,9 @@ private:
 
 
     FiringDirection fd;
+    
+    
+    bool gameOver;
 };
 
 #endif // GAME_HPP

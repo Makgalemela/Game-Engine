@@ -5,12 +5,14 @@ Game::Game()
     _resolution.x = 1000.f;
     _resolution.y = 600.f;
     shotFired = false;
-  
+    gameOver = false;
     _window.create(sf::VideoMode(_resolution.x, _resolution.y), "Duel Invader", sf::Style::Default);
-   if(! _backgroundTexture.loadFromFile("../executables/resources/background.png")){
+   if(! _backgroundTexture.loadFromFile("../executables/resources/background.png") ||
+    ! _GameOverTexture.loadFromFile("../executables/resources/GameOver.png")){
      std::cerr<<"Could not load the background image"<<std::endl;
    }
     _backgroundSprite.setTexture(_backgroundTexture);
+    _GameOverSprite.setTexture(_GameOverTexture);
     
 }
 
@@ -30,12 +32,19 @@ void Game::start(){
         { 
             if (event.type == sf::Event::Closed)
             _window.close();
-            if(!gamePlaying){
+            if(gameOver){
+                _window.draw(_GameOverSprite);
+                 _window.display();
+            if((event.type == sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::Escape))
+                _window.close();
+            }
+            else if(!gamePlaying){
             _window.draw(_splash.getSplash());
              _window.display();
                 if((event.type == sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::Space)){
                     gamePlaying = true;
             }
+
         }
         
         fd = FiringDirection::defaultd;
@@ -50,6 +59,11 @@ void Game::start(){
             update(dtAsSeconds);
             draw();
         }
+        if(aliens.updateGameOver() || aliens.allAliensKilled()){
+                    gamePlaying =false;
+                    gameOver = true;
+                    
+            }
         
     }
 }
@@ -125,7 +139,7 @@ void Game::draw(){
         
     }
     for(auto it = 0u;  it != _aliensu.size(); ++it){
-        if(if(aliens.getIsAlive(it, AliensDirection::UpFace)) ){
+        if(aliens.getIsAlive(it, AliensDirection::UpFace)){
              if(_cannon.alienShoot(_aliensu.at(it), AliensDirection::UpFace)) 
             aliens.alienIsShot(it,AliensDirection::UpFace);
             _window.draw(_aliensu.at(it));
@@ -137,7 +151,7 @@ void Game::draw(){
     sampleText(_window);
     elapsedTime(_window);
     ScoreDraw(_window);
-    //aliens.AlienMovement(_window);
+    aliens.AlienMovement(_window);
    _window.display();
 }
 Game::~Game()
