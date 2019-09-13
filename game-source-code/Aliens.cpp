@@ -54,74 +54,67 @@ vector<sf::Sprite> Aliens::aliensSpriteAlone() const{
 
 
 void Aliens::loadAliens() {
-    for(auto it = 0 ; it !=18; ++it){
-        if(it < 18){
+    for(auto it = 0 ; it !=10; ++it){
+        if(it < 10){
             aliens.push_back(_alienSprite2);
             aliensu.push_back(_alienSpriteu);
+            isAlive.push_back(true);
         }
-//        else if(it < 36){
-//            aliens.push_back(_alienSprite3);
-//            aliensu.push_back(_alienSprite3u);
-//        }
-//        else{
-//             aliens.push_back(_alienSprite);
-//             aliensu.push_back(_alienSprite2u);
-//        }
+        else if(it < 20){
+            aliens.push_back(_alienSprite3);
+            aliensu.push_back(_alienSprite3u);
+        }
+        else{
+             aliens.push_back(_alienSprite);
+             aliensu.push_back(_alienSprite2u);
+        }
     }
 }
 
 
-void Aliens::AlienMovement(){
-   
+void Aliens::AlienMovement(sf::RenderWindow &_windows){
    if(_watch.timerForMovement()){
-        
       if(!_changeAlienDirection){
-           if(_position.x > 20.f){
-            _positionu.x +=20.f;
-            _position.x -=20.f;
-        }
-        else {
+        if(_position.x >= 950.f){
             _changeAlienDirection = true;
-             _positionu.y -=15.f;
-            _position.y +=15.f;
+            }
+            update(40.f);
         }
-      }
-      else{
-           if(_positionu.x > 20.f){
-            _positionu.x -=20.f;
-            _position.x +=20.f;
-        }
-        else {
-            _changeAlienDirection = false;
-             _positionu.y -=15.f;
-            _position.y +=15.f;
-        }
-      }
-       
-   }
-}
-
-void Aliens::deleteCollidedAlien(std::vector<sf::Sprite>::iterator index, const AliensDirection& ad){
-    if(ad == AliensDirection::DownFace){
-//        if(aliens.at(index).getTexture() == &_alienTexture)
-//            _score.setScore(Scores::Ten);
-//        else if(aliens.at(index).getTexture() == &_alienTexture3)
-//            _score.setScore(Scores::Twenty);
-//        else if(aliens.at(index).getTexture() == &_alienTexture2)
-//            _score.setScore(Scores::ThirtyFive);
-        aliens.erase(index--);
-    }
         
-    else if(ad == AliensDirection::UpFace){
-//        if(aliensu.at(index).getTexture() == &_alienTextureu)
-//            _score.setScore(Scores::Ten);
-//        else if(aliensu.at(index).getTexture() == &_alienTexture3u)
-//            _score.setScore(Scores::Twenty);
-//        else if(aliensu.at(index).getTexture() == &_alienTexture2u)
-//            _score.setScore(Scores::ThirtyFive);
-            
-        aliensu.erase(index--);
+    else {
+        if(_position.x <= 100.f){
+            _changeAlienDirection = false;
+        }
+        update(-40.f);
+        }
     }
+}
+   
+
+
+
+void Aliens::alienIsShot(const int& it, const AliensDirection& ad){
+//    if(ad == AliensDirection::DownFace){
+////        if(aliens.at(index).getTexture() == &_alienTexture)
+////            _score.setScore(Scores::Ten);
+////        else if(aliens.at(index).getTexture() == &_alienTexture3)
+////            _score.setScore(Scores::Twenty);
+////        else if(aliens.at(index).getTexture() == &_alienTexture2)
+////            _score.setScore(Scores::ThirtyFive);
+            
+        isAlive.at(it) = false;
+//    }
+//       aliens.erase(it--); 
+//    else if(ad == AliensDirection::UpFace){
+////        if(aliensu.at(index).getTexture() == &_alienTextureu)
+////            _score.setScore(Scores::Ten);
+////        else if(aliensu.at(index).getTexture() == &_alienTexture3u)
+////            _score.setScore(Scores::Twenty);
+////        else if(aliensu.at(index).getTexture() == &_alienTexture2u)
+////            _score.setScore(Scores::ThirtyFive);
+//            
+//        aliensu.erase(index--);
+//    }
     _score.writehighscore();
 }
 
@@ -136,11 +129,28 @@ void Aliens::setAlienPosition(){
 //        }
         aliens.at(it).setPosition(_position);
         aliensu.at(it).setPosition(_positionu);
-        _position.x +=30.f;
-        _positionu.x +=30.f;
+        _position.x +=40.f;
+        _positionu.x +=40.f;
     }
     return;
 }
+
+ void Aliens::update(const float& _pixel){
+       for(auto it = aliens.begin(); it != aliens.end(); ++it){
+             _position.x = (*it).getPosition().x+ _pixel;
+            (*it).setPosition(_position);
+       }
+       for(auto it = aliensu.begin(); it != aliensu.end(); ++it){
+             _positionu.x = (*it).getPosition().x-_pixel;
+            (*it).setPosition(_positionu);
+       }
+     return;
+ }
+ 
+ 
+ bool Aliens::getIsAlive(const int& it) const{
+     return isAlive.at(it);
+ }
 Aliens::~Aliens()
 {
 }

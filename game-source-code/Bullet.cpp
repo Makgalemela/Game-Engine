@@ -9,7 +9,7 @@ Bullet::Bullet()
         std::cerr<<"Failed to load bullet sprite"<<std::endl;
     }
     _bulletSprite.setTexture(_bulletTexture);
-    _bulletSprite.scale(0.04f , 0.02f);
+    _bulletSprite.scale(0.02f , 0.02f);
     
     _bulletExplosionSprite.setTexture(_bulletExplosionTexture);
     _bulletExplosionSprite.scale(0.1f , 0.1f);
@@ -92,16 +92,17 @@ void Bullet::fireBullet2(sf::RenderWindow &_window , sf::Vector2f _bulletPositio
     }
 }
 
-void Bullet::alienShoot(sf::Sprite _alien){
+bool Bullet::alienShoot(sf::Sprite _alien){
     float _posX = _alien.getPosition().x;
     float _posY = _alien.getPosition().y;
     
     for(auto it = _bullets.begin(); it != _bullets.end(); ++it){
-        if(abs((*it).getPosition().x - _posX) <10.f  && abs((*it).getPosition().y - _posY) <10.f){
-            std::cout<<"Collusion"<<std::endl;
+        if(abs((*it).getPosition().x - _posX) <10.f  && abs((*it).getPosition().y - _posY) <5.f){
+            _bullets.erase(it--);
+            return true;
         }
     }
-    
+    return false;
 }
 
 Bullet::~Bullet()

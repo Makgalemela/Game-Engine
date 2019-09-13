@@ -117,17 +117,17 @@ void Game::draw(){
     auto[_aliens, _aliensu]  = aliens.aliensSprite();
     _cannon.BulletOutOfScreen(AliensDirection::DownFace);
     
-    for(auto it = _aliens.begin();  it != _aliens.end(); ++it){
-        _cannon.alienShoot(*it);
-        _window.draw(*it);
+    for(auto it = 0u;  it != _aliens.size(); ++it){
+        if(_cannon.alienShoot(_aliens.at(it))) aliens.alienIsShot(it);
+        if(aliens.getIsAlive(it)) _window.draw(_aliens.at(it));
        // if(it != _aliens.end() && _cannon.collusion((*it).getPosition().x ,(*it).getPosition().y ))
               // aliens.deleteCollidedAlien(it, AliensDirection::DownFace);
     }
 //    for(auto it = _aliensu.begin();  it != _aliensu.end(); ++it){
-//        //_window.draw(*it);
+//        _window.draw(*it);
 //       // if(it != _aliensu.end() && _cannon.collusion2((*it).getPosition().x ,(*it).getPosition().y ))
 //               //aliens.deleteCollidedAlien(it, AliensDirection::UpFace);
-//        _cannon.BulletOutOfScreen(AliensDirection::UpFace);
+//        //_cannon.BulletOutOfScreen(AliensDirection::UpFace);
 //    }
 
     _cannon.BulletsCollusion(_window);
@@ -135,7 +135,7 @@ void Game::draw(){
     sampleText(_window);
     elapsedTime(_window);
     ScoreDraw(_window);
-    aliens.AlienMovement();
+    aliens.AlienMovement(_window);
    _window.display();
 }
 Game::~Game()

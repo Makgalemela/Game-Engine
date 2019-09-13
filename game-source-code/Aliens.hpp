@@ -59,9 +59,10 @@ public:
     std::vector<sf::Sprite> aliensSpriteAlone() const;
     
     
-    void AlienMovement();
+    void AlienMovement(sf::RenderWindow &_windows);
     void setAlienPosition();
-    void deleteCollidedAlien(std::vector<sf::Sprite>::iterator index, const AliensDirection& ad = AliensDirection::DownFace);
+    void alienIsShot(const int& it, const AliensDirection& ad = AliensDirection::DownFace);
+    bool getIsAlive(const int& it) const;
 private:
     ///buttom aliens
     sf::Texture _alienTexture;
@@ -86,6 +87,11 @@ private:
     bool _changeAlienDirection;
     StopWatch _watch;
     Score _score;
+    
+    std::vector<bool> isAlive;
+    std::vector<bool> isAlive2;
+    
+    void update(const float& _pixel);
 };
 
 #endif // ALIENS_HPP
