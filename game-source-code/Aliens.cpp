@@ -3,88 +3,89 @@
 #include <iostream>
 Aliens::Aliens()
 {
-    if(!_alienTexture.loadFromFile("../executables/resources/aliens.png") || 
-    !_alienTexture2.loadFromFile("../executables/resources/alien2.png")||
-    !_alienTexture3.loadFromFile("../executables/resources/alien3.png")){
-        std::cout<<"One more aliens sprite could not load"<<std::endl;
+    if(!alienTexture[0].loadFromFile("../executables/resources/aliens.png") || 
+    !alienTexture[1].loadFromFile("../executables/resources/alien2.png")||
+    !alienTexture[2].loadFromFile("../executables/resources/alien3.png")||
+    !alienTexture[3].loadFromFile("../executables/resources/aliensc.png") || 
+    !alienTexture[4].loadFromFile("../executables/resources/alien2c.png")||
+    !alienTexture[5].loadFromFile("../executables/resources/alien3c.png")){
+       std::cerr<<"One more aliens sprite could not load"<<std::endl;
     }
-    _alienSprite.setTexture(_alienTexture);
-     _alienSprite.scale(sf::Vector2f(0.045f , 0.045f));
-     
-    // _alienTexture2.loadFromFile("../executables/resources/alien2.png");
-     _alienSprite2.setTexture(_alienTexture2);
-     _alienSprite2.scale(sf::Vector2f(0.035f , 0.035f));
-     
-    // _alienTexture3.loadFromFile("../executables/resources/alien3.png");
-     _alienSprite3.setTexture(_alienTexture3);
-     _alienSprite3.scale(sf::Vector2f(0.040f , 0.040f));
-     _position.x = 20.f;
-     _position.y = 310.f;
-     
-     
-     //upper positioned aliens
-     
-      if(!_alienTextureu.loadFromFile("../executables/resources/aliensc.png") || 
-    !_alienTexture2u.loadFromFile("../executables/resources/alien2c.png")||
-    !_alienTexture3u.loadFromFile("../executables/resources/alien3c.png")){
-        std::cout<<"One more aliens sprite could not load"<<std::endl;
+     _position[0].x = 25.f;
+     _position[0].y = 310.f;
+     _position[1].x = 580.f;
+     _position[1].y = 210.f;
+    _changeAlienDirection[0] = false;
+    _changeAlienDirection[1] = false;
+}
+
+
+void Aliens::setTexture(){
+    for(auto it = 0 ; it != 6; ++it){
+        alienSprite[it].setTexture(alienTexture[it]);
     }
-    _alienSpriteu.setTexture(_alienTextureu);
-     _alienSpriteu.scale(sf::Vector2f(0.045f , 0.045f));
-     
-    // _alienTexture2.loadFromFile("../executables/resources/alien2.png");
-     _alienSprite2u.setTexture(_alienTexture2u);
-     _alienSprite2u.scale(sf::Vector2f(0.035f , 0.035f));
-     
-    // _alienTexture3.loadFromFile("../executables/resources/alien3.png");
-     _alienSprite3u.setTexture(_alienTexture3u);
-     _alienSprite3u.scale(sf::Vector2f(0.040f , 0.040f));
-     _positionu.x = 620.f;
-     _positionu.y = 210.f;
-    _changeAlienDirection = false;
+    scale();
+    return;
+}
+
+void Aliens::scale(){
+    alienSprite[0].scale(sf::Vector2f(0.045f , 0.045f));
+    alienSprite[1].scale(sf::Vector2f(0.035f , 0.035f));
+    alienSprite[2].scale(sf::Vector2f(0.040f , 0.040f));
+    alienSprite[3].scale(sf::Vector2f(0.045f , 0.045f));
+    alienSprite[4].scale(sf::Vector2f(0.035f , 0.035f));
+    alienSprite[5].scale(sf::Vector2f(0.040f , 0.040f));
+    return;
 }
 
 tuple<vector<sf::Sprite> ,vector<sf::Sprite>> Aliens::aliensSprite() const{
-    return {aliens,aliensu};
+    return {aliens[0],aliens[1]};
 }
 
 vector<sf::Sprite> Aliens::aliensSpriteAlone() const{
-    return aliens;
+    return aliens[0];
 }
 
 
 void Aliens::loadAliens() {
+    setTexture();
     for(auto it = 0 ; it !=30; ++it){
         if(it < 10){
-            aliens.push_back(_alienSprite2);
-            aliensu.push_back(_alienSpriteu);
-            isAlive.push_back(true);
-            isAlive2.push_back(true);
+            aliens[0].push_back(alienSprite[0]);
+            aliens[1].push_back(alienSprite[1]);
+            alienIsAlive[0].push_back(true);
+            alienIsAlive[1].push_back(true);
         }
         else if(it < 20){
-            aliens.push_back(_alienSprite3);
-            aliensu.push_back(_alienSprite3u);
-            isAlive.push_back(true);
-            isAlive2.push_back(true);
+            aliens[0].push_back(alienSprite[2]);
+            aliens[1].push_back(alienSprite[3]);
+            alienIsAlive[0].push_back(true);
+            alienIsAlive[1].push_back(true);
         }
         else{
-             aliens.push_back(_alienSprite);
-             aliensu.push_back(_alienSprite2u);
-             isAlive.push_back(true);
-             isAlive2.push_back(true);
+             aliens[0].push_back(alienSprite[4]);
+             aliens[1].push_back(alienSprite[5]);
+             alienIsAlive[0].push_back(true);
+             alienIsAlive[1].push_back(true);
         }
     }
+    return;
 }
 
 
-void Aliens::AlienMovement(sf::RenderWindow &_windows){
+void Aliens::alienIsMoving(sf::RenderWindow &_windows){
    if(_watch.timerForMovement()){
-      if(!_changeAlienDirection)
-            update(40.f);
+      if(int i= 0;!_changeAlienDirection[0])
+            update(+40.f,i);
         else 
-            update(-40.f);
-        
+            update(-40.f,i);
+            
+    if(int i = 1; !_changeAlienDirection[1])
+            update(-40.f,i);
+        else 
+            update(+40.f,i);
     }
+    return;
 }
    
 
@@ -92,125 +93,116 @@ void Aliens::AlienMovement(sf::RenderWindow &_windows){
 
 void Aliens::alienIsShot(const int& index, const AliensDirection& ad){
     if(ad == AliensDirection::DownFace){
-        if(aliens.at(index).getTexture() == &_alienTexture)
+        if(aliens[0].at(index).getTexture() == &alienTexture[0])
             _score.setScore(Scores::Ten);
-        else if(aliens.at(index).getTexture() == &_alienTexture3)
+        else if(aliens[0].at(index).getTexture() == &alienTexture[2])
             _score.setScore(Scores::Twenty);
-        else if(aliens.at(index).getTexture() == &_alienTexture2)
+        else if(aliens[0].at(index).getTexture() == &alienTexture[1])
             _score.setScore(Scores::ThirtyFive);
-        isAlive.at(index) = false;
+        alienIsAlive[0].at(index) = false;
     }
     
     else if(ad == AliensDirection::UpFace){
-        if(aliensu.at(index).getTexture() == &_alienTextureu)
+        if(aliens[1].at(index).getTexture() == &alienTexture[3])
             _score.setScore(Scores::Ten);
-        else if(aliensu.at(index).getTexture() == &_alienTexture3u)
+        else if(aliens[1].at(index).getTexture() == &alienTexture[5])
             _score.setScore(Scores::Twenty);
-        else if(aliensu.at(index).getTexture() == &_alienTexture2u)
+        else if(aliens[1].at(index).getTexture() == &alienTexture[4])
             _score.setScore(Scores::ThirtyFive);
-         isAlive2.at(index) = false;
-    }
-   
-}
-
-
-void Aliens::setAlienPosition(){
-    for(auto it = 0u; it != aliens.size(); ++it){
-        if(it == 10 || it == 20){
-            _position.x =_position.x-400.f;
-            _position.y =_position.y+35.f;
-            _positionu.x =_positionu.x-400.f;
-            _positionu.y =_positionu.y+35.f;
-        }
-        aliens.at(it).setPosition(_position);
-        aliensu.at(it).setPosition(_positionu);
-        _position.x = _position.x+40.f;
-        _positionu.x = _positionu.x+40.f;
+         alienIsAlive[1].at(index) = false;
     }
     return;
 }
 
- void Aliens::update(const float& _pixel){
-       for(auto it = aliens.begin(); it != aliens.end(); ++it){
-             _position.x = (*it).getPosition().x+ _pixel;
-             _position.y = (*it).getPosition().y;
-             (*it).setPosition(_position);
-            if(_position.x < 30.f){
-                updateRows();
-                _changeAlienDirection = false;
-            }
-             
-       }
-       for(auto it = aliensu.begin(); it != aliensu.end(); ++it){
-             _positionu.x = (*it).getPosition().x-_pixel;
-             _positionu.y = (*it).getPosition().y;
-               (*it).setPosition(_positionu);
-            if(_positionu.x < 30.f){
-                updateRows();
-                _changeAlienDirection =true;
-            }
-          
-            
-       }
-     return;
- }
- 
- 
- 
- 
- 
- bool Aliens::getIsAlive(const int& it , const AliensDirection& dir) const{
-     if(dir == AliensDirection::DownFace)
-        return isAlive.at(it);
-    else return isAlive2.at(it);
- }
- 
- 
-bool Aliens::getTheReference() const{
-    
-    for(auto it = 0u; it != aliens.size(); ++it){
-        if(isAlive.at(it) && aliens.at(it).getPosition().x == 20.f)
-            return true;
-        else if(isAlive2.at(it)&& aliensu.at(it).getPosition().x==600.f)
-            return true;
+
+void Aliens::setAlienPosition(){
+    for(auto it = 0u; it != aliens[0].size(); ++it){
+        if(it == 10 || it == 20){
+            _position[0].x =_position[0].x-400.f;
+            _position[0].y =_position[0].y+35.f;
+            _position[1].x =_position[1].x-400.f;
+            _position[1].y =_position[1].y+35.f;
+        }
+        aliens[0].at(it).setPosition(_position[0]);
+        aliens[1].at(it).setPosition(_position[1]);
+        _position[0].x = _position[0].x+40.f;
+        _position[1].x = _position[1].x+40.f;
     }
-    return false;
+    return;
 }
 
-
-void Aliens::updateRows(){
-    
-    for(auto it = 0u; it != aliens.size(); ++it){
-        _position.x = aliens.at(it).getPosition().x;
-        _positionu.x = aliensu.at(it).getPosition().x;
-        
-        _position.y = aliens.at(it).getPosition().y+4.f;
-        _positionu.y = aliensu.at(it).getPosition().y-4.f;
-        
-        aliens.at(it).setPosition(_position);
-        aliensu.at(it).setPosition(_positionu);
+ void Aliens::update(const float& _pixel, const int& i){
+      
+       for(auto it = 0u; it != aliens[i].size(); ++it){
+         _position[i].x = aliens[i].at(it).getPosition().x+ _pixel;
+         _position[i].y = aliens[i].at(it).getPosition().y;
+         aliens[i].at(it).setPosition(_position[i]);
+        if(_position[i].x < 20.f && alienIsAlive[i].at(it)){
+            //updateRows(i);
+            _changeAlienDirection[i] = false;
+        }
+        else if(_position[i].x > 950.f && alienIsAlive[i].at(it)){
+             updateRows(i);
+            _changeAlienDirection[i] = true;
+        }
     }
+    
+    return;
+ }
+ 
+ 
+ 
+ 
+ 
+ bool Aliens::IsAlienAlive(const int& it , const AliensDirection& dir) const{
+     if(dir == AliensDirection::DownFace)
+        return alienIsAlive[0].at(it);
+    else return alienIsAlive[1].at(it);
+ }
+ 
+ 
+
+void Aliens::updateRows(const int& i){
+    auto _direction = -8.f;
+    if(i==0) _direction = 8.f;
+    
+    for(auto it = 0u; it != aliens[i].size(); ++it){
+        _position[i].x = aliens[i].at(it).getPosition().x;
+        _position[i].y = aliens[i].at(it).getPosition().y+ _direction;
+         aliens[i].at(it).setPosition(_position[i]);
+    }
+    return;
 }
 
 bool Aliens::updateGameOver() const{
-    for(auto it = 0u; it != aliens.size(); ++it){
-        
-       if(aliens.at(it).getPosition().y >=570.f)
+    for(auto it = 0u; it != aliens[0].size(); ++it){
+       if(aliens[0].at(it).getPosition().y >=570.f)
            return true;
-        if(aliensu.at(it).getPosition().y <= 60.f)
+        if(aliens[1].at(it).getPosition().y <= 60.f)
             return true;
     }
     return false;
 }
 
 bool Aliens::allAliensKilled() const{
-    for(auto it = 0u; it != aliens.size(); ++it){
-       if(isAlive.at(it) || isAlive.at(it))
+    for(auto it = 0u; it != aliens[0].size(); ++it){
+       if(alienIsAlive[0].at(it) || alienIsAlive[1].at(it))
            return false;
     }
     return true;
 }
+
+
+sf::Vector2f Aliens::alienFire(){
+    int fa = rand() % aliens[0].size();
+    sf::Sprite  firingAlien= aliens[0].at(fa);
+    sf::Vector2f _pos;
+    _pos.x = firingAlien.getPosition().x;
+    _pos.y = firingAlien.getPosition().y;
+    return _pos;
+}
 Aliens::~Aliens()
 {
 }
+
 

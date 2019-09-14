@@ -49,9 +49,10 @@ void Game::start(){
         
         fd = FiringDirection::defaultd;
         if((event.type == sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::Up) && gamePlaying)
-                   _cannon.startFiring(FiringDirection::up);
+                   _cannon.startFiring(FiringDirection::down, _cannon.getCannon2CenterFirePosition());
+                   
         if((event.type == sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::F) && gamePlaying)
-                  _cannon.startFiring(FiringDirection::down);
+                  _cannon.startFiring(FiringDirection::up ,_cannon.getCannonCenterFirePosition());
         }
 
         if(gamePlaying){
@@ -124,14 +125,11 @@ void Game::draw(){
     _window.draw(_cannon.getSprite());
     _window.draw(_cannon.getSprite2());
     
-    _cannon.fireBullet(_window, _cannon.getCannonCenterFirePosition());
-    _cannon.fireBullet2(_window, _cannon.getCannon2CenterFirePosition());
-    _cannon.BulletOutOfScreen(AliensDirection::UpFace);
-    auto[_aliens, _aliensu]  = aliens.aliensSprite();
-    _cannon.BulletOutOfScreen(AliensDirection::DownFace);
-  
+    _cannon.fireBullet(_window);    
+    _cannon.BulletOutOfScreen();
+    auto[_aliens, _aliensu]  = aliens.aliensSprite();  
     for(auto it = 0u;  it != _aliens.size(); ++it){
-          if(aliens.getIsAlive(it, AliensDirection::DownFace)){
+          if(aliens.IsAlienAlive(it, AliensDirection::DownFace)){
               if( _cannon.alienShoot(_aliens.at(it), AliensDirection::DownFace)) 
                   aliens.alienIsShot(it,AliensDirection::DownFace);
                 _window.draw(_aliens.at(it));
@@ -139,7 +137,7 @@ void Game::draw(){
         
     }
     for(auto it = 0u;  it != _aliensu.size(); ++it){
-        if(aliens.getIsAlive(it, AliensDirection::UpFace)){
+        if(aliens.IsAlienAlive(it, AliensDirection::UpFace)){
              if(_cannon.alienShoot(_aliensu.at(it), AliensDirection::UpFace)) 
             aliens.alienIsShot(it,AliensDirection::UpFace);
             _window.draw(_aliensu.at(it));
@@ -151,7 +149,7 @@ void Game::draw(){
     sampleText(_window);
     elapsedTime(_window);
     ScoreDraw(_window);
-    aliens.AlienMovement(_window);
+    aliens.alienIsMoving(_window);
    _window.display();
 }
 Game::~Game()

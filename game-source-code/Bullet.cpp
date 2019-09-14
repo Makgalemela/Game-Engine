@@ -2,8 +2,8 @@
 #include <iostream>
 Bullet::Bullet()
 {
-    _bulletSpeed = -0.09f;
-    _fire = false;
+   
+    _bulletSpeed = 0.15f;
     if(!_bulletTexture.loadFromFile("../executables/resources/bullet.png") ||
         !_bulletExplosionTexture.loadFromFile("../executables/resources/explosion_bullet.png") ){
         std::cerr<<"Failed to load bullet sprite"<<std::endl;
@@ -17,43 +17,46 @@ Bullet::Bullet()
 
 
 ///The function triggers fire
-void Bullet::startFiring(FiringDirection fd){
-    if(fd == FiringDirection::down)
-         _fire = true;
-    else  if(fd == FiringDirection::up)
-        _fire2 = true;
+void Bullet::startFiring(const FiringDirection& fd, sf::Vector2f _bulletPosition){
+       /// std::cout<<int(fd)<<std::endl;
+        
+     if(fd == FiringDirection::up)
+         _bulletPosition.y = _bulletPosition.y-25.f; 
+    else
+         _bulletPosition.y = _bulletPosition.y+25.f; 
+
+     _bulletPosition.x += 18.f;
+    _bulletSprite.setPosition(_bulletPosition);
+    _bullets.push_back(_bulletSprite);
+      bulletOrientation.push_back(fd);
+     
+    return;
 }
 
- void Bullet::BulletOutOfScreen(AliensDirection ad ){
-     for(auto it = 0u ; it < _bullets.size(); ++it){
-         if(ad == AliensDirection::DownFace&&_bullets.size() != 0 && _bullets.at(it).getPosition().y < 50.f){
-             _bullets.erase(_bullets.begin() + it);
-         }
+ void Bullet::BulletOutOfScreen( ){
+     for(auto it = 0u ; it < _bullets.size() ; ++it){
+         if(_bullets.size() != 0)
+            if( _bullets.at(it).getPosition().y < 50.f || _bullets.at(it).getPosition().y > 570.f){
+                 _bullets.erase(_bullets.begin() + it);
+                bulletOrientation.erase(bulletOrientation.begin() +it);
+            }
      }
-     
-     for(auto it = 0u ; it < _bullets2.size(); ++it){
-         if(ad == AliensDirection::UpFace && _bullets2.size() != 0 && _bullets2.at(it).getPosition().y > 570.f){
-             _bullets2.erase(_bullets2.begin() + it);
-         }
-     }
-
+    return;
  }
  
 
  void Bullet::BulletsCollusion(sf::RenderWindow& _window){
      for(auto it = 0u; it != _bullets.size(); ++it){
-         for(auto i = 0u; i != _bullets2.size();++i ){
-             
-             if((_bullets2.size() != 0 && _bullets.size() != 0) && abs(_bullets2.at(i).getPosition().x - _bullets.at(it).getPosition().x)<10 &&
-                abs(_bullets2.at(i).getPosition().y - _bullets.at(it).getPosition().y)<5){
-              _bulletExplosionSprite.setPosition(_bullets2.at(i).getPosition().x-10,_bullets2.at(i).getPosition().y );
+         for(auto i = 0u; i != _bullets.size();++i ){
+             if( _bullets.size() != 0 && i != it)
+             if( abs(_bullets.at(i).getPosition().x - _bullets.at(it).getPosition().x)<5 &&
+                abs(_bullets.at(i).getPosition().y - _bullets.at(it).getPosition().y)<5){
               _bullets.erase(_bullets.begin()+ it);
-              _bullets2.erase(_bullets2.begin()+ i);
-              for(auto t = 0u; t != 100 ;++t ){
-                  _window.draw(_bulletExplosionSprite);
-              }
+              _bullets.erase(_bullets.begin()+ i);
+               bulletOrientation.erase(bulletOrientation.begin() +it);
+               bulletOrientation.erase(bulletOrientation.begin() +i);
               return;
-         }
+            }
          }
      }
      return;
@@ -61,60 +64,31 @@ void Bullet::startFiring(FiringDirection fd){
  
  
  
-void Bullet::fireBullet(sf::RenderWindow &_window , sf::Vector2f _bulletPosition)
-{   
-    if(_fire){
-         _bulletPosition.x += 18.f;
-        _bulletPosition.y -= 25.f;        
-        _bulletSprite.setPosition(_bulletPosition);
-        _bullets.push_back(_bulletSprite);
-        _fire = false;
-    }
+void Bullet::fireBullet(sf::RenderWindow &_window )
+{  
     for(auto it =  0u; it != _bullets.size() ; ++it){
-             _window.draw(_bullets.at(it));
-            _bullets.at(it).move(0, -0.09f);
-    }
-}
-
-
-void Bullet::fireBullet2(sf::RenderWindow &_window , sf::Vector2f _bulletPosition)
-{   
-    if(_fire2){
-         _bulletPosition.x += 18.f;
-        _bulletPosition.y += 25.f;        
-        _bulletSprite.setPosition(_bulletPosition);
-        _bullets2.push_back(_bulletSprite);
-        _fire2 = false;
-    }
-    for(auto it =  0u; it != _bullets2.size() ; ++it){
-             _window.draw(_bullets2.at(it));
-            _bullets2.at(it).move(0, +0.09f);
+         if(bulletOrientation.at(it) == FiringDirection::up)
+                _bullets.at(it).move(0, -_bulletSpeed);
+        else if(bulletOrientation.at(it) == FiringDirection::down) 
+            _bullets.at(it).move(0, _bulletSpeed);
+            
+        _window.draw(_bullets.at(it));
     }
 }
 
 bool Bullet::alienShoot(sf::Sprite _alien , AliensDirection dir){
     float _posX = _alien.getPosition().x;
     float _posY = _alien.getPosition().y;
-    if(dir == AliensDirection::DownFace){
-        for(auto it = 0u; it != _bullets.size(); ++it){
-        if(abs((_bullets.at(it)).getPosition().x - _posX) <15.f 
-            && abs((_bullets.at(it)).getPosition().y - _posY) <15.f){
+    
+    for(auto it = 0u; it != _bullets.size(); ++it){
+        if(abs(_bullets.at(it).getPosition().x - _posX) <15.f 
+            && abs(_bullets.at(it).getPosition().y - _posY) <15.f){
             _bullets.erase(_bullets.begin()+it);
+            bulletOrientation.erase(bulletOrientation.begin() +it);
             return true;
         }
     }
-    }
-    
-    else{
-        for(auto it = 0u; it != _bullets2.size(); ++it){
-        if(abs((_bullets2.at(it)).getPosition().x - _posX) <15.f  
-        && abs((_bullets2.at(it)).getPosition().y - _posY) <15.f){
-            _bullets2.erase(_bullets2.begin()+it);
-            return true;
-        }
-    }
-    }
-    
+
     return false;
 }
 

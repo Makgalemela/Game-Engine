@@ -5,7 +5,8 @@
 #include <SFML/Graphics.hpp>
 #include "StopWatch.h"
 #include "Score.hpp"
-
+#include <cstdlib>
+#include <ctime>
 //*******************************************************
 //
 //class Aliens load and cread enemy aliens
@@ -59,43 +60,32 @@ public:
     std::vector<sf::Sprite> aliensSpriteAlone() const;
     
     
-    void AlienMovement(sf::RenderWindow &_windows);
+    void alienIsMoving(sf::RenderWindow &_windows);
     void setAlienPosition();
     void alienIsShot(const int& it, const AliensDirection& ad = AliensDirection::DownFace);
-    bool getIsAlive(const int& it, const AliensDirection& dir) const;
+    bool IsAlienAlive(const int& it, const AliensDirection& dir) const;
     bool updateGameOver() const;
     bool allAliensKilled() const;
+    
+    
+    void scale();
 private:
     ///buttom aliens
-    sf::Texture _alienTexture;
-    sf::Texture _alienTexture2;
-    sf::Texture _alienTexture3;
-    sf::Sprite _alienSprite;
-    sf::Sprite _alienSprite2;
-    sf::Sprite _alienSprite3;
-    vector<sf::Sprite> aliens;
-    sf::Vector2f _position;
-    ///upper aliens
-    
-    sf::Texture _alienTextureu;
-    sf::Texture _alienTexture2u;
-    sf::Texture _alienTexture3u;
-    sf::Sprite _alienSpriteu;
-    sf::Sprite _alienSprite2u;
-    sf::Sprite _alienSprite3u;
-    vector<sf::Sprite> aliensu;
-    sf::Vector2f _positionu;
-    
-    bool _changeAlienDirection;
+    sf::Texture alienTexture[6];
+    sf::Sprite alienSprite[6];
+    vector<sf::Sprite> aliens[2];
+    sf::Vector2f _position[2];
+    bool _changeAlienDirection[2];
     StopWatch _watch;
     Score _score;
     
-    std::vector<bool> isAlive;
-    std::vector<bool> isAlive2;
+    std::vector<bool> alienIsAlive[2];
     
-    void update(const float& _pixel);
-    void updateRows();
-    bool getTheReference() const;
+    void setTexture();
+    
+    void update(const float& _pixel, const int& i);
+    void updateRows(const int& i);
+    sf::Vector2f alienFire();
 };
 
 #endif // ALIENS_HPP

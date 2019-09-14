@@ -17,6 +17,8 @@ enum class FiringDirection{
     down,
     defaultd
 };
+
+
 class Bullet
 {
 public:
@@ -27,15 +29,15 @@ public:
 //        the method fires a bullet and draws it's movement of the the screen
 //    ********************************************************************
     
-    void fireBullet(sf::RenderWindow &_window , sf::Vector2f _bulletPosition);
-    void fireBullet2(sf::RenderWindow &_window , sf::Vector2f _bulletPosition);
+    void fireBullet(sf::RenderWindow &_window );
+  
     
 //    **********************************************************************
 //    the method is called when keyboard key F is pressed
 //    it set bool _fire to true signalling that the bullet can be fired
 //    **********************************************************************
     
-   void startFiring(FiringDirection fd);
+   void startFiring(const FiringDirection& fd,sf::Vector2f _bulletPosition);
     
     
 //     ******************************************************************************
@@ -48,15 +50,16 @@ public:
     bool collusion(sf::Vector2f _Pos , AliensDirection ad);
     void BulletsCollusion(sf::RenderWindow& _window);
     
-    void BulletOutOfScreen(AliensDirection ad);
+    void BulletOutOfScreen();
     bool alienShoot(sf::Sprite _alien, AliensDirection dir);
+    
+    bool alienFire();
 private:
      Aliens _aliens;
      float _bulletSpeed;
      float _bulletTimer;
      float _ellaspsedTime;
-     bool _fire;
-     bool _fire2;
+     std::vector<FiringDirection> bulletOrientation;
     
      
      
@@ -66,7 +69,7 @@ private:
      sf::Sprite _bulletExplosionSprite;
      sf::Texture _bulletExplosionTexture;
      std::vector<sf::Sprite> _bullets;
-     std::vector<sf::Sprite> _bullets2;
+//     std::vector<sf::Sprite> _bullets2;
 
 };
 

@@ -26,6 +26,7 @@ int Score::readhighscore(){
     int highscore;
     if(in.is_open()){
          in>>highscore;
+        /// std::cout<<highscore<<std::endl;
     }
     return  highscore;
 }
