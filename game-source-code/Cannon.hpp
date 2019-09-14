@@ -134,7 +134,8 @@ public:
     sf::Vector2f getCannonCenterFirePosition() const;
     
     void setInitPosOfCannon(sf::Vector2f _position);
-    
+    bool cannonIsShot();
+    void DrawCannon(sf::RenderWindow & _window);
 private: 
     //first cannon
     sf::Vector2f _position;
@@ -145,6 +146,7 @@ private:
     sf::Vector2f _position2;
     sf::Sprite _cannon2;
     sf::Texture _texture2;
+    bool cannonDown[2];
     
     //Direction direction;
     bool _moveLeft;

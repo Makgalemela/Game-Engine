@@ -122,7 +122,8 @@ void Game::draw(){
      
     _window.clear(sf::Color::White);
     _window.draw(_backgroundSprite);
-    _window.draw(_cannon.getSprite());
+    //_window.draw(_cannon.getSprite());
+        _cannon.DrawCannon(_window);
     _window.draw(_cannon.getSprite2());
     
     _cannon.fireBullet(_window);    

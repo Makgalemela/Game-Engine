@@ -52,8 +52,11 @@ public:
     
     void BulletOutOfScreen();
     bool alienShoot(sf::Sprite _alien, AliensDirection dir);
-    
+    tuple<std::vector<sf::Sprite>, vector<FiringDirection>> getBullets() const;
     bool alienFire();
+    
+    
+    
 private:
      Aliens _aliens;
      float _bulletSpeed;

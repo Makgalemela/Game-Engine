@@ -4,6 +4,8 @@ Cannon::Cannon()
 {
     ///This should be refactored as the time goes on;
  _cannonSpeed = 320.f;
+ cannonDown[0] =false;
+ cannonDown[1] =false;
  if(!_texture.loadFromFile("../executables/resources/Laser_Cannon.png") ||
     !_texture2.loadFromFile("../executables/resources/Laser_Cannonc.png") ){
      std::cerr<<"Could not load cannon shooter sprite"<<std::endl;
@@ -26,6 +28,14 @@ void Cannon::setInitPosOfCannon(sf::Vector2f _position){
     return;
 }
 
+
+void Cannon::DrawCannon(sf::RenderWindow & _window){
+    cannonIsShot();
+    if(cannonDown[0] || cannonDown[1] )
+       return;
+    else 
+         _window.draw(_cannon);
+}
 sf::Sprite Cannon::getSprite() const{
     return _cannon;
 }
@@ -142,6 +152,19 @@ void Cannon::rotate(){
 }
 ///trial function
 
+
+bool Cannon::cannonIsShot(){
+    auto [_bullets, orientation] = getBullets();
+    for(auto it = 0u; it != _bullets.size(); ++it){
+        if(abs(_bullets.at(it).getPosition().x - _cannon.getPosition().x) <26 && 
+       abs( _bullets.at(it).getPosition().y - _cannon.getPosition().y) <26 && orientation.at(it) == FiringDirection::down){
+            cannonDown[0] = true;
+            return true;
+        }
+        
+    }
+    return false;
+}
 
 Cannon::~Cannon()
 {
