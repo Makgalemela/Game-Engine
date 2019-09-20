@@ -6,11 +6,11 @@ Screen::Screen()
 }
 
 
- void Screen::sampleText(sf::RenderWindow &_window){
+ void Screen::CannonLives(sf::RenderWindow &_window , const Cannon& _cannon){
         std::ostringstream ss;  
-       ss<<_score.readhighscore();
-        std::string HighScore_(ss.str());
-        sf::Text text("High Score : "+ HighScore_ , font);
+        ss<<_cannon.getCannonLives();
+        std::string numberOfLives_(ss.str());
+        sf::Text text("High Score : "+ numberOfLives_ , font);
         text.setCharacterSize(15);
         text.setStyle(sf::Text::Bold);
         text.setFillColor(sf::Color::White);

@@ -89,8 +89,6 @@ void Aliens::alienIsMoving(sf::RenderWindow &_windows){
 }
    
 
-
-
 void Aliens::alienIsShot(const int& index, const AliensDirection& ad){
     if(ad == AliensDirection::DownFace){
         if(aliens[0].at(index).getTexture() == &alienTexture[0])
@@ -138,7 +136,7 @@ void Aliens::setAlienPosition(){
          _position[i].y = aliens[i].at(it).getPosition().y;
          aliens[i].at(it).setPosition(_position[i]);
         if(_position[i].x < 20.f && alienIsAlive[i].at(it)){
-            //updateRows(i);
+             //updateRows(i);
             _changeAlienDirection[i] = false;
         }
         else if(_position[i].x > 950.f && alienIsAlive[i].at(it)){
@@ -146,7 +144,6 @@ void Aliens::setAlienPosition(){
             _changeAlienDirection[i] = true;
         }
     }
-    
     return;
  }
  

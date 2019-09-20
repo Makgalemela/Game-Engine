@@ -59,6 +59,7 @@ void Game::start(){
             input();
             update(dtAsSeconds);
             draw();
+            _cannon.cannonIsShot();
         }
         if(aliens.updateGameOver() || aliens.allAliensKilled()){
                     gamePlaying =false;
@@ -122,8 +123,8 @@ void Game::draw(){
      
     _window.clear(sf::Color::White);
     _window.draw(_backgroundSprite);
-    //_window.draw(_cannon.getSprite());
-        _cannon.DrawCannon(_window);
+    _window.draw(_cannon.getSprite());
+        //_cannon.DrawCannon(_window);
     _window.draw(_cannon.getSprite2());
     
     _cannon.fireBullet(_window);    
@@ -147,7 +148,7 @@ void Game::draw(){
 
     _cannon.BulletsCollusion(_window);
 
-    sampleText(_window);
+    CannonLives(_window,_cannon);
     elapsedTime(_window);
     ScoreDraw(_window);
     aliens.alienIsMoving(_window);
