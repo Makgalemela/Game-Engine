@@ -11,10 +11,10 @@ Aliens::Aliens()
     !alienTexture[5].loadFromFile("../executables/resources/alien3c.png")){
        std::cerr<<"One more aliens sprite could not load"<<std::endl;
     }
-     _position[0].x = 25.f;
+     _position[0].x = 35.f;
      _position[0].y = 310.f;
-     _position[1].x = 580.f;
-     _position[1].y = 210.f;
+     _position[1].x = 560.f;
+     _position[1].y = 230.f;
     _changeAlienDirection[0] = false;
     _changeAlienDirection[1] = false;
 }
@@ -81,9 +81,9 @@ void Aliens::alienIsMoving(sf::RenderWindow &_windows){
             update(-40.f,i);
             
     if(int i = 1; !_changeAlienDirection[1])
-            update(-40.f,i);
-        else 
             update(+40.f,i);
+        else 
+            update(-40.f,i);
     }
     return;
 }
@@ -132,14 +132,16 @@ void Aliens::setAlienPosition(){
  void Aliens::update(const float& _pixel, const int& i){
       
        for(auto it = 0u; it != aliens[i].size(); ++it){
+           
          _position[i].x = aliens[i].at(it).getPosition().x+ _pixel;
          _position[i].y = aliens[i].at(it).getPosition().y;
          aliens[i].at(it).setPosition(_position[i]);
-        if(_position[i].x < 20.f && alienIsAlive[i].at(it)){
-             //updateRows(i);
+         
+        if(_position[i].x < 45.f && alienIsAlive[i].at(it)){
+              updateRows(i);
             _changeAlienDirection[i] = false;
         }
-        else if(_position[i].x > 950.f && alienIsAlive[i].at(it)){
+        else if(_position[i].x > 930.f && alienIsAlive[i].at(it)){
              updateRows(i);
             _changeAlienDirection[i] = true;
         }

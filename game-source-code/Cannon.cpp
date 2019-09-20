@@ -167,7 +167,6 @@ void Cannon::cannonIsShot(){
             }
         }
     }
-    std::cout<<_cannonLives<<std::endl;
     return;
 }
 
