@@ -6,7 +6,9 @@
 #include "SplashScreen.hpp"
 #include "Aliens.hpp"
 #include "Bullet.hpp"
-#include "DefenseBlocks.hpp"
+//#include "DefenseBlocks.hpp"
+#include "collusion.hpp"
+#include "Screen.hpp"
 
 // *****************************************************************
 // 
@@ -15,8 +17,7 @@
 // draws game game window
 // 
 // *****************************************************************
-class Game
-{
+class Game : public Screen {
 public:
     Game();
     
@@ -29,6 +30,9 @@ public:
 //    ********************************************************************************
     void start();
     void gameLoop();
+    
+    
+    
     ~Game();
 
 private:
@@ -40,9 +44,12 @@ private:
     Cannon _cannon;
     Aliens aliens;
     Bullet bullet;
+    collusion _collide;
     DefenseBlocks _defense;
     sf::Vector2f _resolution;
-    
+    bool shotFired;
+    sf::Sprite _GameOverSprite;
+    sf::Texture _GameOverTexture;
 //    **************************************************************************************
 //    
 //    this private methods is responsible for capturing the user imputs
@@ -79,6 +86,11 @@ private:
     void draw();
     ///void draw(const Aliens& aliens);
 
+
+    FiringDirection fd;
+    
+    
+    bool gameOver;
 };
 
 #endif // GAME_HPP

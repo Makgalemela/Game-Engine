@@ -2,8 +2,10 @@
 #define CANNON_HPP
 
 #include <SFML/Graphics.hpp>
+#include "collusion.hpp"
+#include "DefenseBlocks.hpp"
 #include "Bullet.hpp"
-
+#include <tuple>
 //***************************************************************
 //
 //
@@ -29,14 +31,7 @@ public:
 //    \param return sprite
 //    ***************************************
     sf::Sprite getSprite() const;
-//  / *enum class Direction {
-//        Left,
-//        Right,
-//        Up,
-//        Down
-//        };
-//        */
-
+    sf::Sprite getSprite2() const;
 
 //    **************************************
 //    
@@ -45,6 +40,7 @@ public:
 //    \param return
 //    ***************************************
     void moveLeft();
+    void moveLeftTop();
     
     
     
@@ -55,6 +51,7 @@ public:
 //    \param return
 //    ***************************************
     void moveRight();
+    void moveRightTop();
     
 //    **************************************
 //    
@@ -63,6 +60,7 @@ public:
 //    \param return
 //    ***************************************
     void StopLeft();
+    void StopLeftTop();
     
     
 //    **************************************
@@ -72,6 +70,7 @@ public:
 //    \param return
 //    ***************************************
     void stopRight();
+    void stopRightTop();
     
     
     
@@ -131,21 +130,33 @@ public:
 //    
 //    \param return sf::Vector2f
 //    ***************************************
-    sf::Vector2f getCannonCenterFirePosion() const;
+    sf::Vector2f getCannon2CenterFirePosition() const;
+    sf::Vector2f getCannonCenterFirePosition() const;
     
     void setInitPosOfCannon(sf::Vector2f _position);
-    
+    bool cannonIsShot();
+    void DrawCannon(sf::RenderWindow & _window);
 private: 
+    //first cannon
     sf::Vector2f _position;
     sf::Sprite _cannon;
     sf::Texture _texture;
+    
+    //second cannon
+    sf::Vector2f _position2;
+    sf::Sprite _cannon2;
+    sf::Texture _texture2;
+    bool cannonDown[2];
+    
     //Direction direction;
     bool _moveLeft;
     bool _moveRight;
+    bool _moveLeftTop;
+    bool _moveRightTop;
     bool _moveUp;
     bool _moveDown;
     float _cannonSpeed;
-
+    DefenseBlocks _defense;
 };
 
 #endif // CANNON_HPP
