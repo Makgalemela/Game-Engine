@@ -145,7 +145,7 @@ private:
     sf::Sprite _cannon[2];
     sf::Texture _texture[2];
     bool cannonDown[2];
-    
+    FiringDirection cannonOrientation[2];
     //Direction direction;
     bool _moveLeft;
     bool _moveRight;

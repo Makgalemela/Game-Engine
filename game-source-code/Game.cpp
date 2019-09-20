@@ -30,43 +30,44 @@ void Game::start(){
         sf::Event event;
         while (_window.pollEvent(event))
         { 
+            
+            
             if (event.type == sf::Event::Closed)
             _window.close();
             if(gameOver){
-                _window.draw(_GameOverSprite);
-                 _window.display();
-            if((event.type == sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::Escape))
-                _window.close();
+                if((event.type == sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::Escape))
+                    _window.close();
             }
             else if(!gamePlaying){
             _window.draw(_splash.getSplash());
-             _window.display();
                 if((event.type == sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::Space)){
                     gamePlaying = true;
             }
 
         }
-        
-        fd = FiringDirection::defaultd;
-        if((event.type == sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::Up) && gamePlaying)
-                   _cannon.startFiring(FiringDirection::down, _cannon.getCannon2CenterFirePosition());
-                   
-        if((event.type == sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::F) && gamePlaying)
-                  _cannon.startFiring(FiringDirection::up ,_cannon.getCannonCenterFirePosition());
+         _window.display();
+            if((event.type == sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::Up) && gamePlaying)
+                       _cannon.startFiring(FiringDirection::down, _cannon.getCannon2CenterFirePosition());
+                       
+            if((event.type == sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::F) && gamePlaying)
+                      _cannon.startFiring(FiringDirection::up ,_cannon.getCannonCenterFirePosition());
         }
 
-        if(gamePlaying){
+        if(_gamestate.GameOver(_cannon, aliens)){
+                gamePlaying =false;
+                gameOver = true;
+                _window.draw(_GameOverSprite);
+                _window.display();
+            }
+        else if(gamePlaying){
             input();
             update(dtAsSeconds);
             draw();
             _cannon.cannonIsShot();
         }
-        if(aliens.updateGameOver() || aliens.allAliensKilled()){
-                    gamePlaying =false;
-                    gameOver = true;
-                    
-            }
         
+        
+    
     }
 }
 

@@ -1,6 +1,7 @@
 #ifndef GAMESTATE_HPP
 #define GAMESTATE_HPP
-
+#include "Aliens.hpp"
+#include "Cannon.hpp"
 
 //****************************************************
 //
@@ -15,9 +16,12 @@ class GameState
 {
 public:
     GameState();
-        virtual void draw() = 0;
-        virtual void update() = 0;
-        virtual void inputHandler() = 0;
+//        virtual void draw() = 0;
+//        virtual void update() = 0;
+//        virtual void inputHandler() = 0;
+        
+        
+        bool GameOver(const Cannon& _cannon , const Aliens& _aliens) const;
     ~GameState();
 
 };

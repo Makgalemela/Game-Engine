@@ -9,6 +9,7 @@
 //#include "DefenseBlocks.hpp"
 #include "collusion.hpp"
 #include "Screen.hpp"
+#include "GameState.hpp"
 
 // *****************************************************************
 // 
@@ -91,6 +92,8 @@ private:
     
     
     bool gameOver;
+    
+    GameState _gamestate;
 };
 
 #endif // GAME_HPP

@@ -64,7 +64,7 @@ public:
     void setAlienPosition();
     void alienIsShot(const int& it, const AliensDirection& ad = AliensDirection::DownFace);
     bool IsAlienAlive(const int& it, const AliensDirection& dir) const;
-    bool updateGameOver() const;
+    bool aliensAtBottonOrTop() const;
     bool allAliensKilled() const;
     
     
@@ -80,6 +80,7 @@ private:
     Score _score;
     
     std::vector<bool> alienIsAlive[2];
+    std::vector<AliensDirection> alienOrientation[2];
     
     void setTexture();
     

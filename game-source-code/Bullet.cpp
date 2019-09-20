@@ -91,8 +91,8 @@ bool Bullet::alienShoot(sf::Sprite _alien , AliensDirection dir){
 
     return false;
 }
-tuple<std::vector<sf::Sprite>, vector<FiringDirection>> Bullet::getBullets() const{
-    return {_bullets, bulletOrientation};
+tuple<std::vector<sf::Sprite>*, vector<FiringDirection>*> Bullet::getBullets(){
+    return {&_bullets, &bulletOrientation};
 }
 Bullet::~Bullet()
 {

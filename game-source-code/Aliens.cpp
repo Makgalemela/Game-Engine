@@ -49,26 +49,23 @@ vector<sf::Sprite> Aliens::aliensSpriteAlone() const{
 
 void Aliens::loadAliens() {
     setTexture();
-    for(auto it = 0 ; it !=30; ++it){
-        if(it < 10){
-            aliens[0].push_back(alienSprite[0]);
-            aliens[1].push_back(alienSprite[1]);
-            alienIsAlive[0].push_back(true);
-            alienIsAlive[1].push_back(true);
+    int i = 0;
+    AliensDirection ad;
+   for(auto itr = 0u ; itr != 2 ; ++itr){
+       if(itr == 0) ad = AliensDirection::DownFace;
+       else ad = AliensDirection::UpFace;
+        for(auto it = 0 ; it !=30; ++it){
+            if( i = itr; it < 10)
+                aliens[itr].push_back(alienSprite[i]);
+            else if(i = itr+2 ;it < 20)
+                aliens[itr].push_back(alienSprite[i]);
+            else if(i = itr+4 ;it >= 20)
+                 aliens[itr].push_back(alienSprite[i]);
+                 
+            alienIsAlive[itr].push_back(true);
+            alienOrientation[itr].push_back(ad);
         }
-        else if(it < 20){
-            aliens[0].push_back(alienSprite[2]);
-            aliens[1].push_back(alienSprite[3]);
-            alienIsAlive[0].push_back(true);
-            alienIsAlive[1].push_back(true);
-        }
-        else{
-             aliens[0].push_back(alienSprite[4]);
-             aliens[1].push_back(alienSprite[5]);
-             alienIsAlive[0].push_back(true);
-             alienIsAlive[1].push_back(true);
-        }
-    }
+   }
     return;
 }
 
@@ -173,12 +170,13 @@ void Aliens::updateRows(const int& i){
     return;
 }
 
-bool Aliens::updateGameOver() const{
-    for(auto it = 0u; it != aliens[0].size(); ++it){
-       if(aliens[0].at(it).getPosition().y >=570.f)
+bool Aliens::aliensAtBottonOrTop() const{
+    for(auto i = 0u ; i != 2 ; ++i){
+        for(auto it = 0u; it != aliens[i].size(); ++it){
+       if((aliens[i].at(it).getPosition().y >=545.f || aliens[i].at(it).getPosition().y <= 75.f) 
+           && alienIsAlive[i].at(it))
            return true;
-        if(aliens[1].at(it).getPosition().y <= 60.f)
-            return true;
+        }
     }
     return false;
 }
@@ -200,6 +198,8 @@ sf::Vector2f Aliens::alienFire(){
     _pos.y = firingAlien.getPosition().y;
     return _pos;
 }
+
+
 Aliens::~Aliens()
 {
 }

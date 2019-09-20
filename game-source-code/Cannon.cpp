@@ -17,7 +17,8 @@ Cannon::Cannon()
  _cannon[0].scale(sf::Vector2f(0.5 , 0.5));
  _cannon[1].setTexture(_texture[1]);
  _cannon[1].scale(sf::Vector2f(0.5 , 0.5));
- 
+ cannonOrientation[0] = FiringDirection::up;
+ cannonOrientation[1] = FiringDirection::down;
 //_position.x = 500.f;
 //_position.y = 550.f;
 // 
@@ -159,11 +160,14 @@ void Cannon::rotate(){
 void Cannon::cannonIsShot(){
     auto [_bullets, orientation] = getBullets();
     for(auto itr = 0u ; itr != 2 ; ++itr){
-        for(auto it = 0u; it != _bullets.size(); ++it){
-            if(abs(_bullets.at(it).getPosition().x - _cannon[itr].getPosition().x) <26 && 
-                abs( _bullets.at(it).getPosition().y - _cannon[itr].getPosition().y) <26 && 
-                orientation.at(it) == FiringDirection::down){
+        for(auto it = 0u; it != _bullets->size(); ++it){
+            if(abs(_bullets->at(it).getPosition().x - _cannon[itr].getPosition().x) <=20 && 
+                abs( _bullets->at(it).getPosition().y - _cannon[itr].getPosition().y) <=20 && 
+                        orientation->at(it) != cannonOrientation[itr]){
+                    _bullets->erase(_bullets->begin() + it);
+                    orientation->erase(orientation->begin() +it);
                     _cannonLives = _cannonLives -1;
+                    return;
             }
         }
     }
