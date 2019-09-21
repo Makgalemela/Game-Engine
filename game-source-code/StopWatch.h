@@ -8,9 +8,11 @@ class StopWatch{
     
 private:
     double ellapsedtime;
+    double alienFiringInt;
 public:
     double getProcessTime();
     bool timerForMovement();
+    bool alienFiringInterval();
     StopWatch();
 };
 

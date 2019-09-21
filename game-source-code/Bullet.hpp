@@ -4,7 +4,9 @@
 #include <vector>
 #include "Aliens.hpp"
 #include <cmath>
-
+#include <tuple>
+#include "StopWatch.h"
+#include <cstdlib>
 ///*****************************************************************
 //    /description - this class exclusivelly load and create Bullet
 //    the class create utility method for bullet functionalities as
@@ -18,7 +20,7 @@ enum class FiringDirection{
     defaultd
 };
 
-
+class Aliens;
 class Bullet
 {
 public:
@@ -52,13 +54,14 @@ public:
     
     void BulletOutOfScreen();
     bool alienShoot(sf::Sprite _alien, AliensDirection dir);
-    tuple<std::vector<sf::Sprite>*, vector<FiringDirection>*> getBullets() ;
-    bool alienFire();
+    std::tuple<std::vector<sf::Sprite>*, std::vector<FiringDirection>*> getBullets() ;
+    void aliensFiring();
     
     
     
 private:
      Aliens _aliens;
+     StopWatch _stopwatch;
      float _bulletSpeed;
      float _bulletTimer;
      float _ellaspsedTime;

@@ -190,15 +190,6 @@ bool Aliens::allAliensKilled() const{
 }
 
 
-sf::Vector2f Aliens::alienFire(){
-    int fa = rand() % aliens[0].size();
-    sf::Sprite  firingAlien= aliens[0].at(fa);
-    sf::Vector2f _pos;
-    _pos.x = firingAlien.getPosition().x;
-    _pos.y = firingAlien.getPosition().y;
-    return _pos;
-}
-
 
 Aliens::~Aliens()
 {

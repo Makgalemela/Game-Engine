@@ -18,8 +18,6 @@ Bullet::Bullet()
 
 ///The function triggers fire
 void Bullet::startFiring(const FiringDirection& fd, sf::Vector2f _bulletPosition){
-       /// std::cout<<int(fd)<<std::endl;
-        
      if(fd == FiringDirection::up)
          _bulletPosition.y = _bulletPosition.y-25.f; 
     else
@@ -53,8 +51,9 @@ void Bullet::startFiring(const FiringDirection& fd, sf::Vector2f _bulletPosition
                 abs(_bullets.at(i).getPosition().y - _bullets.at(it).getPosition().y)<5){
               _bullets.erase(_bullets.begin()+ it);
               _bullets.erase(_bullets.begin()+ i);
-               bulletOrientation.erase(bulletOrientation.begin() +it);
-               bulletOrientation.erase(bulletOrientation.begin() +i);
+              i--;
+              bulletOrientation.erase(bulletOrientation.begin() +it);
+              bulletOrientation.erase(bulletOrientation.begin()+i);
               return;
             }
          }
@@ -91,6 +90,11 @@ bool Bullet::alienShoot(sf::Sprite _alien , AliensDirection dir){
 
     return false;
 }
+
+
+
+
+
 tuple<std::vector<sf::Sprite>*, vector<FiringDirection>*> Bullet::getBullets(){
     return {&_bullets, &bulletOrientation};
 }

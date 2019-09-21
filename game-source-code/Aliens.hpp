@@ -7,6 +7,7 @@
 #include "Score.hpp"
 #include <cstdlib>
 #include <ctime>
+
 //*******************************************************
 //
 //class Aliens load and cread enemy aliens
@@ -69,11 +70,12 @@ public:
     
     
     void scale();
+    tuple<std::vector<sf::Sprite> , std::vector<AliensDirection>> alienFire();
 private:
     ///buttom aliens
     sf::Texture alienTexture[6];
     sf::Sprite alienSprite[6];
-    vector<sf::Sprite> aliens[2];
+    std::vector<sf::Sprite> aliens[2];
     sf::Vector2f _position[2];
     bool _changeAlienDirection[2];
     StopWatch _watch;
@@ -86,7 +88,7 @@ private:
     
     void update(const float& _pixel, const int& i);
     void updateRows(const int& i);
-    sf::Vector2f alienFire();
+  
 };
 
 #endif // ALIENS_HPP
