@@ -80,40 +80,31 @@ void Game::input(){
         _window.close();
         
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::A))
-        _cannon.moveLeft();
+        _cannon.move(Direction::Left , EntityId::Cannon1);
     else 
-        _cannon.StopLeft();
+        _cannon.stopMove(Direction::Left , EntityId::Cannon1);
         
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::D))
-        _cannon.moveRight();
+        _cannon.move(Direction::Right , EntityId::Cannon1);
     else 
-        _cannon.stopRight();
+        _cannon.stopMove(Direction::Right , EntityId::Cannon1);
         
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::E))
-            _cannon.moveUp();
-    else 
-        _cannon.stopUp();
-        
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::S))
-        _cannon.moveDown();
-    else 
-        _cannon.stopDown();
-        
-    
+
     
     ///Top cannon
     
 
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
-        _cannon.moveLeftTop();
+        _cannon.move(Direction::Left , EntityId::Cannon2);
     else 
-        _cannon.StopLeftTop();
+        _cannon.stopMove(Direction::Left , EntityId::Cannon2);
         
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
-        _cannon.moveRightTop();
+        _cannon.move(Direction::Right , EntityId::Cannon2);
     else 
-        _cannon.stopRightTop();
-            
+        _cannon.stopMove(Direction::Right , EntityId::Cannon2);
+    
+    return;
 }
 
 void Game::update(float dtAsSeconds){
@@ -163,7 +154,10 @@ void Game::draw(){
 
   void Game::loadCannon(ResourceManager _rm){
       _rm.loadResources(ResourceID::LowerCannon, "../executables/resources/Laser_Cannon.png");
-      _cannon.setCannons(_rm.get(ResourceID::LowerCannon));
+      _cannon.setCannons(_rm.get(ResourceID::LowerCannon), 0);
+      
+      _rm.loadResources(ResourceID::UpperCannon, "../executables/resources/Laser_Cannonc.png");
+      _cannon.setCannons(_rm.get(ResourceID::UpperCannon), 1);
   }
   
   

@@ -4,32 +4,19 @@
 
 Cannon::Cannon()
 {
-    ///This should be refactored as the time goes on;
- _cannonSpeed = 320.f;
- cannonDown[0] =false;
- cannonDown[1] =false;
- _cannonLives = 3;
- if(/*!_texture[0].loadFromFile("../executables/resources/Laser_Cannon.png")||*/
-    !_texture[1].loadFromFile("../executables/resources/Laser_Cannonc.png") ){
-     std::cerr<<"Could not load cannon shooter sprite"<<std::endl;
- }
- 
- 
-// _cannon[0].setTexture(_texture[0]);
- _cannon[0].scale(sf::Vector2f(0.5 , 0.5));
- _cannon[1].setTexture(_texture[1]);
- _cannon[1].scale(sf::Vector2f(0.5 , 0.5));
- cannonOrientation[0] = FiringDirection::up;
- cannonOrientation[1] = FiringDirection::down;
-//_position.x = 500.f;
-//_position.y = 550.f;
-// 
+    _cannonSpeed = 320.f;
+    cannonDown[0] =false;
+    cannonDown[1] =false;
+    _cannonLives = 3;
+    cannonOrientation[0] = FiringDirection::up;
+    cannonOrientation[1] = FiringDirection::down; 
 }
 
 
-void Cannon::setCannons(sf::Texture _texture){
-     _cannon[0].setTexture(_texture);
-    _cannon[0].scale(sf::Vector2f(0.5 , 0.5));
+void Cannon::setCannons(sf::Texture _texture ,const int& i){
+    this->_texture[i] = _texture; 
+     _cannon[i].setTexture(this->_texture[i]);
+    _cannon[i].scale(sf::Vector2f(0.5 , 0.5));
 }
 
 void Cannon::setInitPosOfCannon(sf::Vector2f _position){
@@ -41,13 +28,6 @@ void Cannon::setInitPosOfCannon(sf::Vector2f _position){
 }
 
 
-//void Cannon::DrawCannon(sf::RenderWindow & _window){
-//    cannonIsShot();
-//    if(cannonDown[0] || cannonDown[1] )
-//       return;
-//    else 
-//         _window.draw(_cannon[0]);
-//}
 sf::Sprite Cannon::getSprite() const{
     return _cannon[0];
 }
@@ -60,8 +40,6 @@ void Cannon::moveLeft(){
         _cannon[0].getPosition().y - 50/2 < 15.f))
         _moveLeft = true;
     else _moveLeft = false;
-    
-    
 }
 
 void Cannon::moveLeftTop(){
@@ -70,58 +48,60 @@ void Cannon::moveLeftTop(){
     else _moveLeftTop = false;
 }
 
-void Cannon::moveRight(){
-    if(_cannon[0].getPosition().x + 113/2 <  1000.f && (_cannon[0].getPosition().y >= 550.f ||
-        _cannon[0].getPosition().y - 50/2 < 15.f))
-        _moveRight = true;
-    else _moveRight = false;
-}
-
-
-void Cannon::moveRightTop(){
-    if(_cannon[1].getPosition().x + 113/2 <  1000.f )
-        _moveRightTop = true;
-    else _moveRightTop = false;
-}
-
-
-void Cannon::stopRight(){
-    _moveRight = false;
-}
-void Cannon::stopRightTop(){
-    _moveRightTop = false;
-}
-
-void Cannon::stopUp(){
-    _moveUp = false;
-}
-void Cannon::StopLeftTop(){
-    _moveLeftTop = false;
-}
-
-void Cannon::moveUp(){
-//    _collide.lowerCannonBlocks(_defense, _cannon);
-    if(_cannon[0].getPosition().y > 2.0f)
-        _moveUp  = true;
-    else _moveUp = false;
-    
-}
+//void Cannon::moveRight(){
+//    if(_cannon[0].getPosition().x + 113/2 <  1000.f && (_cannon[0].getPosition().y >= 550.f ||
+//        _cannon[0].getPosition().y - 50/2 < 15.f))
+//        _moveRight = true;
+//    else _moveRight = false;
+//}
 
 
 
-void Cannon::moveDown(){
-    
-    if(_cannon[0].getPosition().y + 0 <  570.f)
-        _moveDown = true;
-    else _moveDown = false;
-}
 
-void Cannon::stopDown(){
-    _moveDown = false;
-}
-void Cannon::StopLeft(){
-    _moveLeft = false;
-}
+ void Cannon::move(Direction _dir , EntityId _Id){
+     
+     if(_Id == EntityId::Cannon1){
+         if(_dir ==Direction::Right && _cannon[0].getPosition().x + 113/2 <  1000.f && 
+            (_cannon[0].getPosition().y >= 550.f ||_cannon[0].getPosition().y - 50/2 < 15.f))
+            _moveRight = true;
+         else if(_dir ==Direction::Left&&_cannon[0].getPosition().x >  15.f && 
+            (_cannon[0].getPosition().y >= 550.f ||_cannon[0].getPosition().y - 50/2 < 15.f))
+                _moveLeft = true;
+     }
+     else if( _Id  ==EntityId::Cannon2){
+         if(_dir ==Direction::Right && _cannon[1].getPosition().x + 113/2 <  1000.f )
+                _moveRightTop = true;
+                
+        else if(_dir ==Direction::Left&& _cannon[1].getPosition().x >  15.f)
+                    _moveLeftTop = true;
+    }else{
+        _moveRight = false;
+        _moveLeft = false;
+        _moveLeftTop = false;
+        _moveRightTop = false;
+    }
+     
+    return;
+ }
+
+
+ void Cannon::stopMove(Direction _dir , EntityId _id){
+     
+     if(_id == EntityId::Cannon1){
+         if(_dir == Direction::Left)
+             _moveLeft = false;
+         if(_dir == Direction::Right)
+             _moveRight = false;
+     }
+     
+     else if(_id == EntityId::Cannon2){
+         if(_dir == Direction::Left)
+             _moveLeftTop = false;
+         if(_dir == Direction::Right)
+             _moveRightTop = false;
+     }
+ }
+
 
 void Cannon::update(float elapsedTime){
     if(_moveLeft)

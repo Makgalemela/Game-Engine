@@ -23,7 +23,8 @@ enum class ResourceID{
     UpFacingAlienFirst,
     UpFacingAlienSecond,
     UpFacingAlienThird,
-    Bullets
+    Bullets,
+    Default
 };
 
 class ResourceManager
@@ -33,7 +34,7 @@ public:
     ~ResourceManager();
     
     void loadResources(ResourceID , const std::string &_filename);
-    sf::Texture &get(ResourceID _id);
+    sf::Texture get(ResourceID _id) const;
 ;private:
   
     std::map<ResourceID , sf::Texture> resourseHolder;
