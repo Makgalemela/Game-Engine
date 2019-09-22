@@ -9,11 +9,13 @@ Cannon::Cannon()
  cannonDown[0] =false;
  cannonDown[1] =false;
  _cannonLives = 3;
- if(!_texture[0].loadFromFile("../executables/resources/Laser_Cannon.png") ||
+ if(/*!_texture[0].loadFromFile("../executables/resources/Laser_Cannon.png")||*/
     !_texture[1].loadFromFile("../executables/resources/Laser_Cannonc.png") ){
      std::cerr<<"Could not load cannon shooter sprite"<<std::endl;
  }
- _cannon[0].setTexture(_texture[0]);
+ 
+ 
+// _cannon[0].setTexture(_texture[0]);
  _cannon[0].scale(sf::Vector2f(0.5 , 0.5));
  _cannon[1].setTexture(_texture[1]);
  _cannon[1].scale(sf::Vector2f(0.5 , 0.5));
@@ -22,6 +24,12 @@ Cannon::Cannon()
 //_position.x = 500.f;
 //_position.y = 550.f;
 // 
+}
+
+
+void Cannon::setCannons(sf::Texture _texture){
+     _cannon[0].setTexture(_texture);
+    _cannon[0].scale(sf::Vector2f(0.5 , 0.5));
 }
 
 void Cannon::setInitPosOfCannon(sf::Vector2f _position){

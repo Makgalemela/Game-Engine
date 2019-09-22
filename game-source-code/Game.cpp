@@ -14,6 +14,8 @@ Game::Game()
     _backgroundSprite.setTexture(_backgroundTexture);
     _GameOverSprite.setTexture(_GameOverTexture);
     
+    ResourceManager _rm;
+    loadCannon(_rm);
 }
 
 void Game::start(){
@@ -155,6 +157,16 @@ void Game::draw(){
     aliens.alienIsMoving(_window);
    _window.display();
 }
+
+
+
+
+  void Game::loadCannon(ResourceManager _rm){
+      _rm.loadResources(ResourceID::LowerCannon, "../executables/resources/Laser_Cannon.png");
+      _cannon.setCannons(_rm.get(ResourceID::LowerCannon));
+  }
+  
+  
 Game::~Game()
 {
 }

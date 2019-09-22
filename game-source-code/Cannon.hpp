@@ -139,6 +139,8 @@ public:
     
     
     int getCannonLives() const;
+    
+    void setCannons(sf::Texture _texture);
 private: 
     //first cannon
     sf::Vector2f _position[2];

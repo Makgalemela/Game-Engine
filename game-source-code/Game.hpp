@@ -6,7 +6,7 @@
 #include "SplashScreen.hpp"
 #include "Aliens.hpp"
 #include "Bullet.hpp"
-//#include "DefenseBlocks.hpp"
+#include "ResourceManager.hpp"
 #include "collusion.hpp"
 #include "Screen.hpp"
 #include "GameState.hpp"
@@ -38,6 +38,8 @@ public:
 
 private:
     
+    
+    void loadCannon(ResourceManager _rm);
     sf::RenderWindow _window;
     sf::Sprite _backgroundSprite;
     sf::Texture _backgroundTexture;
