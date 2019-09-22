@@ -35,50 +35,26 @@ sf::Sprite Cannon::getSprite2() const{
     return _cannon[1];
 }
 
-void Cannon::moveLeft(){
-    if(_cannon[0].getPosition().x >  15.f && (_cannon[0].getPosition().y >= 550.f ||
-        _cannon[0].getPosition().y - 50/2 < 15.f))
-        _moveLeft = true;
-    else _moveLeft = false;
-}
-
-void Cannon::moveLeftTop(){
-    if(_cannon[1].getPosition().x >  15.f)
-        _moveLeftTop = true;
-    else _moveLeftTop = false;
-}
-
-//void Cannon::moveRight(){
-//    if(_cannon[0].getPosition().x + 113/2 <  1000.f && (_cannon[0].getPosition().y >= 550.f ||
-//        _cannon[0].getPosition().y - 50/2 < 15.f))
-//        _moveRight = true;
-//    else _moveRight = false;
-//}
-
-
-
-
  void Cannon::move(Direction _dir , EntityId _Id){
      
      if(_Id == EntityId::Cannon1){
-         if(_dir ==Direction::Right && _cannon[0].getPosition().x + 113/2 <  1000.f && 
-            (_cannon[0].getPosition().y >= 550.f ||_cannon[0].getPosition().y - 50/2 < 15.f))
+         
+         if(_dir ==Direction::Right && _cannon[0].getPosition().x + 113/2 <  1000.f )
             _moveRight = true;
-         else if(_dir ==Direction::Left&&_cannon[0].getPosition().x >  15.f && 
-            (_cannon[0].getPosition().y >= 550.f ||_cannon[0].getPosition().y - 50/2 < 15.f))
+        else _moveRight = false;
+        if(_dir ==Direction::Left&&_cannon[0].getPosition().x >  15.f )
                 _moveLeft = true;
+        else _moveLeft = false;
      }
      else if( _Id  ==EntityId::Cannon2){
+         
          if(_dir ==Direction::Right && _cannon[1].getPosition().x + 113/2 <  1000.f )
                 _moveRightTop = true;
+        else  _moveRightTop = false;
                 
-        else if(_dir ==Direction::Left&& _cannon[1].getPosition().x >  15.f)
-                    _moveLeftTop = true;
-    }else{
-        _moveRight = false;
-        _moveLeft = false;
-        _moveLeftTop = false;
-        _moveRightTop = false;
+        if(_dir ==Direction::Left &&  _cannon[1].getPosition().x >  15.f)
+                _moveLeftTop = true;
+        else _moveLeftTop = false;
     }
      
     return;
@@ -93,7 +69,6 @@ void Cannon::moveLeftTop(){
          if(_dir == Direction::Right)
              _moveRight = false;
      }
-     
      else if(_id == EntityId::Cannon2){
          if(_dir == Direction::Left)
              _moveLeftTop = false;

@@ -34,14 +34,7 @@ public:
     sf::Sprite getSprite() const;
     sf::Sprite getSprite2() const;
 
-//    **************************************
-//    
-//    this method initiate movement to the left
-//    
-//    \param return
-//    ***************************************
-    void moveLeft();
-    void moveLeftTop();
+
     
     
     
