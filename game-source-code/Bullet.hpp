@@ -6,13 +6,9 @@
 #include <cmath>
 #include <tuple>
 #include "StopWatch.h"
+#include "Entity.hpp"
 #include <cstdlib>
-///*****************************************************************
-//    /description - this class exclusivelly load and create Bullet
-//    the class create utility method for bullet functionalities as
-//    methods which allow bullet to accessed,
-//    furthermore the class as also create different bullets for different weapons
-//*****************************************************************/
+
 
 enum class FiringDirection{
     up = 0,
@@ -21,33 +17,19 @@ enum class FiringDirection{
 };
 
 class Aliens;
-class Bullet
+class Bullet : public Entity
 {
 public:
 
     Bullet();
     ~Bullet();
-//    ******************************************************************
-//        the method fires a bullet and draws it's movement of the the screen
-//    ********************************************************************
-    
+
     void fireBullet(sf::RenderWindow &_window );
   
-    
-//    **********************************************************************
-//    the method is called when keyboard key F is pressed
-//    it set bool _fire to true signalling that the bullet can be fired
-//    **********************************************************************
-    
+  
    void startFiring(const FiringDirection& fd,sf::Vector2f _bulletPosition);
     
-    
-//     ******************************************************************************
-//     the method detect the bullet colusion with other object - e.g aliens , cannon.
-//     futher more also detect when the bullet is going off the screen
-//     and erase it
-//     *******************************************************************************
-//     
+     
     bool collusion2(const float& positionx, const float& positiony);
     bool collusion(sf::Vector2f _Pos , AliensDirection ad);
     void BulletsCollusion(sf::RenderWindow& _window);
@@ -57,7 +39,7 @@ public:
     std::tuple<std::vector<sf::Sprite>*, std::vector<FiringDirection>*> getBullets() ;
     void aliensFiring();
     
-    
+    void setTexture(sf::Texture _texture, const int& _index =0) override;
     
 private:
      Aliens _aliens;
@@ -75,8 +57,6 @@ private:
      sf::Sprite _bulletExplosionSprite;
      sf::Texture _bulletExplosionTexture;
      std::vector<sf::Sprite> _bullets;
-//     std::vector<sf::Sprite> _bullets2;
-
 };
 
 #endif // BULLET_HPP

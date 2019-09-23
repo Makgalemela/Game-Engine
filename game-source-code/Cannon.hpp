@@ -16,66 +16,24 @@
 //************************************************************
 
 
-class Cannon : public Bullet , public Entity
+class Cannon : public Bullet 
 {
 public:
     Cannon();
     ~Cannon();
-    
-    
-    
-    
-//    **************************************
-//    
-//    this method return spalshscreen object
-//    
-//    \param return sprite
-//    ***************************************
+
     sf::Sprite getSprite() const;
     sf::Sprite getSprite2() const;
-
-
-    
-    
-    
-//    **************************************
-//    
-//    this method initiate movement to the right
-//    
-//    \param return
-//    ***************************************
     void move(Direction _dir , EntityId _id) override;
     void stopMove(Direction _dir , EntityId _id) override;
-
-
-    void rotate();
-   // void anotherMove(Direction direction);
-   
-   
-//    **************************************
-//    
-//    update the time
-//    
-//    \param return
-//    ***************************************
-    void update(float elaspseTime);
-
-//    **************************************
-//    
-//    return the position of the cannon
-//    
-//    \param return sf::Vector2f
-//    ***************************************
+    void update(const float& elapsedTime) override;
     sf::Vector2f getCannon2CenterFirePosition() const;
     sf::Vector2f getCannonCenterFirePosition() const;
     
     void setInitPosOfCannon(sf::Vector2f _position);
     void cannonIsShot();
     void DrawCannon(sf::RenderWindow & _window);
-    
-    
     int getCannonLives() const;
-    
     void setCannons(sf::Texture _texture ,const int& i);
 private: 
     //first cannon

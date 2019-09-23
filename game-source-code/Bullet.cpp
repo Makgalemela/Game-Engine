@@ -4,17 +4,17 @@ Bullet::Bullet()
 {
    
     _bulletSpeed = 0.15f;
-    if(!_bulletTexture.loadFromFile("../executables/resources/bullet.png") ||
-        !_bulletExplosionTexture.loadFromFile("../executables/resources/explosion_bullet.png") ){
-        std::cerr<<"Failed to load bullet sprite"<<std::endl;
-    }
-    _bulletSprite.setTexture(_bulletTexture);
-    _bulletSprite.scale(0.02f , 0.02f);
+
     
     _bulletExplosionSprite.setTexture(_bulletExplosionTexture);
     _bulletExplosionSprite.scale(0.1f , 0.1f);
 }
-
+void Bullet::setTexture(sf::Texture _texture, const int& _index){
+    _bulletTexture = _texture;
+    _bulletSprite.setTexture(_bulletTexture);
+    _bulletSprite.scale(0.02f , 0.02f);
+    return;
+}
 
 ///The function triggers fire
 void Bullet::startFiring(const FiringDirection& fd, sf::Vector2f _bulletPosition){

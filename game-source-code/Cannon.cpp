@@ -78,7 +78,7 @@ sf::Sprite Cannon::getSprite2() const{
  }
 
 
-void Cannon::update(float elapsedTime){
+void Cannon::update(const float& elapsedTime){
     if(_moveLeft)
         _position[0].x -= _cannonSpeed*elapsedTime;
         
@@ -110,15 +110,6 @@ sf::Vector2f Cannon::getCannonCenterFirePosition() const {
 sf::Vector2f Cannon::getCannon2CenterFirePosition() const {
      return _position[1];
 }
-
-void Cannon::rotate(){
-    
-    if( _cannon[0].getPosition().y < 10.0f){
-        _cannon[0].setRotation(360.f);
-    }
-}
-///trial function
-
 
 void Cannon::cannonIsShot(){
     auto [_bullets, orientation] = getBullets();
