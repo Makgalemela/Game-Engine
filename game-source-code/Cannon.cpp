@@ -90,12 +90,6 @@ void Cannon::update(const float& elapsedTime){
         
     else if(_moveRightTop)
         _position[1].x += _cannonSpeed*elapsedTime;
-    
-    else if(_moveUp)
-        _position[0].y -= _cannonSpeed*elapsedTime;
-        
-    else if(_moveDown)
-        _position[0].y += _cannonSpeed*elapsedTime;
         
     _cannon[0].setPosition(_position[0]);
     _cannon[1].setPosition(_position[1]);

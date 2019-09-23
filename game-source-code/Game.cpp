@@ -2,6 +2,8 @@
 #include <iostream>
 Game::Game()
 {
+    
+    
     _resolution.x = 1000.f;
     _resolution.y = 600.f;
     shotFired = false;
@@ -17,6 +19,9 @@ Game::Game()
     ResourceManager _rm;
     loadCannon(_rm);
 }
+
+
+
 
 void Game::start(){
    aliens.loadAliens();
@@ -68,8 +73,6 @@ void Game::start(){
             _cannon.cannonIsShot();
         }
         
-        
-    
     }
 }
 
@@ -89,10 +92,6 @@ void Game::input(){
     else 
         _cannon.stopMove(Direction::Right , EntityId::Cannon1);
         
-
-    
-    ///Top cannon
-    
 
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
         _cannon.move(Direction::Left , EntityId::Cannon2);

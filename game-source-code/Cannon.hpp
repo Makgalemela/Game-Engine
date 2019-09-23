@@ -47,8 +47,6 @@ private:
     bool _moveRight;
     bool _moveLeftTop;
     bool _moveRightTop;
-    bool _moveUp;
-    bool _moveDown;
     float _cannonSpeed;
     int _cannonLives;
     DefenseBlocks _defense;
