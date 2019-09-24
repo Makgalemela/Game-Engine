@@ -3,7 +3,6 @@
 Game::Game()
 {
     
-    
     _resolution.x = 1000.f;
     _resolution.y = 600.f;
     shotFired = false;
@@ -151,13 +150,13 @@ void Game::draw(){
 
   void Game::loadCannon(ResourceManager _rm){
       _rm.loadResources(ResourceID::LowerCannon, "../executables/resources/Laser_Cannon.png");
-      _cannon.setCannons(_rm.get(ResourceID::LowerCannon), 0);
+      _cannon.setTexture(_rm.get(ResourceID::LowerCannon), 0);
       
       _rm.loadResources(ResourceID::UpperCannon, "../executables/resources/Laser_Cannonc.png");
-      _cannon.setCannons(_rm.get(ResourceID::UpperCannon), 1);
+      _cannon.setTexture(_rm.get(ResourceID::UpperCannon), 1);
       
       _rm.loadResources( ResourceID::Bullets, "../executables/resources/bullet.png");
-      _cannon.setTexture(_rm.get(ResourceID::Bullets));
+      _cannon.setTexture(_rm.get(ResourceID::Bullets), 3);
   }
   
   

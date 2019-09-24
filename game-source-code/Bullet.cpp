@@ -3,12 +3,12 @@
 Bullet::Bullet()
 {
    
-    _bulletSpeed = 0.15f;
-
-    
+    _bulletSpeed = 0.55f;
     _bulletExplosionSprite.setTexture(_bulletExplosionTexture);
     _bulletExplosionSprite.scale(0.1f , 0.1f);
 }
+
+
 void Bullet::setTexture(sf::Texture _texture, const int& _index){
     _bulletTexture = _texture;
     _bulletSprite.setTexture(_bulletTexture);
@@ -16,7 +16,6 @@ void Bullet::setTexture(sf::Texture _texture, const int& _index){
     return;
 }
 
-///The function triggers fire
 void Bullet::startFiring(const FiringDirection& fd, sf::Vector2f _bulletPosition){
      if(fd == FiringDirection::up)
          _bulletPosition.y = _bulletPosition.y-25.f; 
@@ -70,7 +69,6 @@ void Bullet::fireBullet(sf::RenderWindow &_window )
                 _bullets.at(it).move(0, -_bulletSpeed);
         else if(bulletOrientation.at(it) == FiringDirection::down) 
             _bullets.at(it).move(0, _bulletSpeed);
-            
         _window.draw(_bullets.at(it));
     }
 }

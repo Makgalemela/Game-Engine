@@ -1,6 +1,10 @@
 
 #include "Aliens.hpp"
 #include <iostream>
+
+
+
+
 Aliens::Aliens()
 {
     if(!alienTexture[0].loadFromFile("../executables/resources/aliens.png") || 

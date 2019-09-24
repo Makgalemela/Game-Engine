@@ -11,34 +11,16 @@
 #include "Screen.hpp"
 #include "GameState.hpp"
 
-// *****************************************************************
-// 
-// 
-// the class is the main enginer it contain the game loop and
-// draws game game window
-// 
-// *****************************************************************
+
 class Game : public Screen {
 public:
     Game();
-    
-//    **********************************************************************************
-//    the method contain the main game loop and calls all other objects and their method;
-//    
-//    
-//    \param return
-//    
-//    ********************************************************************************
     void start();
-    void gameLoop();
-    
-    
-    
     ~Game();
 
 private:
     
-    
+    void gameLoop();
     void loadCannon(ResourceManager _rm);
     sf::RenderWindow _window;
     sf::Sprite _backgroundSprite;
@@ -53,48 +35,13 @@ private:
     bool shotFired;
     sf::Sprite _GameOverSprite;
     sf::Texture _GameOverTexture;
-//    **************************************************************************************
-//    
-//    this private methods is responsible for capturing the user imputs
-//    
-//    \param return 
-//    
-//    ****************************************************************************************
-    
-//    ****************************************************************************************
-  
-     void input();
-//    
-//    this method update the game time and position of the sprites on the Screen
-//    
-//    \param return
-//    
-//    
-//    *****************************************************************************************
+    void input();
     void update(float dtAsSeconds);
-    
-    
-//    
-//    ******************************************************************************************
-//    
-//    this method draw objects of the windows
-//    
-//    
-//    \param return 
-//    
-//
-//    ******************************************************************************************
-    
-    
     void draw();
-    ///void draw(const Aliens& aliens);
-
-
     FiringDirection fd;
-    
-    
     bool gameOver;
-    
+    bool gamePlaying;
+    sf::Clock _clock;
     GameState _gamestate;
 };
 

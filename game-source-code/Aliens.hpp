@@ -5,74 +5,43 @@
 #include <SFML/Graphics.hpp>
 #include "StopWatch.h"
 #include "Score.hpp"
+#include "Entity.hpp"
 #include <cstdlib>
 #include <ctime>
-
-//*******************************************************
-//
-//class Aliens load and cread enemy aliens
-//
-//
-//*********************************************************
-
+using namespace std;
 enum class AliensDirection{
     UpFace =0,
     DownFace
     
 };
-using namespace std;
-class Aliens
+
+/**
+ * @class Aliens
+ * @author User
+ * @date 24/09/2019
+ * @file Aliens.hpp
+ * @brief The class implement the methods that contruct the Alien objects
+ *        and is derived from the Entity class,
+ */
+
+class Aliens :public Entity
 {
 public:
     Aliens();
     ~Aliens();
     
-    
-//    *******************************************************
-//    
-//    the method load alien sprites from the resource 
-//    
-//    \param return void
-//    
-//    *****************************************************
     void loadAliens();
-    
-    
-//    **************************************************************************
-//    
-//    the method returns a vertor of aliens and the position at which the aliens will be drawn
-//    on the Screen
-//    
-//    \param return tuple<vector, vector>
-//    
-//    **************************************************************************
     tuple<vector<sf::Sprite> ,vector<sf::Sprite>> aliensSprite() const;
-    
-    
-//    **************************************************************************
-//    
-//    the method returns a vertor of aliens 
-//    
-//    
-//    \param return vector
-//    
-//    **************************************************************************
-    
     std::vector<sf::Sprite> aliensSpriteAlone() const;
-    
-    
     void alienIsMoving(sf::RenderWindow &_windows);
     void setAlienPosition();
     void alienIsShot(const int& it, const AliensDirection& ad = AliensDirection::DownFace);
     bool IsAlienAlive(const int& it, const AliensDirection& dir) const;
     bool aliensAtBottonOrTop() const;
     bool allAliensKilled() const;
-    
-    
     void scale();
     tuple<std::vector<sf::Sprite> , std::vector<AliensDirection>> alienFire();
 private:
-    ///buttom aliens
     sf::Texture alienTexture[6];
     sf::Sprite alienSprite[6];
     std::vector<sf::Sprite> aliens[2];

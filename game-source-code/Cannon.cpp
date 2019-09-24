@@ -13,10 +13,15 @@ Cannon::Cannon()
 }
 
 
-void Cannon::setCannons(sf::Texture _texture ,const int& i){
+void Cannon::setTexture(sf::Texture _texture ,const int& i){
+    if(i == 3){
+        Bullet::setTexture(_texture);
+        return;
+    }
     this->_texture[i] = _texture; 
      _cannon[i].setTexture(this->_texture[i]);
     _cannon[i].scale(sf::Vector2f(0.5 , 0.5));
+    return;
 }
 
 void Cannon::setInitPosOfCannon(sf::Vector2f _position){

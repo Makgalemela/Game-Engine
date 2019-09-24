@@ -7,13 +7,6 @@
 #include "Bullet.hpp"
 #include "Entity.hpp"
 #include <tuple>
-//***************************************************************
-//
-//
-//this class load and create and cannon which shots the bullets
-//
-//
-//************************************************************
 
 
 class Cannon : public Bullet 
@@ -34,7 +27,7 @@ public:
     void cannonIsShot();
     void DrawCannon(sf::RenderWindow & _window);
     int getCannonLives() const;
-    void setCannons(sf::Texture _texture ,const int& i);
+    void setTexture(sf::Texture _texture ,const int& i) override;
 private: 
     //first cannon
     sf::Vector2f _position[2];

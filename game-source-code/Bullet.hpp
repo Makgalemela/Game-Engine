@@ -16,7 +16,17 @@ enum class FiringDirection{
     defaultd
 };
 
-class Aliens;
+/**
+ * @class Bullet
+ * @author Rachel Mvelase
+ * @date 24/09/2019
+ * @file Bullet.hpp
+ * @brief The class describes the methods which gives the bullet objects its
+ *          attributes, such as speed and direction as well the type of bullet
+ */
+
+
+
 class Bullet : public Entity
 {
 public:
@@ -30,8 +40,8 @@ public:
    void startFiring(const FiringDirection& fd,sf::Vector2f _bulletPosition);
     
      
-    bool collusion2(const float& positionx, const float& positiony);
-    bool collusion(sf::Vector2f _Pos , AliensDirection ad);
+//    bool collusion2(const float& positionx, const float& positiony);
+//    bool collusion(sf::Vector2f _Pos , AliensDirection ad);
     void BulletsCollusion(sf::RenderWindow& _window);
     
     void BulletOutOfScreen();
