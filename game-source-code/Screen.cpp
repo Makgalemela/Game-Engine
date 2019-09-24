@@ -10,7 +10,7 @@ Screen::Screen()
         std::ostringstream ss;  
         ss<<_cannon.getCannonLives();
         std::string numberOfLives_(ss.str());
-        sf::Text text("High Score : "+ numberOfLives_ , font);
+        sf::Text text("Lives : "+ numberOfLives_ , font);
         text.setCharacterSize(15);
         text.setStyle(sf::Text::Bold);
         text.setFillColor(sf::Color::White);
