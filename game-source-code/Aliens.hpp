@@ -6,6 +6,7 @@
 #include "StopWatch.h"
 #include "Score.hpp"
 #include "Entity.hpp"
+#include "ResourceManager.hpp"
 #include <cstdlib>
 #include <ctime>
 using namespace std;
@@ -41,6 +42,7 @@ public:
     bool allAliensKilled() const;
     void scale();
     tuple<std::vector<sf::Sprite> , std::vector<AliensDirection>> alienFire();
+    void setTexture(sf::Texture _texture, const int& _index =0) override;
 private:
     sf::Texture alienTexture[6];
     sf::Sprite alienSprite[6];
@@ -52,7 +54,7 @@ private:
     
     std::vector<bool> alienIsAlive[2];
     std::vector<AliensDirection> alienOrientation[2];
-    
+    ResourceManager _rm;
     void setTexture();
     
     void update(const float& _pixel, const int& i);

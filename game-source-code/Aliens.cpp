@@ -7,14 +7,14 @@
 
 Aliens::Aliens()
 {
-    if(!alienTexture[0].loadFromFile("../executables/resources/aliens.png") || 
+    /*if(!alienTexture[0].loadFromFile("../executables/resources/aliens.png") || 
     !alienTexture[1].loadFromFile("../executables/resources/alien2.png")||
     !alienTexture[2].loadFromFile("../executables/resources/alien3.png")||
     !alienTexture[3].loadFromFile("../executables/resources/aliensc.png") || 
     !alienTexture[4].loadFromFile("../executables/resources/alien2c.png")||
     !alienTexture[5].loadFromFile("../executables/resources/alien3c.png")){
        std::cerr<<"One more aliens sprite could not load"<<std::endl;
-    }
+    }*/
      _position[0].x = 35.f;
      _position[0].y = 310.f;
      _position[1].x = 560.f;
@@ -24,11 +24,10 @@ Aliens::Aliens()
 }
 
 
-void Aliens::setTexture(){
-    for(auto it = 0 ; it != 6; ++it){
-        alienSprite[it].setTexture(alienTexture[it]);
-    }
-    scale();
+void Aliens::setTexture(sf::Texture _texture, const int& _index){
+    alienTexture[_index] = _texture;
+    alienSprite[_index].setTexture(alienTexture[_index]);
+    //scale();
     return;
 }
 
@@ -52,12 +51,13 @@ vector<sf::Sprite> Aliens::aliensSpriteAlone() const{
 
 
 void Aliens::loadAliens() {
-    setTexture();
+    scale();
     int i = 0;
     AliensDirection ad;
    for(auto itr = 0u ; itr != 2 ; ++itr){
        if(itr == 0) ad = AliensDirection::DownFace;
        else ad = AliensDirection::UpFace;
+       
         for(auto it = 0 ; it !=30; ++it){
             if( i = itr; it < 10)
                 aliens[itr].push_back(alienSprite[i]);

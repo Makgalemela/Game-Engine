@@ -19,9 +19,6 @@ Game::Game()
     loadCannon(_rm);
 }
 
-
-
-
 void Game::start(){
    aliens.loadAliens();
    _defense.loadBlocks();
@@ -157,6 +154,24 @@ void Game::draw(){
       
       _rm.loadResources( ResourceID::Bullets, "../executables/resources/bullet.png");
       _cannon.setTexture(_rm.get(ResourceID::Bullets), 3);
+      
+       _rm.loadResources( ResourceID::DownFacingAlienFirst , "../executables/resources/aliens.png");
+       aliens.setTexture(_rm.get(ResourceID::DownFacingAlienFirst),2);
+       
+        _rm.loadResources( ResourceID::DownFacingAlienSecond , "../executables/resources/alien2.png");
+         aliens.setTexture(_rm.get(ResourceID::DownFacingAlienSecond),1);
+         
+       _rm.loadResources( ResourceID::DownFacingAlienThird , "../executables/resources/alien3.png");
+        aliens.setTexture(_rm.get(ResourceID::DownFacingAlienThird),0);
+        
+         _rm.loadResources( ResourceID::UpFacingAlienFirst , "../executables/resources/aliensc.png");
+          aliens.setTexture(_rm.get(ResourceID::UpFacingAlienFirst),3);
+          
+        _rm.loadResources( ResourceID::UpFacingAlienSecond , "../executables/resources/alien2c.png");
+         aliens.setTexture(_rm.get(ResourceID::UpFacingAlienSecond),4);
+         
+       _rm.loadResources( ResourceID::UpFacingAlienThird , "../executables/resources/alien3c.png");
+        aliens.setTexture(_rm.get(ResourceID::UpFacingAlienThird),5);
   }
   
   
