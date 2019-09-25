@@ -7,7 +7,6 @@ Bullet::Bullet()
 
 }
 
-
 void Bullet::setTexture(sf::Texture _texture, const int& _index){
     _bulletTexture = _texture;
     _bulletSprite.setTexture(_bulletTexture);
@@ -40,7 +39,7 @@ void Bullet::startFiring(const FiringDirection& fd, sf::Vector2f _bulletPosition
  }
  
 
- void Bullet::BulletsCollusion(sf::RenderWindow& _window){
+ void Bullet::BulletsCollusion(){
      for(auto it = 0u; it != _bullets.size(); ++it){
          for(auto i = 0u; i != _bullets.size();++i ){
              if( _bullets.size() != 0 && i != it)

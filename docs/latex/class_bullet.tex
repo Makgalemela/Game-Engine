@@ -1,0 +1,303 @@
+\hypertarget{class_bullet}{}\doxysection{Bullet}
+\label{class_bullet}\index{Bullet@{Bullet}}
+
+
+{\ttfamily \#include \char`\"{}Bullet.\+hpp\char`\"{}}
+
+Inheritance diagram for Bullet\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_bullet}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_bullet_abcdb475936730d1c4e3db0b82cef6011}{Bullet}} ()
+\begin{DoxyCompactList}\small\item\em This is default constructor, it\textquotesingle{}s responsibility is to instentiate the private member variable when the bullet object is created. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_bullet_a88ff45c3a07493f0e7ff4907a47d4382}{$\sim$\+Bullet}} ()
+\item 
+void \mbox{\hyperlink{class_bullet_a2755525c55c1693def0d41b6ee6a7aa5}{aliens\+Firing}} (sf\+::\+Vector2$<$ float $>$ \+\_\+pos, \mbox{\hyperlink{_aliens_8hpp_a09da5af75ec658d58eeb933d09ef84d7}{Aliens\+Direction}} orinetation)
+\begin{DoxyCompactList}\small\item\em The utility function is responsible for returning the firing position of the alien object and also the orientation of the firing bullet encapsulated in the enum \textbackslash{}\+Class \textbackslash{}\+Firing\+Direction. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_bullet_a433ed498202b53e95bede68bffdb8932}{alien\+Shoot}} (sf\+::\+Sprite \+\_\+alien, \mbox{\hyperlink{_aliens_8hpp_a09da5af75ec658d58eeb933d09ef84d7}{Aliens\+Direction}} dir)
+\begin{DoxyCompactList}\small\item\em The methods is used to check if the bullets and the aliens are in the same point. If the the bullet and the alien object are on the same point, they are both destroyed and the size of the bullets vector is automatically adjusted. \mbox{\hyperlink{class_aliens}{Aliens}} vector is not change. The aliens is marked as dead when it collide with the bullet. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_bullet_acd02ae06818addedbfcaa8e1f314b579}{Bullet\+Out\+Of\+Screen}} ()
+\begin{DoxyCompactList}\small\item\em The utility method destroys the bullets moving off the screen. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_bullet_a2b2f7f6e4a59d4dd84ca790da2b16ebb}{Bullets\+Collusion}} ()
+\begin{DoxyCompactList}\small\item\em The utility method for checking for the bullet collusions when the bullets collide they are removed from the vector of bullets. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_bullet_a0e597cac1d5a6d3aee6937e3ef503306}{fire\+Bullet}} (sf\+::\+Render\+Window \&\+\_\+window)
+\begin{DoxyCompactList}\small\item\em The utility method is called when the bullet object is fired it facilitate the positioning and the moving of the bullet on the game window. It is also resposible for drawing the bullet object on the screen. \end{DoxyCompactList}\item 
+std\+::tuple$<$ std\+::vector$<$ sf\+::\+Sprite $>$ $\ast$, std\+::vector$<$ \mbox{\hyperlink{_bullet_8hpp_a43068221be0df614286e1025997c8853}{Firing\+Direction}} $>$ $\ast$ $>$ \mbox{\hyperlink{class_bullet_a66ecd4c27859fd14c6cf208b7717f0a7}{get\+Bullets}} ()
+\begin{DoxyCompactList}\small\item\em Tuple function, it returns the bullet object and the firing direction of the bullet. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_bullet_a9ff8900f1eea666f8140881be3b50856}{set\+Texture}} (sf\+::\+Texture \+\_\+texture, const int \&\+\_\+index=0) override
+\begin{DoxyCompactList}\small\item\em The method is inherited from the \textbackslash{}\+Entity Class, it is used to set the texture of the sprite object. \mbox{\hyperlink{class_bullet}{Bullet}} class overide the method. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_bullet_aeeaa0d05742d341591cb432f1f799d29}{start\+Firing}} (const \mbox{\hyperlink{_bullet_8hpp_a43068221be0df614286e1025997c8853}{Firing\+Direction}} \&fd, sf\+::\+Vector2f \mbox{\hyperlink{class_bullet_a5bbbc3e228ef6c31d9b840f4bef31a24}{\+\_\+bullet\+Position}})
+\begin{DoxyCompactList}\small\item\em Instentiate the firing of the bullet, the method set up the initial position to which the bullet is to be fired from and initiate the direction the bullet is fired towards. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_aliens}{Aliens}} \mbox{\hyperlink{class_bullet_a34af28050b3190acbed3eae91c14e637}{\+\_\+aliens}}
+\item 
+sf\+::\+Sprite \mbox{\hyperlink{class_bullet_aed094ac9b6e539ee5d9ebc2368cfc3a3}{\+\_\+bullet\+Explosion\+Sprite}}
+\item 
+sf\+::\+Texture \mbox{\hyperlink{class_bullet_a23f0fe5a3eea46ed2dce18ccbb3b22c1}{\+\_\+bullet\+Explosion\+Texture}}
+\item 
+sf\+::\+Vector2f \mbox{\hyperlink{class_bullet_a5bbbc3e228ef6c31d9b840f4bef31a24}{\+\_\+bullet\+Position}}
+\item 
+std\+::vector$<$ sf\+::\+Sprite $>$ \mbox{\hyperlink{class_bullet_a16aa2716ce130b94d64cf86fcb49f970}{\+\_\+bullets}}
+\item 
+float \mbox{\hyperlink{class_bullet_a31e3123ab1307b4a96de69b364e72b5e}{\+\_\+bullet\+Speed}}
+\item 
+sf\+::\+Sprite \mbox{\hyperlink{class_bullet_a520d1fc016f00b091a6acaa1324be3ee}{\+\_\+bullet\+Sprite}}
+\item 
+sf\+::\+Texture \mbox{\hyperlink{class_bullet_a2d1df6bd318d5533819591ac50aa467e}{\+\_\+bullet\+Texture}}
+\item 
+float \mbox{\hyperlink{class_bullet_ab219f95545a5f65ab00b23d5d74df4cb}{\+\_\+bullet\+Timer}}
+\item 
+float \mbox{\hyperlink{class_bullet_af93d5f5ceb62d5fa8523d6282c04e6a5}{\+\_\+ellaspsed\+Time}}
+\item 
+\mbox{\hyperlink{class_stop_watch}{Stop\+Watch}} \mbox{\hyperlink{class_bullet_aca73e4946ad3909dd6ab58088432668a}{\+\_\+stopwatch}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{_bullet_8hpp_a43068221be0df614286e1025997c8853}{Firing\+Direction}} $>$ \mbox{\hyperlink{class_bullet_a747c49c89439e25c41b28bd87c6b6847}{bullet\+Orientation}}
+\item 
+std\+::vector$<$ bool $>$ \mbox{\hyperlink{class_bullet_a4ffed495c569dbc7eeb3e6bf61c1ef16}{Is\+Alien\+Bullet}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Rachel Mvelase 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+24/09/2019 
+\end{DoxyDate}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_bullet_abcdb475936730d1c4e3db0b82cef6011}\label{class_bullet_abcdb475936730d1c4e3db0b82cef6011}} 
+\index{Bullet@{Bullet}!Bullet@{Bullet}}
+\index{Bullet@{Bullet}!Bullet@{Bullet}}
+\doxysubsubsection{\texorpdfstring{Bullet()}{Bullet()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_bullet}{Bullet}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+This is default constructor, it\textquotesingle{}s responsibility is to instentiate the private member variable when the bullet object is created. 
+
+\mbox{\Hypertarget{class_bullet_a88ff45c3a07493f0e7ff4907a47d4382}\label{class_bullet_a88ff45c3a07493f0e7ff4907a47d4382}} 
+\index{Bullet@{Bullet}!````~Bullet@{$\sim$Bullet}}
+\index{````~Bullet@{$\sim$Bullet}!Bullet@{Bullet}}
+\doxysubsubsection{\texorpdfstring{$\sim$Bullet()}{~Bullet()}}
+{\footnotesize\ttfamily $\sim$\mbox{\hyperlink{class_bullet}{Bullet}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_bullet_a2755525c55c1693def0d41b6ee6a7aa5}\label{class_bullet_a2755525c55c1693def0d41b6ee6a7aa5}} 
+\index{Bullet@{Bullet}!aliensFiring@{aliensFiring}}
+\index{aliensFiring@{aliensFiring}!Bullet@{Bullet}}
+\doxysubsubsection{\texorpdfstring{aliensFiring()}{aliensFiring()}}
+{\footnotesize\ttfamily void aliens\+Firing (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2$<$ float $>$}]{\+\_\+pos,  }\item[{\mbox{\hyperlink{_aliens_8hpp_a09da5af75ec658d58eeb933d09ef84d7}{Aliens\+Direction}}}]{orinetation }\end{DoxyParamCaption})}
+
+
+
+The utility function is responsible for returning the firing position of the alien object and also the orientation of the firing bullet encapsulated in the enum \textbackslash{}\+Class \textbackslash{}\+Firing\+Direction. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+pos} & Firing position \\
+\hline
+{\em orinetation} & Orientation the \mbox{\hyperlink{class_aliens}{Aliens}} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_bullet_a433ed498202b53e95bede68bffdb8932}\label{class_bullet_a433ed498202b53e95bede68bffdb8932}} 
+\index{Bullet@{Bullet}!alienShoot@{alienShoot}}
+\index{alienShoot@{alienShoot}!Bullet@{Bullet}}
+\doxysubsubsection{\texorpdfstring{alienShoot()}{alienShoot()}}
+{\footnotesize\ttfamily bool alien\+Shoot (\begin{DoxyParamCaption}\item[{sf\+::\+Sprite}]{\+\_\+alien,  }\item[{\mbox{\hyperlink{_aliens_8hpp_a09da5af75ec658d58eeb933d09ef84d7}{Aliens\+Direction}}}]{dir }\end{DoxyParamCaption})}
+
+
+
+The methods is used to check if the bullets and the aliens are in the same point. If the the bullet and the alien object are on the same point, they are both destroyed and the size of the bullets vector is automatically adjusted. \mbox{\hyperlink{class_aliens}{Aliens}} vector is not change. The aliens is marked as dead when it collide with the bullet. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+alien} & Alien object in of the type Sf\+::\+Sprite \\
+\hline
+{\em dir} & Direction the alien is facing \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_bullet_acd02ae06818addedbfcaa8e1f314b579}\label{class_bullet_acd02ae06818addedbfcaa8e1f314b579}} 
+\index{Bullet@{Bullet}!BulletOutOfScreen@{BulletOutOfScreen}}
+\index{BulletOutOfScreen@{BulletOutOfScreen}!Bullet@{Bullet}}
+\doxysubsubsection{\texorpdfstring{BulletOutOfScreen()}{BulletOutOfScreen()}}
+{\footnotesize\ttfamily void Bullet\+Out\+Of\+Screen (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+The utility method destroys the bullets moving off the screen. 
+
+\mbox{\Hypertarget{class_bullet_a2b2f7f6e4a59d4dd84ca790da2b16ebb}\label{class_bullet_a2b2f7f6e4a59d4dd84ca790da2b16ebb}} 
+\index{Bullet@{Bullet}!BulletsCollusion@{BulletsCollusion}}
+\index{BulletsCollusion@{BulletsCollusion}!Bullet@{Bullet}}
+\doxysubsubsection{\texorpdfstring{BulletsCollusion()}{BulletsCollusion()}}
+{\footnotesize\ttfamily void Bullets\+Collusion (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+The utility method for checking for the bullet collusions when the bullets collide they are removed from the vector of bullets. 
+
+\mbox{\Hypertarget{class_bullet_a0e597cac1d5a6d3aee6937e3ef503306}\label{class_bullet_a0e597cac1d5a6d3aee6937e3ef503306}} 
+\index{Bullet@{Bullet}!fireBullet@{fireBullet}}
+\index{fireBullet@{fireBullet}!Bullet@{Bullet}}
+\doxysubsubsection{\texorpdfstring{fireBullet()}{fireBullet()}}
+{\footnotesize\ttfamily void fire\+Bullet (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{\+\_\+window }\end{DoxyParamCaption})}
+
+
+
+The utility method is called when the bullet object is fired it facilitate the positioning and the moving of the bullet on the game window. It is also resposible for drawing the bullet object on the screen. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+window} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_bullet_a66ecd4c27859fd14c6cf208b7717f0a7}\label{class_bullet_a66ecd4c27859fd14c6cf208b7717f0a7}} 
+\index{Bullet@{Bullet}!getBullets@{getBullets}}
+\index{getBullets@{getBullets}!Bullet@{Bullet}}
+\doxysubsubsection{\texorpdfstring{getBullets()}{getBullets()}}
+{\footnotesize\ttfamily tuple$<$ std\+::vector$<$ sf\+::\+Sprite $>$ $\ast$, vector$<$ \mbox{\hyperlink{_bullet_8hpp_a43068221be0df614286e1025997c8853}{Firing\+Direction}} $>$ $\ast$ $>$ get\+Bullets (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Tuple function, it returns the bullet object and the firing direction of the bullet. 
+
+\mbox{\Hypertarget{class_bullet_a9ff8900f1eea666f8140881be3b50856}\label{class_bullet_a9ff8900f1eea666f8140881be3b50856}} 
+\index{Bullet@{Bullet}!setTexture@{setTexture}}
+\index{setTexture@{setTexture}!Bullet@{Bullet}}
+\doxysubsubsection{\texorpdfstring{setTexture()}{setTexture()}}
+{\footnotesize\ttfamily void set\+Texture (\begin{DoxyParamCaption}\item[{sf\+::\+Texture}]{\+\_\+texture,  }\item[{const int \&}]{\+\_\+index = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+The method is inherited from the \textbackslash{}\+Entity Class, it is used to set the texture of the sprite object. \mbox{\hyperlink{class_bullet}{Bullet}} class overide the method. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+texture} & Texture argument, \\
+\hline
+{\em \+\_\+index} & A constant variable optionally used to determine the index of the texture, wherein the texture exist in an array \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{class_entity_a091e0c62b69e46762e5d9d63ad05c251}{Entity}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{class_cannon_a5132f17fa0b5165bd86e14fbe13a2369}{Cannon}}.
+
+\mbox{\Hypertarget{class_bullet_aeeaa0d05742d341591cb432f1f799d29}\label{class_bullet_aeeaa0d05742d341591cb432f1f799d29}} 
+\index{Bullet@{Bullet}!startFiring@{startFiring}}
+\index{startFiring@{startFiring}!Bullet@{Bullet}}
+\doxysubsubsection{\texorpdfstring{startFiring()}{startFiring()}}
+{\footnotesize\ttfamily void start\+Firing (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{_bullet_8hpp_a43068221be0df614286e1025997c8853}{Firing\+Direction}} \&}]{fd,  }\item[{sf\+::\+Vector2f}]{\+\_\+bullet\+Position }\end{DoxyParamCaption})}
+
+
+
+Instentiate the firing of the bullet, the method set up the initial position to which the bullet is to be fired from and initiate the direction the bullet is fired towards. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fd} & is the bullet firing diriction \\
+\hline
+{\em \+\_\+bullet\+Position} & position the bullet is fired from. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_bullet_a34af28050b3190acbed3eae91c14e637}\label{class_bullet_a34af28050b3190acbed3eae91c14e637}} 
+\index{Bullet@{Bullet}!\_aliens@{\_aliens}}
+\index{\_aliens@{\_aliens}!Bullet@{Bullet}}
+\doxysubsubsection{\texorpdfstring{\_aliens}{\_aliens}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_aliens}{Aliens}} \+\_\+aliens\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_bullet_aed094ac9b6e539ee5d9ebc2368cfc3a3}\label{class_bullet_aed094ac9b6e539ee5d9ebc2368cfc3a3}} 
+\index{Bullet@{Bullet}!\_bulletExplosionSprite@{\_bulletExplosionSprite}}
+\index{\_bulletExplosionSprite@{\_bulletExplosionSprite}!Bullet@{Bullet}}
+\doxysubsubsection{\texorpdfstring{\_bulletExplosionSprite}{\_bulletExplosionSprite}}
+{\footnotesize\ttfamily sf\+::\+Sprite \+\_\+bullet\+Explosion\+Sprite\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_bullet_a23f0fe5a3eea46ed2dce18ccbb3b22c1}\label{class_bullet_a23f0fe5a3eea46ed2dce18ccbb3b22c1}} 
+\index{Bullet@{Bullet}!\_bulletExplosionTexture@{\_bulletExplosionTexture}}
+\index{\_bulletExplosionTexture@{\_bulletExplosionTexture}!Bullet@{Bullet}}
+\doxysubsubsection{\texorpdfstring{\_bulletExplosionTexture}{\_bulletExplosionTexture}}
+{\footnotesize\ttfamily sf\+::\+Texture \+\_\+bullet\+Explosion\+Texture\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_bullet_a5bbbc3e228ef6c31d9b840f4bef31a24}\label{class_bullet_a5bbbc3e228ef6c31d9b840f4bef31a24}} 
+\index{Bullet@{Bullet}!\_bulletPosition@{\_bulletPosition}}
+\index{\_bulletPosition@{\_bulletPosition}!Bullet@{Bullet}}
+\doxysubsubsection{\texorpdfstring{\_bulletPosition}{\_bulletPosition}}
+{\footnotesize\ttfamily sf\+::\+Vector2f \+\_\+bullet\+Position\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_bullet_a16aa2716ce130b94d64cf86fcb49f970}\label{class_bullet_a16aa2716ce130b94d64cf86fcb49f970}} 
+\index{Bullet@{Bullet}!\_bullets@{\_bullets}}
+\index{\_bullets@{\_bullets}!Bullet@{Bullet}}
+\doxysubsubsection{\texorpdfstring{\_bullets}{\_bullets}}
+{\footnotesize\ttfamily std\+::vector$<$sf\+::\+Sprite$>$ \+\_\+bullets\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_bullet_a31e3123ab1307b4a96de69b364e72b5e}\label{class_bullet_a31e3123ab1307b4a96de69b364e72b5e}} 
+\index{Bullet@{Bullet}!\_bulletSpeed@{\_bulletSpeed}}
+\index{\_bulletSpeed@{\_bulletSpeed}!Bullet@{Bullet}}
+\doxysubsubsection{\texorpdfstring{\_bulletSpeed}{\_bulletSpeed}}
+{\footnotesize\ttfamily float \+\_\+bullet\+Speed\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_bullet_a520d1fc016f00b091a6acaa1324be3ee}\label{class_bullet_a520d1fc016f00b091a6acaa1324be3ee}} 
+\index{Bullet@{Bullet}!\_bulletSprite@{\_bulletSprite}}
+\index{\_bulletSprite@{\_bulletSprite}!Bullet@{Bullet}}
+\doxysubsubsection{\texorpdfstring{\_bulletSprite}{\_bulletSprite}}
+{\footnotesize\ttfamily sf\+::\+Sprite \+\_\+bullet\+Sprite\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_bullet_a2d1df6bd318d5533819591ac50aa467e}\label{class_bullet_a2d1df6bd318d5533819591ac50aa467e}} 
+\index{Bullet@{Bullet}!\_bulletTexture@{\_bulletTexture}}
+\index{\_bulletTexture@{\_bulletTexture}!Bullet@{Bullet}}
+\doxysubsubsection{\texorpdfstring{\_bulletTexture}{\_bulletTexture}}
+{\footnotesize\ttfamily sf\+::\+Texture \+\_\+bullet\+Texture\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_bullet_ab219f95545a5f65ab00b23d5d74df4cb}\label{class_bullet_ab219f95545a5f65ab00b23d5d74df4cb}} 
+\index{Bullet@{Bullet}!\_bulletTimer@{\_bulletTimer}}
+\index{\_bulletTimer@{\_bulletTimer}!Bullet@{Bullet}}
+\doxysubsubsection{\texorpdfstring{\_bulletTimer}{\_bulletTimer}}
+{\footnotesize\ttfamily float \+\_\+bullet\+Timer\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_bullet_af93d5f5ceb62d5fa8523d6282c04e6a5}\label{class_bullet_af93d5f5ceb62d5fa8523d6282c04e6a5}} 
+\index{Bullet@{Bullet}!\_ellaspsedTime@{\_ellaspsedTime}}
+\index{\_ellaspsedTime@{\_ellaspsedTime}!Bullet@{Bullet}}
+\doxysubsubsection{\texorpdfstring{\_ellaspsedTime}{\_ellaspsedTime}}
+{\footnotesize\ttfamily float \+\_\+ellaspsed\+Time\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_bullet_aca73e4946ad3909dd6ab58088432668a}\label{class_bullet_aca73e4946ad3909dd6ab58088432668a}} 
+\index{Bullet@{Bullet}!\_stopwatch@{\_stopwatch}}
+\index{\_stopwatch@{\_stopwatch}!Bullet@{Bullet}}
+\doxysubsubsection{\texorpdfstring{\_stopwatch}{\_stopwatch}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_stop_watch}{Stop\+Watch}} \+\_\+stopwatch\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_bullet_a747c49c89439e25c41b28bd87c6b6847}\label{class_bullet_a747c49c89439e25c41b28bd87c6b6847}} 
+\index{Bullet@{Bullet}!bulletOrientation@{bulletOrientation}}
+\index{bulletOrientation@{bulletOrientation}!Bullet@{Bullet}}
+\doxysubsubsection{\texorpdfstring{bulletOrientation}{bulletOrientation}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{_bullet_8hpp_a43068221be0df614286e1025997c8853}{Firing\+Direction}}$>$ bullet\+Orientation\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_bullet_a4ffed495c569dbc7eeb3e6bf61c1ef16}\label{class_bullet_a4ffed495c569dbc7eeb3e6bf61c1ef16}} 
+\index{Bullet@{Bullet}!IsAlienBullet@{IsAlienBullet}}
+\index{IsAlienBullet@{IsAlienBullet}!Bullet@{Bullet}}
+\doxysubsubsection{\texorpdfstring{IsAlienBullet}{IsAlienBullet}}
+{\footnotesize\ttfamily std\+::vector$<$bool$>$ Is\+Alien\+Bullet\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+User/\+Desktop/2019-\/project-\/1502491-\/\+Mvelase-\/879024-\/\+Makgalemela/game-\/source-\/code/\mbox{\hyperlink{_bullet_8hpp}{Bullet.\+hpp}}\item 
+C\+:/\+Users/\+User/\+Desktop/2019-\/project-\/1502491-\/\+Mvelase-\/879024-\/\+Makgalemela/game-\/source-\/code/\mbox{\hyperlink{_bullet_8cpp}{Bullet.\+cpp}}\end{DoxyCompactItemize}

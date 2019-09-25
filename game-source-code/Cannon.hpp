@@ -2,8 +2,6 @@
 #define CANNON_HPP
 
 #include <SFML/Graphics.hpp>
-//#include "collusion.hpp"
-#include "DefenseBlocks.hpp"
 #include "Bullet.hpp"
 #include "Entity.hpp"
 #include <tuple>
@@ -42,7 +40,6 @@ private:
     bool _moveRightTop;
     float _cannonSpeed;
     int _cannonLives;
-    DefenseBlocks _defense;
 };
 
 #endif // CANNON_HPP

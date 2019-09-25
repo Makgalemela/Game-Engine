@@ -1,0 +1,268 @@
+\hypertarget{class_cannon}{}\doxysection{Cannon}
+\label{class_cannon}\index{Cannon@{Cannon}}
+
+
+{\ttfamily \#include \char`\"{}Cannon.\+hpp\char`\"{}}
+
+Inheritance diagram for Cannon\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_cannon}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_cannon_aaee7cef05f656f31d7f8fa444a669387}{Cannon}} ()
+\item 
+\mbox{\hyperlink{class_cannon_ab7bc3616aed7d070f159b53d2880299e}{$\sim$\+Cannon}} ()
+\item 
+void \mbox{\hyperlink{class_cannon_aa3ce2c4b92ac2a60eb57238762cddee1}{cannon\+Is\+Shot}} ()
+\item 
+void \mbox{\hyperlink{class_cannon_aa78e198952380cbcc4032d3831116799}{Draw\+Cannon}} (sf\+::\+Render\+Window \&\+\_\+window)
+\item 
+sf\+::\+Vector2f \mbox{\hyperlink{class_cannon_a145077090893e5a91342f2eb8441a52f}{get\+Cannon2\+Center\+Fire\+Position}} () const
+\item 
+sf\+::\+Vector2f \mbox{\hyperlink{class_cannon_a95acb315feacb91063dd273fa224699a}{get\+Cannon\+Center\+Fire\+Position}} () const
+\item 
+int \mbox{\hyperlink{class_cannon_af79337487f7bfd6c0491a07d11c48057}{get\+Cannon\+Lives}} () const
+\item 
+sf\+::\+Sprite \mbox{\hyperlink{class_cannon_a232e8db9251540a2899dfd95d22d6f48}{get\+Sprite}} () const
+\item 
+sf\+::\+Sprite \mbox{\hyperlink{class_cannon_a9a60603b8b4d8149ed7e91b283540738}{get\+Sprite2}} () const
+\item 
+void \mbox{\hyperlink{class_cannon_abc1bc0af64454e9afe4f204ddd29937e}{move}} (\mbox{\hyperlink{_entity_8hpp_a224b9163917ac32fc95a60d8c1eec3aa}{Direction}} \+\_\+dir, \mbox{\hyperlink{_entity_8hpp_ae2ad47c2b6fe6fe93090e7a6a90126c1}{Entity\+Id}} \+\_\+id) override
+\item 
+void \mbox{\hyperlink{class_cannon_aa721462120e133645feb122d4073e862}{set\+Init\+Pos\+Of\+Cannon}} (sf\+::\+Vector2f \mbox{\hyperlink{class_cannon_a5c0305ea4b944e7c8cf1933f101a715b}{\+\_\+position}})
+\item 
+void \mbox{\hyperlink{class_cannon_a5132f17fa0b5165bd86e14fbe13a2369}{set\+Texture}} (sf\+::\+Texture \mbox{\hyperlink{class_cannon_a37a11b51a13626cae6839d6f9899df6f}{\+\_\+texture}}, const int \&i) override
+\begin{DoxyCompactList}\small\item\em The method is inherited from the \textbackslash{}\+Entity Class, it is used to set the texture of the sprite object. \mbox{\hyperlink{class_bullet}{Bullet}} class overide the method. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_cannon_af3e87f0095c31745b0e63408ff54dfbe}{stop\+Move}} (\mbox{\hyperlink{_entity_8hpp_a224b9163917ac32fc95a60d8c1eec3aa}{Direction}} \+\_\+dir, \mbox{\hyperlink{_entity_8hpp_ae2ad47c2b6fe6fe93090e7a6a90126c1}{Entity\+Id}} \+\_\+id) override
+\item 
+void \mbox{\hyperlink{class_cannon_a7ea4473e411853b25695bc5224fd2a4d}{update}} (const float \&elapsed\+Time) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+sf\+::\+Sprite \mbox{\hyperlink{class_cannon_aede843a82e81805bf1085fb6ace407eb}{\+\_\+cannon}} \mbox{[}2\mbox{]}
+\item 
+int \mbox{\hyperlink{class_cannon_a0c21c5db896f55f988e415aab8a05061}{\+\_\+cannon\+Lives}}
+\item 
+float \mbox{\hyperlink{class_cannon_ab802cc4d39b8789343b4198ede5dd173}{\+\_\+cannon\+Speed}}
+\item 
+\mbox{\hyperlink{class_defense_blocks}{Defense\+Blocks}} \mbox{\hyperlink{class_cannon_a9a692eb461ea52d9233bf38e56eecbe8}{\+\_\+defense}}
+\item 
+bool \mbox{\hyperlink{class_cannon_ae86370d34d63d12fda6506d0539a11ac}{\+\_\+move\+Left}}
+\item 
+bool \mbox{\hyperlink{class_cannon_a9fc67ab40810c124e8a5094bb921ac47}{\+\_\+move\+Left\+Top}}
+\item 
+bool \mbox{\hyperlink{class_cannon_ad164d81ce87e163d910d1bdd6176659f}{\+\_\+move\+Right}}
+\item 
+bool \mbox{\hyperlink{class_cannon_a74b7b41643fb91c8b6cb0f44c56ed5d6}{\+\_\+move\+Right\+Top}}
+\item 
+sf\+::\+Vector2f \mbox{\hyperlink{class_cannon_a5c0305ea4b944e7c8cf1933f101a715b}{\+\_\+position}} \mbox{[}2\mbox{]}
+\item 
+sf\+::\+Texture \mbox{\hyperlink{class_cannon_a37a11b51a13626cae6839d6f9899df6f}{\+\_\+texture}} \mbox{[}2\mbox{]}
+\item 
+bool \mbox{\hyperlink{class_cannon_ae7181cc06f59ac59054b8ee8902837de}{cannon\+Down}} \mbox{[}2\mbox{]}
+\item 
+\mbox{\hyperlink{_bullet_8hpp_a43068221be0df614286e1025997c8853}{Firing\+Direction}} \mbox{\hyperlink{class_cannon_aefbf636df06a5648c9d0fcc21802f16d}{cannon\+Orientation}} \mbox{[}2\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_cannon_aaee7cef05f656f31d7f8fa444a669387}\label{class_cannon_aaee7cef05f656f31d7f8fa444a669387}} 
+\index{Cannon@{Cannon}!Cannon@{Cannon}}
+\index{Cannon@{Cannon}!Cannon@{Cannon}}
+\doxysubsubsection{\texorpdfstring{Cannon()}{Cannon()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_cannon}{Cannon}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_cannon_ab7bc3616aed7d070f159b53d2880299e}\label{class_cannon_ab7bc3616aed7d070f159b53d2880299e}} 
+\index{Cannon@{Cannon}!````~Cannon@{$\sim$Cannon}}
+\index{````~Cannon@{$\sim$Cannon}!Cannon@{Cannon}}
+\doxysubsubsection{\texorpdfstring{$\sim$Cannon()}{~Cannon()}}
+{\footnotesize\ttfamily $\sim$\mbox{\hyperlink{class_cannon}{Cannon}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_cannon_aa3ce2c4b92ac2a60eb57238762cddee1}\label{class_cannon_aa3ce2c4b92ac2a60eb57238762cddee1}} 
+\index{Cannon@{Cannon}!cannonIsShot@{cannonIsShot}}
+\index{cannonIsShot@{cannonIsShot}!Cannon@{Cannon}}
+\doxysubsubsection{\texorpdfstring{cannonIsShot()}{cannonIsShot()}}
+{\footnotesize\ttfamily void cannon\+Is\+Shot (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_cannon_aa78e198952380cbcc4032d3831116799}\label{class_cannon_aa78e198952380cbcc4032d3831116799}} 
+\index{Cannon@{Cannon}!DrawCannon@{DrawCannon}}
+\index{DrawCannon@{DrawCannon}!Cannon@{Cannon}}
+\doxysubsubsection{\texorpdfstring{DrawCannon()}{DrawCannon()}}
+{\footnotesize\ttfamily void Draw\+Cannon (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{\+\_\+window }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_cannon_a145077090893e5a91342f2eb8441a52f}\label{class_cannon_a145077090893e5a91342f2eb8441a52f}} 
+\index{Cannon@{Cannon}!getCannon2CenterFirePosition@{getCannon2CenterFirePosition}}
+\index{getCannon2CenterFirePosition@{getCannon2CenterFirePosition}!Cannon@{Cannon}}
+\doxysubsubsection{\texorpdfstring{getCannon2CenterFirePosition()}{getCannon2CenterFirePosition()}}
+{\footnotesize\ttfamily sf\+::\+Vector2f get\+Cannon2\+Center\+Fire\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_cannon_a95acb315feacb91063dd273fa224699a}\label{class_cannon_a95acb315feacb91063dd273fa224699a}} 
+\index{Cannon@{Cannon}!getCannonCenterFirePosition@{getCannonCenterFirePosition}}
+\index{getCannonCenterFirePosition@{getCannonCenterFirePosition}!Cannon@{Cannon}}
+\doxysubsubsection{\texorpdfstring{getCannonCenterFirePosition()}{getCannonCenterFirePosition()}}
+{\footnotesize\ttfamily sf\+::\+Vector2f get\+Cannon\+Center\+Fire\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_cannon_af79337487f7bfd6c0491a07d11c48057}\label{class_cannon_af79337487f7bfd6c0491a07d11c48057}} 
+\index{Cannon@{Cannon}!getCannonLives@{getCannonLives}}
+\index{getCannonLives@{getCannonLives}!Cannon@{Cannon}}
+\doxysubsubsection{\texorpdfstring{getCannonLives()}{getCannonLives()}}
+{\footnotesize\ttfamily int get\+Cannon\+Lives (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_cannon_a232e8db9251540a2899dfd95d22d6f48}\label{class_cannon_a232e8db9251540a2899dfd95d22d6f48}} 
+\index{Cannon@{Cannon}!getSprite@{getSprite}}
+\index{getSprite@{getSprite}!Cannon@{Cannon}}
+\doxysubsubsection{\texorpdfstring{getSprite()}{getSprite()}}
+{\footnotesize\ttfamily sf\+::\+Sprite get\+Sprite (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_cannon_a9a60603b8b4d8149ed7e91b283540738}\label{class_cannon_a9a60603b8b4d8149ed7e91b283540738}} 
+\index{Cannon@{Cannon}!getSprite2@{getSprite2}}
+\index{getSprite2@{getSprite2}!Cannon@{Cannon}}
+\doxysubsubsection{\texorpdfstring{getSprite2()}{getSprite2()}}
+{\footnotesize\ttfamily sf\+::\+Sprite get\+Sprite2 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_cannon_abc1bc0af64454e9afe4f204ddd29937e}\label{class_cannon_abc1bc0af64454e9afe4f204ddd29937e}} 
+\index{Cannon@{Cannon}!move@{move}}
+\index{move@{move}!Cannon@{Cannon}}
+\doxysubsubsection{\texorpdfstring{move()}{move()}}
+{\footnotesize\ttfamily void move (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_entity_8hpp_a224b9163917ac32fc95a60d8c1eec3aa}{Direction}}}]{\+\_\+dir,  }\item[{\mbox{\hyperlink{_entity_8hpp_ae2ad47c2b6fe6fe93090e7a6a90126c1}{Entity\+Id}}}]{\+\_\+id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_entity_ac687ea28df3132fd1fce5cab9fb156da}{Entity}}.
+
+\mbox{\Hypertarget{class_cannon_aa721462120e133645feb122d4073e862}\label{class_cannon_aa721462120e133645feb122d4073e862}} 
+\index{Cannon@{Cannon}!setInitPosOfCannon@{setInitPosOfCannon}}
+\index{setInitPosOfCannon@{setInitPosOfCannon}!Cannon@{Cannon}}
+\doxysubsubsection{\texorpdfstring{setInitPosOfCannon()}{setInitPosOfCannon()}}
+{\footnotesize\ttfamily void set\+Init\+Pos\+Of\+Cannon (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2f}]{\+\_\+position }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_cannon_a5132f17fa0b5165bd86e14fbe13a2369}\label{class_cannon_a5132f17fa0b5165bd86e14fbe13a2369}} 
+\index{Cannon@{Cannon}!setTexture@{setTexture}}
+\index{setTexture@{setTexture}!Cannon@{Cannon}}
+\doxysubsubsection{\texorpdfstring{setTexture()}{setTexture()}}
+{\footnotesize\ttfamily void set\+Texture (\begin{DoxyParamCaption}\item[{sf\+::\+Texture}]{\+\_\+texture,  }\item[{const int \&}]{\+\_\+index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+The method is inherited from the \textbackslash{}\+Entity Class, it is used to set the texture of the sprite object. \mbox{\hyperlink{class_bullet}{Bullet}} class overide the method. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+texture} & Texture argument, \\
+\hline
+{\em \+\_\+index} & A constant variable optionally used to determine the index of the texture, wherein the texture exist in an array \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{class_bullet_a9ff8900f1eea666f8140881be3b50856}{Bullet}}.
+
+\mbox{\Hypertarget{class_cannon_af3e87f0095c31745b0e63408ff54dfbe}\label{class_cannon_af3e87f0095c31745b0e63408ff54dfbe}} 
+\index{Cannon@{Cannon}!stopMove@{stopMove}}
+\index{stopMove@{stopMove}!Cannon@{Cannon}}
+\doxysubsubsection{\texorpdfstring{stopMove()}{stopMove()}}
+{\footnotesize\ttfamily void stop\+Move (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_entity_8hpp_a224b9163917ac32fc95a60d8c1eec3aa}{Direction}}}]{\+\_\+dir,  }\item[{\mbox{\hyperlink{_entity_8hpp_ae2ad47c2b6fe6fe93090e7a6a90126c1}{Entity\+Id}}}]{\+\_\+id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_entity_ac828b2dd954fe7acc11adf28898f6168}{Entity}}.
+
+\mbox{\Hypertarget{class_cannon_a7ea4473e411853b25695bc5224fd2a4d}\label{class_cannon_a7ea4473e411853b25695bc5224fd2a4d}} 
+\index{Cannon@{Cannon}!update@{update}}
+\index{update@{update}!Cannon@{Cannon}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void update (\begin{DoxyParamCaption}\item[{const float \&}]{elapsed\+Time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_entity_adc162c338427558bffd86c9429dde6c3}{Entity}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_cannon_aede843a82e81805bf1085fb6ace407eb}\label{class_cannon_aede843a82e81805bf1085fb6ace407eb}} 
+\index{Cannon@{Cannon}!\_cannon@{\_cannon}}
+\index{\_cannon@{\_cannon}!Cannon@{Cannon}}
+\doxysubsubsection{\texorpdfstring{\_cannon}{\_cannon}}
+{\footnotesize\ttfamily sf\+::\+Sprite \+\_\+cannon\mbox{[}2\mbox{]}\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_cannon_a0c21c5db896f55f988e415aab8a05061}\label{class_cannon_a0c21c5db896f55f988e415aab8a05061}} 
+\index{Cannon@{Cannon}!\_cannonLives@{\_cannonLives}}
+\index{\_cannonLives@{\_cannonLives}!Cannon@{Cannon}}
+\doxysubsubsection{\texorpdfstring{\_cannonLives}{\_cannonLives}}
+{\footnotesize\ttfamily int \+\_\+cannon\+Lives\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_cannon_ab802cc4d39b8789343b4198ede5dd173}\label{class_cannon_ab802cc4d39b8789343b4198ede5dd173}} 
+\index{Cannon@{Cannon}!\_cannonSpeed@{\_cannonSpeed}}
+\index{\_cannonSpeed@{\_cannonSpeed}!Cannon@{Cannon}}
+\doxysubsubsection{\texorpdfstring{\_cannonSpeed}{\_cannonSpeed}}
+{\footnotesize\ttfamily float \+\_\+cannon\+Speed\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_cannon_a9a692eb461ea52d9233bf38e56eecbe8}\label{class_cannon_a9a692eb461ea52d9233bf38e56eecbe8}} 
+\index{Cannon@{Cannon}!\_defense@{\_defense}}
+\index{\_defense@{\_defense}!Cannon@{Cannon}}
+\doxysubsubsection{\texorpdfstring{\_defense}{\_defense}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_defense_blocks}{Defense\+Blocks}} \+\_\+defense\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_cannon_ae86370d34d63d12fda6506d0539a11ac}\label{class_cannon_ae86370d34d63d12fda6506d0539a11ac}} 
+\index{Cannon@{Cannon}!\_moveLeft@{\_moveLeft}}
+\index{\_moveLeft@{\_moveLeft}!Cannon@{Cannon}}
+\doxysubsubsection{\texorpdfstring{\_moveLeft}{\_moveLeft}}
+{\footnotesize\ttfamily bool \+\_\+move\+Left\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_cannon_a9fc67ab40810c124e8a5094bb921ac47}\label{class_cannon_a9fc67ab40810c124e8a5094bb921ac47}} 
+\index{Cannon@{Cannon}!\_moveLeftTop@{\_moveLeftTop}}
+\index{\_moveLeftTop@{\_moveLeftTop}!Cannon@{Cannon}}
+\doxysubsubsection{\texorpdfstring{\_moveLeftTop}{\_moveLeftTop}}
+{\footnotesize\ttfamily bool \+\_\+move\+Left\+Top\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_cannon_ad164d81ce87e163d910d1bdd6176659f}\label{class_cannon_ad164d81ce87e163d910d1bdd6176659f}} 
+\index{Cannon@{Cannon}!\_moveRight@{\_moveRight}}
+\index{\_moveRight@{\_moveRight}!Cannon@{Cannon}}
+\doxysubsubsection{\texorpdfstring{\_moveRight}{\_moveRight}}
+{\footnotesize\ttfamily bool \+\_\+move\+Right\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_cannon_a74b7b41643fb91c8b6cb0f44c56ed5d6}\label{class_cannon_a74b7b41643fb91c8b6cb0f44c56ed5d6}} 
+\index{Cannon@{Cannon}!\_moveRightTop@{\_moveRightTop}}
+\index{\_moveRightTop@{\_moveRightTop}!Cannon@{Cannon}}
+\doxysubsubsection{\texorpdfstring{\_moveRightTop}{\_moveRightTop}}
+{\footnotesize\ttfamily bool \+\_\+move\+Right\+Top\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_cannon_a5c0305ea4b944e7c8cf1933f101a715b}\label{class_cannon_a5c0305ea4b944e7c8cf1933f101a715b}} 
+\index{Cannon@{Cannon}!\_position@{\_position}}
+\index{\_position@{\_position}!Cannon@{Cannon}}
+\doxysubsubsection{\texorpdfstring{\_position}{\_position}}
+{\footnotesize\ttfamily sf\+::\+Vector2f \+\_\+position\mbox{[}2\mbox{]}\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_cannon_a37a11b51a13626cae6839d6f9899df6f}\label{class_cannon_a37a11b51a13626cae6839d6f9899df6f}} 
+\index{Cannon@{Cannon}!\_texture@{\_texture}}
+\index{\_texture@{\_texture}!Cannon@{Cannon}}
+\doxysubsubsection{\texorpdfstring{\_texture}{\_texture}}
+{\footnotesize\ttfamily sf\+::\+Texture \+\_\+texture\mbox{[}2\mbox{]}\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_cannon_ae7181cc06f59ac59054b8ee8902837de}\label{class_cannon_ae7181cc06f59ac59054b8ee8902837de}} 
+\index{Cannon@{Cannon}!cannonDown@{cannonDown}}
+\index{cannonDown@{cannonDown}!Cannon@{Cannon}}
+\doxysubsubsection{\texorpdfstring{cannonDown}{cannonDown}}
+{\footnotesize\ttfamily bool cannon\+Down\mbox{[}2\mbox{]}\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_cannon_aefbf636df06a5648c9d0fcc21802f16d}\label{class_cannon_aefbf636df06a5648c9d0fcc21802f16d}} 
+\index{Cannon@{Cannon}!cannonOrientation@{cannonOrientation}}
+\index{cannonOrientation@{cannonOrientation}!Cannon@{Cannon}}
+\doxysubsubsection{\texorpdfstring{cannonOrientation}{cannonOrientation}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_bullet_8hpp_a43068221be0df614286e1025997c8853}{Firing\+Direction}} cannon\+Orientation\mbox{[}2\mbox{]}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+User/\+Desktop/2019-\/project-\/1502491-\/\+Mvelase-\/879024-\/\+Makgalemela/game-\/source-\/code/\mbox{\hyperlink{_cannon_8hpp}{Cannon.\+hpp}}\item 
+C\+:/\+Users/\+User/\+Desktop/2019-\/project-\/1502491-\/\+Mvelase-\/879024-\/\+Makgalemela/game-\/source-\/code/\mbox{\hyperlink{_cannon_8cpp}{Cannon.\+cpp}}\end{DoxyCompactItemize}

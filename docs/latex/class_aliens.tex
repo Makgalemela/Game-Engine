@@ -1,0 +1,273 @@
+\hypertarget{class_aliens}{}\doxysection{Aliens}
+\label{class_aliens}\index{Aliens@{Aliens}}
+
+
+{\ttfamily \#include \char`\"{}Aliens.\+hpp\char`\"{}}
+
+Inheritance diagram for Aliens\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_aliens}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_aliens_a0c87a17322eee3b692cfaabdd04081ea}{Aliens}} ()
+\item 
+\mbox{\hyperlink{class_aliens_a642df4668c81f7d712ede07e50452345}{$\sim$\+Aliens}} ()
+\item 
+void \mbox{\hyperlink{class_aliens_a43de427213574046126deb677e0888ee}{alien\+Is\+Moving}} (sf\+::\+Render\+Window \&\+\_\+windows)
+\item 
+void \mbox{\hyperlink{class_aliens_a7b1cc8f5dcc780f5b4851a6000589e6e}{alien\+Is\+Shot}} (const int \&it, const \mbox{\hyperlink{_aliens_8hpp_a09da5af75ec658d58eeb933d09ef84d7}{Aliens\+Direction}} \&ad=\mbox{\hyperlink{_aliens_8hpp_a09da5af75ec658d58eeb933d09ef84d7a8ad8f7a8b4c4a732935018e0cddbe955}{Aliens\+Direction\+::\+Down\+Face}})
+\item 
+bool \mbox{\hyperlink{class_aliens_aed0c802d2ffe6376a696993dc7fe13e9}{aliens\+At\+Botton\+Or\+Top}} () const
+\item 
+tuple$<$ vector$<$ sf\+::\+Sprite $>$,vector$<$ sf\+::\+Sprite $>$ $>$ \mbox{\hyperlink{class_aliens_a064a3908019eb3ad32770b2d7cb6ef74}{aliens\+Sprite}} () const
+\item 
+std\+::vector$<$ sf\+::\+Sprite $>$ \mbox{\hyperlink{class_aliens_acb8b53951522fdadcd9f35ab535c45b4}{aliens\+Sprite\+Alone}} () const
+\item 
+bool \mbox{\hyperlink{class_aliens_a279c039f393b18ed6e79d43e5dda7e30}{all\+Aliens\+Killed}} () const
+\item 
+tuple$<$ sf\+::\+Vector2$<$ float $>$,bool, \mbox{\hyperlink{_aliens_8hpp_a09da5af75ec658d58eeb933d09ef84d7}{Aliens\+Direction}} $>$ \mbox{\hyperlink{class_aliens_a3dd5897abb1a203776712fa2d1b07ddd}{get\+Alien\+Firing\+Position}} (const int \&itr)
+\item 
+int \mbox{\hyperlink{class_aliens_a3c4029b904a61a9873e6d12785ce19a1}{get\+Size}} ()
+\item 
+bool \mbox{\hyperlink{class_aliens_a346298352f5c07360cf29039d198a10a}{Is\+Alien\+Alive}} (const int \&it, const \mbox{\hyperlink{_aliens_8hpp_a09da5af75ec658d58eeb933d09ef84d7}{Aliens\+Direction}} \&dir) const
+\item 
+void \mbox{\hyperlink{class_aliens_a857e545765202bac98fadc2d941e58ea}{load\+Aliens}} ()
+\item 
+void \mbox{\hyperlink{class_aliens_a1c87fffce47d27c24f78d5df992dad9c}{scale}} ()
+\item 
+void \mbox{\hyperlink{class_aliens_af89a4cd8ff3f25ca25d23e3875a0aa44}{set\+Alien\+Position}} ()
+\item 
+void \mbox{\hyperlink{class_aliens_a9ff8900f1eea666f8140881be3b50856}{set\+Texture}} (sf\+::\+Texture \+\_\+texture, const int \&\+\_\+index=0) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_aliens_af38d086155ad9bd47676f755bff06fca}{set\+Texture}} ()
+\item 
+void \mbox{\hyperlink{class_aliens_aa0d29770af6c13e8bcf91b2a8b2845e5}{update}} (const float \&\+\_\+pixel, const int \&i)
+\item 
+void \mbox{\hyperlink{class_aliens_aaa814a5410eea0a6bcda775549f4372c}{update\+Rows}} (const int \&i)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_aliens_aaf14119b19011fb29ec3981dc893e4a3}{\+\_\+change\+Alien\+Direction}} \mbox{[}2\mbox{]}
+\item 
+sf\+::\+Vector2f \mbox{\hyperlink{class_aliens_a5c0305ea4b944e7c8cf1933f101a715b}{\+\_\+position}} \mbox{[}2\mbox{]}
+\item 
+\mbox{\hyperlink{class_resource_manager}{Resource\+Manager}} \mbox{\hyperlink{class_aliens_a234d6678d069a16d1d83b569ab13aec1}{\+\_\+rm}}
+\item 
+\mbox{\hyperlink{class_score}{Score}} \mbox{\hyperlink{class_aliens_a74eb76b631f7ccb239c39a9f42cdfd58}{\+\_\+score}}
+\item 
+\mbox{\hyperlink{class_stop_watch}{Stop\+Watch}} \mbox{\hyperlink{class_aliens_af1612156979552ccc5bf799da94233f0}{\+\_\+watch}}
+\item 
+std\+::vector$<$ bool $>$ \mbox{\hyperlink{class_aliens_a6a2e4540734ae40b5f29f766ee077c16}{alien\+Is\+Alive}} \mbox{[}2\mbox{]}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{_aliens_8hpp_a09da5af75ec658d58eeb933d09ef84d7}{Aliens\+Direction}} $>$ \mbox{\hyperlink{class_aliens_a1b13944ce443728c89c4912dfe3bdafd}{alien\+Orientation}} \mbox{[}2\mbox{]}
+\item 
+std\+::vector$<$ sf\+::\+Sprite $>$ \mbox{\hyperlink{class_aliens_a2161d6ea1a34927d88982013fcffaedc}{aliens}} \mbox{[}2\mbox{]}
+\item 
+sf\+::\+Sprite \mbox{\hyperlink{class_aliens_a37d66d7b0898160225626e9feb5a3fb4}{alien\+Sprite}} \mbox{[}6\mbox{]}
+\item 
+sf\+::\+Texture \mbox{\hyperlink{class_aliens_ac565774f719261bdb04cfbaec58a92e5}{alien\+Texture}} \mbox{[}6\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+User 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+24/09/2019 
+\end{DoxyDate}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_aliens_a0c87a17322eee3b692cfaabdd04081ea}\label{class_aliens_a0c87a17322eee3b692cfaabdd04081ea}} 
+\index{Aliens@{Aliens}!Aliens@{Aliens}}
+\index{Aliens@{Aliens}!Aliens@{Aliens}}
+\doxysubsubsection{\texorpdfstring{Aliens()}{Aliens()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_aliens}{Aliens}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_aliens_a642df4668c81f7d712ede07e50452345}\label{class_aliens_a642df4668c81f7d712ede07e50452345}} 
+\index{Aliens@{Aliens}!````~Aliens@{$\sim$Aliens}}
+\index{````~Aliens@{$\sim$Aliens}!Aliens@{Aliens}}
+\doxysubsubsection{\texorpdfstring{$\sim$Aliens()}{~Aliens()}}
+{\footnotesize\ttfamily $\sim$\mbox{\hyperlink{class_aliens}{Aliens}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_aliens_a43de427213574046126deb677e0888ee}\label{class_aliens_a43de427213574046126deb677e0888ee}} 
+\index{Aliens@{Aliens}!alienIsMoving@{alienIsMoving}}
+\index{alienIsMoving@{alienIsMoving}!Aliens@{Aliens}}
+\doxysubsubsection{\texorpdfstring{alienIsMoving()}{alienIsMoving()}}
+{\footnotesize\ttfamily void alien\+Is\+Moving (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{\+\_\+windows }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_aliens_a7b1cc8f5dcc780f5b4851a6000589e6e}\label{class_aliens_a7b1cc8f5dcc780f5b4851a6000589e6e}} 
+\index{Aliens@{Aliens}!alienIsShot@{alienIsShot}}
+\index{alienIsShot@{alienIsShot}!Aliens@{Aliens}}
+\doxysubsubsection{\texorpdfstring{alienIsShot()}{alienIsShot()}}
+{\footnotesize\ttfamily void alien\+Is\+Shot (\begin{DoxyParamCaption}\item[{const int \&}]{it,  }\item[{const \mbox{\hyperlink{_aliens_8hpp_a09da5af75ec658d58eeb933d09ef84d7}{Aliens\+Direction}} \&}]{ad = {\ttfamily \mbox{\hyperlink{_aliens_8hpp_a09da5af75ec658d58eeb933d09ef84d7a8ad8f7a8b4c4a732935018e0cddbe955}{Aliens\+Direction\+::\+Down\+Face}}} }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_aliens_aed0c802d2ffe6376a696993dc7fe13e9}\label{class_aliens_aed0c802d2ffe6376a696993dc7fe13e9}} 
+\index{Aliens@{Aliens}!aliensAtBottonOrTop@{aliensAtBottonOrTop}}
+\index{aliensAtBottonOrTop@{aliensAtBottonOrTop}!Aliens@{Aliens}}
+\doxysubsubsection{\texorpdfstring{aliensAtBottonOrTop()}{aliensAtBottonOrTop()}}
+{\footnotesize\ttfamily bool aliens\+At\+Botton\+Or\+Top (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_aliens_a064a3908019eb3ad32770b2d7cb6ef74}\label{class_aliens_a064a3908019eb3ad32770b2d7cb6ef74}} 
+\index{Aliens@{Aliens}!aliensSprite@{aliensSprite}}
+\index{aliensSprite@{aliensSprite}!Aliens@{Aliens}}
+\doxysubsubsection{\texorpdfstring{aliensSprite()}{aliensSprite()}}
+{\footnotesize\ttfamily tuple$<$ vector$<$ sf\+::\+Sprite $>$,vector$<$ sf\+::\+Sprite $>$ $>$ aliens\+Sprite (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_aliens_acb8b53951522fdadcd9f35ab535c45b4}\label{class_aliens_acb8b53951522fdadcd9f35ab535c45b4}} 
+\index{Aliens@{Aliens}!aliensSpriteAlone@{aliensSpriteAlone}}
+\index{aliensSpriteAlone@{aliensSpriteAlone}!Aliens@{Aliens}}
+\doxysubsubsection{\texorpdfstring{aliensSpriteAlone()}{aliensSpriteAlone()}}
+{\footnotesize\ttfamily vector$<$ sf\+::\+Sprite $>$ aliens\+Sprite\+Alone (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_aliens_a279c039f393b18ed6e79d43e5dda7e30}\label{class_aliens_a279c039f393b18ed6e79d43e5dda7e30}} 
+\index{Aliens@{Aliens}!allAliensKilled@{allAliensKilled}}
+\index{allAliensKilled@{allAliensKilled}!Aliens@{Aliens}}
+\doxysubsubsection{\texorpdfstring{allAliensKilled()}{allAliensKilled()}}
+{\footnotesize\ttfamily bool all\+Aliens\+Killed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_aliens_a3dd5897abb1a203776712fa2d1b07ddd}\label{class_aliens_a3dd5897abb1a203776712fa2d1b07ddd}} 
+\index{Aliens@{Aliens}!getAlienFiringPosition@{getAlienFiringPosition}}
+\index{getAlienFiringPosition@{getAlienFiringPosition}!Aliens@{Aliens}}
+\doxysubsubsection{\texorpdfstring{getAlienFiringPosition()}{getAlienFiringPosition()}}
+{\footnotesize\ttfamily tuple$<$ sf\+::\+Vector2$<$ float $>$, bool, \mbox{\hyperlink{_aliens_8hpp_a09da5af75ec658d58eeb933d09ef84d7}{Aliens\+Direction}} $>$ get\+Alien\+Firing\+Position (\begin{DoxyParamCaption}\item[{const int \&}]{itr }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_aliens_a3c4029b904a61a9873e6d12785ce19a1}\label{class_aliens_a3c4029b904a61a9873e6d12785ce19a1}} 
+\index{Aliens@{Aliens}!getSize@{getSize}}
+\index{getSize@{getSize}!Aliens@{Aliens}}
+\doxysubsubsection{\texorpdfstring{getSize()}{getSize()}}
+{\footnotesize\ttfamily int get\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_aliens_a346298352f5c07360cf29039d198a10a}\label{class_aliens_a346298352f5c07360cf29039d198a10a}} 
+\index{Aliens@{Aliens}!IsAlienAlive@{IsAlienAlive}}
+\index{IsAlienAlive@{IsAlienAlive}!Aliens@{Aliens}}
+\doxysubsubsection{\texorpdfstring{IsAlienAlive()}{IsAlienAlive()}}
+{\footnotesize\ttfamily bool Is\+Alien\+Alive (\begin{DoxyParamCaption}\item[{const int \&}]{it,  }\item[{const \mbox{\hyperlink{_aliens_8hpp_a09da5af75ec658d58eeb933d09ef84d7}{Aliens\+Direction}} \&}]{dir }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_aliens_a857e545765202bac98fadc2d941e58ea}\label{class_aliens_a857e545765202bac98fadc2d941e58ea}} 
+\index{Aliens@{Aliens}!loadAliens@{loadAliens}}
+\index{loadAliens@{loadAliens}!Aliens@{Aliens}}
+\doxysubsubsection{\texorpdfstring{loadAliens()}{loadAliens()}}
+{\footnotesize\ttfamily void load\+Aliens (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_aliens_a1c87fffce47d27c24f78d5df992dad9c}\label{class_aliens_a1c87fffce47d27c24f78d5df992dad9c}} 
+\index{Aliens@{Aliens}!scale@{scale}}
+\index{scale@{scale}!Aliens@{Aliens}}
+\doxysubsubsection{\texorpdfstring{scale()}{scale()}}
+{\footnotesize\ttfamily void scale (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_aliens_af89a4cd8ff3f25ca25d23e3875a0aa44}\label{class_aliens_af89a4cd8ff3f25ca25d23e3875a0aa44}} 
+\index{Aliens@{Aliens}!setAlienPosition@{setAlienPosition}}
+\index{setAlienPosition@{setAlienPosition}!Aliens@{Aliens}}
+\doxysubsubsection{\texorpdfstring{setAlienPosition()}{setAlienPosition()}}
+{\footnotesize\ttfamily void set\+Alien\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_aliens_af38d086155ad9bd47676f755bff06fca}\label{class_aliens_af38d086155ad9bd47676f755bff06fca}} 
+\index{Aliens@{Aliens}!setTexture@{setTexture}}
+\index{setTexture@{setTexture}!Aliens@{Aliens}}
+\doxysubsubsection{\texorpdfstring{setTexture()}{setTexture()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void set\+Texture (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_aliens_a9ff8900f1eea666f8140881be3b50856}\label{class_aliens_a9ff8900f1eea666f8140881be3b50856}} 
+\index{Aliens@{Aliens}!setTexture@{setTexture}}
+\index{setTexture@{setTexture}!Aliens@{Aliens}}
+\doxysubsubsection{\texorpdfstring{setTexture()}{setTexture()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void set\+Texture (\begin{DoxyParamCaption}\item[{sf\+::\+Texture}]{\+\_\+texture,  }\item[{const int \&}]{\+\_\+index = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_entity_a091e0c62b69e46762e5d9d63ad05c251}{Entity}}.
+
+\mbox{\Hypertarget{class_aliens_aa0d29770af6c13e8bcf91b2a8b2845e5}\label{class_aliens_aa0d29770af6c13e8bcf91b2a8b2845e5}} 
+\index{Aliens@{Aliens}!update@{update}}
+\index{update@{update}!Aliens@{Aliens}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void update (\begin{DoxyParamCaption}\item[{const float \&}]{\+\_\+pixel,  }\item[{const int \&}]{i }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_aliens_aaa814a5410eea0a6bcda775549f4372c}\label{class_aliens_aaa814a5410eea0a6bcda775549f4372c}} 
+\index{Aliens@{Aliens}!updateRows@{updateRows}}
+\index{updateRows@{updateRows}!Aliens@{Aliens}}
+\doxysubsubsection{\texorpdfstring{updateRows()}{updateRows()}}
+{\footnotesize\ttfamily void update\+Rows (\begin{DoxyParamCaption}\item[{const int \&}]{i }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_aliens_aaf14119b19011fb29ec3981dc893e4a3}\label{class_aliens_aaf14119b19011fb29ec3981dc893e4a3}} 
+\index{Aliens@{Aliens}!\_changeAlienDirection@{\_changeAlienDirection}}
+\index{\_changeAlienDirection@{\_changeAlienDirection}!Aliens@{Aliens}}
+\doxysubsubsection{\texorpdfstring{\_changeAlienDirection}{\_changeAlienDirection}}
+{\footnotesize\ttfamily bool \+\_\+change\+Alien\+Direction\mbox{[}2\mbox{]}\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_aliens_a5c0305ea4b944e7c8cf1933f101a715b}\label{class_aliens_a5c0305ea4b944e7c8cf1933f101a715b}} 
+\index{Aliens@{Aliens}!\_position@{\_position}}
+\index{\_position@{\_position}!Aliens@{Aliens}}
+\doxysubsubsection{\texorpdfstring{\_position}{\_position}}
+{\footnotesize\ttfamily sf\+::\+Vector2f \+\_\+position\mbox{[}2\mbox{]}\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_aliens_a234d6678d069a16d1d83b569ab13aec1}\label{class_aliens_a234d6678d069a16d1d83b569ab13aec1}} 
+\index{Aliens@{Aliens}!\_rm@{\_rm}}
+\index{\_rm@{\_rm}!Aliens@{Aliens}}
+\doxysubsubsection{\texorpdfstring{\_rm}{\_rm}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_resource_manager}{Resource\+Manager}} \+\_\+rm\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_aliens_a74eb76b631f7ccb239c39a9f42cdfd58}\label{class_aliens_a74eb76b631f7ccb239c39a9f42cdfd58}} 
+\index{Aliens@{Aliens}!\_score@{\_score}}
+\index{\_score@{\_score}!Aliens@{Aliens}}
+\doxysubsubsection{\texorpdfstring{\_score}{\_score}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_score}{Score}} \+\_\+score\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_aliens_af1612156979552ccc5bf799da94233f0}\label{class_aliens_af1612156979552ccc5bf799da94233f0}} 
+\index{Aliens@{Aliens}!\_watch@{\_watch}}
+\index{\_watch@{\_watch}!Aliens@{Aliens}}
+\doxysubsubsection{\texorpdfstring{\_watch}{\_watch}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_stop_watch}{Stop\+Watch}} \+\_\+watch\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_aliens_a6a2e4540734ae40b5f29f766ee077c16}\label{class_aliens_a6a2e4540734ae40b5f29f766ee077c16}} 
+\index{Aliens@{Aliens}!alienIsAlive@{alienIsAlive}}
+\index{alienIsAlive@{alienIsAlive}!Aliens@{Aliens}}
+\doxysubsubsection{\texorpdfstring{alienIsAlive}{alienIsAlive}}
+{\footnotesize\ttfamily std\+::vector$<$bool$>$ alien\+Is\+Alive\mbox{[}2\mbox{]}\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_aliens_a1b13944ce443728c89c4912dfe3bdafd}\label{class_aliens_a1b13944ce443728c89c4912dfe3bdafd}} 
+\index{Aliens@{Aliens}!alienOrientation@{alienOrientation}}
+\index{alienOrientation@{alienOrientation}!Aliens@{Aliens}}
+\doxysubsubsection{\texorpdfstring{alienOrientation}{alienOrientation}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{_aliens_8hpp_a09da5af75ec658d58eeb933d09ef84d7}{Aliens\+Direction}}$>$ alien\+Orientation\mbox{[}2\mbox{]}\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_aliens_a2161d6ea1a34927d88982013fcffaedc}\label{class_aliens_a2161d6ea1a34927d88982013fcffaedc}} 
+\index{Aliens@{Aliens}!aliens@{aliens}}
+\index{aliens@{aliens}!Aliens@{Aliens}}
+\doxysubsubsection{\texorpdfstring{aliens}{aliens}}
+{\footnotesize\ttfamily std\+::vector$<$sf\+::\+Sprite$>$ aliens\mbox{[}2\mbox{]}\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_aliens_a37d66d7b0898160225626e9feb5a3fb4}\label{class_aliens_a37d66d7b0898160225626e9feb5a3fb4}} 
+\index{Aliens@{Aliens}!alienSprite@{alienSprite}}
+\index{alienSprite@{alienSprite}!Aliens@{Aliens}}
+\doxysubsubsection{\texorpdfstring{alienSprite}{alienSprite}}
+{\footnotesize\ttfamily sf\+::\+Sprite alien\+Sprite\mbox{[}6\mbox{]}\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_aliens_ac565774f719261bdb04cfbaec58a92e5}\label{class_aliens_ac565774f719261bdb04cfbaec58a92e5}} 
+\index{Aliens@{Aliens}!alienTexture@{alienTexture}}
+\index{alienTexture@{alienTexture}!Aliens@{Aliens}}
+\doxysubsubsection{\texorpdfstring{alienTexture}{alienTexture}}
+{\footnotesize\ttfamily sf\+::\+Texture alien\+Texture\mbox{[}6\mbox{]}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+User/\+Desktop/2019-\/project-\/1502491-\/\+Mvelase-\/879024-\/\+Makgalemela/game-\/source-\/code/\mbox{\hyperlink{_aliens_8hpp}{Aliens.\+hpp}}\item 
+C\+:/\+Users/\+User/\+Desktop/2019-\/project-\/1502491-\/\+Mvelase-\/879024-\/\+Makgalemela/game-\/source-\/code/\mbox{\hyperlink{_aliens_8cpp}{Aliens.\+cpp}}\end{DoxyCompactItemize}
