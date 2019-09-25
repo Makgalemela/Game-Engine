@@ -149,7 +149,7 @@ void Game::powerAliens(){
     
     int firingTimes = 0;
     if(_watch.alienFiringInterval()){
-        while(firingTimes < 2){
+        while(firingTimes < 3){
         for(auto itr  = 0u ; itr != 2; ++itr){
             auto[_pos , orientation] = aliens.getAlienFiringPosition(itr);
             _cannon.aliensFiring(_pos, orientation);

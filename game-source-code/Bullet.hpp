@@ -37,7 +37,7 @@ public:
     void fireBullet(sf::RenderWindow &_window );
   
   
-   void startFiring(const FiringDirection& fd,sf::Vector2f _bulletPosition);
+   void startFiring(const FiringDirection& fd,sf::Vector2f _bulletPosition, const bool& alienFire = false);
     
     void BulletsCollusion(sf::RenderWindow& _window);
     
@@ -52,6 +52,7 @@ private:
      float _bulletSpeed;
      float _bulletTimer;
      float _ellaspsedTime;
+     std::vector<bool> IsAlienBullet;
      std::vector<FiringDirection> bulletOrientation;
     
      
