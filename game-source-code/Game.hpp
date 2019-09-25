@@ -7,9 +7,10 @@
 #include "Aliens.hpp"
 #include "Bullet.hpp"
 #include "ResourceManager.hpp"
-#include "collusion.hpp"
+//#include "collusion.hpp"
 #include "Screen.hpp"
 #include "GameState.hpp"
+#include "StopWatch.h"
 
 
 class Game : public Screen {
@@ -29,7 +30,7 @@ private:
     Cannon _cannon;
     Aliens aliens;
     Bullet bullet;
-    collusion _collide;
+    //collusion _collide;
     DefenseBlocks _defense;
     sf::Vector2f _resolution;
     bool shotFired;
@@ -38,11 +39,13 @@ private:
     void input();
     void update(float dtAsSeconds);
     void draw();
+    void powerAliens();
     FiringDirection fd;
     bool gameOver;
     bool gamePlaying;
     sf::Clock _clock;
     GameState _gamestate;
+    StopWatch _watch;
 };
 
 #endif // GAME_HPP

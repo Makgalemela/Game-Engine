@@ -7,14 +7,7 @@
 
 Aliens::Aliens()
 {
-    /*if(!alienTexture[0].loadFromFile("../executables/resources/aliens.png") || 
-    !alienTexture[1].loadFromFile("../executables/resources/alien2.png")||
-    !alienTexture[2].loadFromFile("../executables/resources/alien3.png")||
-    !alienTexture[3].loadFromFile("../executables/resources/aliensc.png") || 
-    !alienTexture[4].loadFromFile("../executables/resources/alien2c.png")||
-    !alienTexture[5].loadFromFile("../executables/resources/alien3c.png")){
-       std::cerr<<"One more aliens sprite could not load"<<std::endl;
-    }*/
+   
      _position[0].x = 35.f;
      _position[0].y = 310.f;
      _position[1].x = 560.f;
@@ -27,7 +20,6 @@ Aliens::Aliens()
 void Aliens::setTexture(sf::Texture _texture, const int& _index){
     alienTexture[_index] = _texture;
     alienSprite[_index].setTexture(alienTexture[_index]);
-    //scale();
     return;
 }
 
@@ -73,7 +65,9 @@ void Aliens::loadAliens() {
     return;
 }
 
-
+int Aliens::getSize(){
+    return alienIsAlive[0].size();
+}
 void Aliens::alienIsMoving(sf::RenderWindow &_windows){
    if(_watch.timerForMovement()){
       if(int i= 0;!_changeAlienDirection[0])
@@ -150,10 +144,7 @@ void Aliens::setAlienPosition(){
     return;
  }
  
- 
- 
- 
- 
+
  bool Aliens::IsAlienAlive(const int& it , const AliensDirection& dir) const{
      if(dir == AliensDirection::DownFace)
         return alienIsAlive[0].at(it);
@@ -193,7 +184,20 @@ bool Aliens::allAliensKilled() const{
     return true;
 }
 
-
+tuple<sf::Vector2<float> , AliensDirection> Aliens::getAlienFiringPosition(const int& itr){
+    int index_;
+    
+    srand(time(0));
+    do {
+        index_ = rand()%aliens[itr].size();
+    }while(!alienIsAlive[itr].at(index_));
+    std::cout<<index_<<std::endl;
+    sf::Vector2<float> _pos;
+    _pos.x = aliens[itr].at(index_).getPosition().x;
+    _pos.y = aliens[itr].at(index_).getPosition().y;
+    
+    return {_pos , alienOrientation[itr].at(index_)};
+}
 
 Aliens::~Aliens()
 {

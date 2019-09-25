@@ -4,8 +4,7 @@ Bullet::Bullet()
 {
    
     _bulletSpeed = 0.55f;
-    _bulletExplosionSprite.setTexture(_bulletExplosionTexture);
-    _bulletExplosionSprite.scale(0.1f , 0.1f);
+
 }
 
 
@@ -92,7 +91,15 @@ bool Bullet::alienShoot(sf::Sprite _alien , AliensDirection dir){
 
 
 
-
+void Bullet::aliensFiring(sf::Vector2<float> _pos , AliensDirection orinetation){
+        FiringDirection fd = FiringDirection::up;
+        if(orinetation == AliensDirection::DownFace)
+            fd = FiringDirection::down;
+        startFiring(fd,_pos);
+        
+        return;
+        
+}
 tuple<std::vector<sf::Sprite>*, vector<FiringDirection>*> Bullet::getBullets(){
     return {&_bullets, &bulletOrientation};
 }

@@ -2,10 +2,10 @@
 #define BULLET_HPP
 #include <SFML/Graphics.hpp>
 #include <vector>
-#include "Aliens.hpp"
 #include <cmath>
 #include <tuple>
 #include "StopWatch.h"
+#include "Aliens.hpp"
 #include "Entity.hpp"
 #include <cstdlib>
 
@@ -39,18 +39,13 @@ public:
   
    void startFiring(const FiringDirection& fd,sf::Vector2f _bulletPosition);
     
-     
-//    bool collusion2(const float& positionx, const float& positiony);
-//    bool collusion(sf::Vector2f _Pos , AliensDirection ad);
     void BulletsCollusion(sf::RenderWindow& _window);
     
     void BulletOutOfScreen();
     bool alienShoot(sf::Sprite _alien, AliensDirection dir);
     std::tuple<std::vector<sf::Sprite>*, std::vector<FiringDirection>*> getBullets() ;
-    void aliensFiring();
-    
     void setTexture(sf::Texture _texture, const int& _index =0) override;
-    
+    void aliensFiring(sf::Vector2<float> _pos , AliensDirection orinetation);
 private:
      Aliens _aliens;
      StopWatch _stopwatch;

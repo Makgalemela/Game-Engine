@@ -67,6 +67,7 @@ void Game::start(){
             update(dtAsSeconds);
             draw();
             _cannon.cannonIsShot();
+            powerAliens();
         }
         
     }
@@ -134,9 +135,9 @@ void Game::draw(){
             _window.draw(_aliensu.at(it));
         }
     }
-
+   
+    
     _cannon.BulletsCollusion(_window);
-
     CannonLives(_window,_cannon);
     elapsedTime(_window);
     ScoreDraw(_window);
@@ -144,6 +145,20 @@ void Game::draw(){
    _window.display();
 }
 
+void Game::powerAliens(){
+    
+    int firingTimes = 0;
+    if(_watch.alienFiringInterval()){
+        while(firingTimes < 2){
+        for(auto itr  = 0u ; itr != 2; ++itr){
+            auto[_pos , orientation] = aliens.getAlienFiringPosition(itr);
+            _cannon.aliensFiring(_pos, orientation);
+            }
+                firingTimes++;
+        }
+    }
+   return;  
+}
 
   void Game::loadCannon(ResourceManager _rm){
       _rm.loadResources(ResourceID::LowerCannon, "../executables/resources/Laser_Cannon.png");
@@ -172,6 +187,9 @@ void Game::draw(){
          
        _rm.loadResources( ResourceID::UpFacingAlienThird , "../executables/resources/alien3c.png");
         aliens.setTexture(_rm.get(ResourceID::UpFacingAlienThird),5);
+        
+        _rm.loadResources(ResourceID:: Splash, "../executables/resources/splash.png" );
+        _splash.setTexture(_rm.get(ResourceID:: Splash));
   }
   
   
@@ -179,90 +197,3 @@ Game::~Game()
 {
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//    for(auto it =  0u; it != _blocks.size(); ++it){
-//        if(it == 4 ){
-//            _blockPosition.y = 540.f;
-//            _blockPosition.x -= 520.f;
-//        }
-//       _blocks.at(it).setPosition(_blockPosition);
-//       _window.draw(_blocks.at(it));
-//       _blockPosition.x +=130;
-//    }
-    
-
-
-//    auto[_blocks, _blockPosition] = _defense.Blocks();
-    
-//    for(auto it =  0u; it != _aliens.size(); ++it){
-//        if(it == 18 || it == 36){
-//                _alienPosition.x -=540.f;
-//                _alienPosition.y +=35.f;
-//        }
-//            _aliens.at(it).setPosition(_alienPosition);
-//            _window.draw(_aliens.at(it));
-//            _alienPosition.x +=30.f;
-//
-//            if(_aliens.size() != 0 && _cannon.collusion(_aliens.at(it).getPosition().x ,_aliens.at(it).getPosition().y )){
-//               aliens.deleteCollidedAlien(it);
-//                }
-////            else if(_aliens.size() != 0 && _cannon.collusion2(_aliens.at(it).getPosition().x ,_aliens.at(it).getPosition().y )){
-////               aliens.deleteCollidedAlien(it,AliensDirection::UpFace);
-////            }
-//    }
-//    
-//    
-//       for(auto it =  0u; it != _aliensu.size(); ++it){
-//            if(it == 18 || it == 36){
-//                _alienPositionu.x -=540.f;
-//                _alienPositionu.y +=35.f;
-//            }
-//            
-//            _aliensu.at(it).setPosition(_alienPositionu);
-//            _window.draw(_aliensu.at(it));
-//            _alienPositionu.x +=30.f;
-//            
-////              if(_aliensu.size() != 0 && _cannon.collusion(_aliensu.at(it).getPosition().x ,_aliensu.at(it).getPosition().y )){
-////               aliens.deleteCollidedAlien(it);
-////                }
-//             if(_aliensu.size() != 0 && _cannon.collusion2(_aliensu.at(it).getPosition().x ,_aliensu.at(it).getPosition().y )){
-//               aliens.deleteCollidedAlien(it, AliensDirection::UpFace);
-//            }
-//
-//    }

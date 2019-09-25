@@ -4,7 +4,9 @@ Score::Score()
 {
     _highscore = 0;
     out.open("../executables/highScore.txt", std::ios::out);
+   
     in.open("../executables/highScore.txt", std::ios::in);
+    if(!in.is_open()) throw std::runtime_error("Failed to load highScore.txt!");
 }
 
 int Score::getCurrentScore() const{

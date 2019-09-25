@@ -9,6 +9,7 @@
 #include "ResourceManager.hpp"
 #include <cstdlib>
 #include <ctime>
+
 using namespace std;
 enum class AliensDirection{
     UpFace =0,
@@ -41,8 +42,9 @@ public:
     bool aliensAtBottonOrTop() const;
     bool allAliensKilled() const;
     void scale();
-    tuple<std::vector<sf::Sprite> , std::vector<AliensDirection>> alienFire();
+    int getSize();
     void setTexture(sf::Texture _texture, const int& _index =0) override;
+    tuple<sf::Vector2<float> , AliensDirection > getAlienFiringPosition(const int& itr );
 private:
     sf::Texture alienTexture[6];
     sf::Sprite alienSprite[6];

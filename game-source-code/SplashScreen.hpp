@@ -2,33 +2,14 @@
 #define SPLASHSCREEN_HPP
 #include <SFML/Graphics.hpp>
 #include <SFML/System.hpp>
-
-
-//***************************************************************
-//
-//this class create  the splash screen and the instrucstion screen
-//
-//
-//***************************************************************
-
-class SplashScreen 
+#include "Screen.hpp"
+class SplashScreen : public Screen
 {
 public:
 
-//    ***********************************************************
-//     splashscreem object is loaded using the construct 
-//     
-//     
-//    ***********************************************************
     SplashScreen();
     ~SplashScreen();
-    
-//    **************************************
-//    
-//    this method return spalshscreen object
-//    
-//    \param return sprite
-//    ***************************************
+    void setTexture(sf::Texture) override;
     sf::Sprite getSplash() const;
 private:
      sf::Vector2f _position;
