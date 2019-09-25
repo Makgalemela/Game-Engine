@@ -50,10 +50,10 @@ void Game::start(){
         }
          _window.display();
             if((event.type == sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::Up) && gamePlaying)
-                       _cannon.startFiring(FiringDirection::down, _cannon.getCannon2CenterFirePosition(), false);
+                       _cannon.startFiring(FiringDirection::down, _cannon.getCannon2CenterFirePosition());
                        
             if((event.type == sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::F) && gamePlaying)
-                      _cannon.startFiring(FiringDirection::up ,_cannon.getCannonCenterFirePosition(), false);
+                      _cannon.startFiring(FiringDirection::up ,_cannon.getCannonCenterFirePosition());
         }
 
         if(_gamestate.GameOver(_cannon, aliens)){

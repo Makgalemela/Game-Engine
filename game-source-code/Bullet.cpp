@@ -3,7 +3,7 @@
 Bullet::Bullet()
 {
    
-    _bulletSpeed = 0.55f;
+    _bulletSpeed = 0.5f;
 
 }
 
@@ -15,7 +15,7 @@ void Bullet::setTexture(sf::Texture _texture, const int& _index){
     return;
 }
 
-void Bullet::startFiring(const FiringDirection& fd, sf::Vector2f _bulletPosition ,const bool& alienFire){
+void Bullet::startFiring(const FiringDirection& fd, sf::Vector2f _bulletPosition ){
      if(fd == FiringDirection::up)
          _bulletPosition.y = _bulletPosition.y-25.f; 
     else
@@ -25,8 +25,6 @@ void Bullet::startFiring(const FiringDirection& fd, sf::Vector2f _bulletPosition
     _bulletSprite.setPosition(_bulletPosition);
     _bullets.push_back(_bulletSprite);
       bulletOrientation.push_back(fd);
-      IsAlienBullet.push_back(alienFire);
-     
     return;
 }
 
@@ -36,7 +34,6 @@ void Bullet::startFiring(const FiringDirection& fd, sf::Vector2f _bulletPosition
             if( _bullets.at(it).getPosition().y < 50.f || _bullets.at(it).getPosition().y > 570.f){
                  _bullets.erase(_bullets.begin() + it);
                 bulletOrientation.erase(bulletOrientation.begin() +it);
-                IsAlienBullet.erase(IsAlienBullet.begin()+it);
             }
      }
     return;
@@ -54,9 +51,6 @@ void Bullet::startFiring(const FiringDirection& fd, sf::Vector2f _bulletPosition
               i--;
               bulletOrientation.erase(bulletOrientation.begin() +it);
               bulletOrientation.erase(bulletOrientation.begin()+i);
-              i--;
-              IsAlienBullet.erase(IsAlienBullet.begin()+it);
-              IsAlienBullet.erase(IsAlienBullet.begin()+i);
               return;
             }
          }
@@ -83,27 +77,20 @@ bool Bullet::alienShoot(sf::Sprite _alien , AliensDirection dir){
     
     for(auto it = 0u; it != _bullets.size(); ++it){
             if(abs(_bullets.at(it).getPosition().x - _posX) <20.f 
-            && abs(_bullets.at(it).getPosition().y - _posY) <20.f &&
-            !IsAlienBullet.at(it)){
+            && abs(_bullets.at(it).getPosition().y - _posY) <20.f ){
             _bullets.erase(_bullets.begin()+it);
-            bulletOrientation.erase(bulletOrientation.begin() +it);
-            IsAlienBullet.erase(IsAlienBullet.begin()+it);
+            bulletOrientation.erase(bulletOrientation.begin()+it);
             return true;
         }
     }
-
     return false;
 }
-
-
-
 
 void Bullet::aliensFiring(sf::Vector2<float> _pos , AliensDirection orinetation ){
         FiringDirection fd = FiringDirection::up;
         if(orinetation == AliensDirection::DownFace)
             fd = FiringDirection::down;
         startFiring(fd,_pos);
-        
         return;
         
 }

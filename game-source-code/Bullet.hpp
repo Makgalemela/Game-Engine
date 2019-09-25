@@ -37,7 +37,7 @@ public:
     void fireBullet(sf::RenderWindow &_window );
   
   
-   void startFiring(const FiringDirection& fd,sf::Vector2f _bulletPosition, const bool& alienFire = false);
+   void startFiring(const FiringDirection& fd,sf::Vector2f _bulletPosition);
     
     void BulletsCollusion(sf::RenderWindow& _window);
     

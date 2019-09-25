@@ -2,9 +2,6 @@
 #include "Aliens.hpp"
 #include <iostream>
 
-
-
-
 Aliens::Aliens()
 {
    
