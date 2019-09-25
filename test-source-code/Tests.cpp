@@ -30,8 +30,8 @@ TEST_CASE("No Exception throw when Loading resources which exist")
 }
 
 
-//This section test for the movents of aliens and the Cannon
-TEST_CASE("Tests that the correct position is set")
+//This section test for the movents of  Cannon at bottom of the screen
+TEST_CASE("Tests that the correct position is set - CANNON1")
 {
     auto elapsedTime = 0.1f;
     auto expectedx = 300.f;
@@ -40,7 +40,7 @@ TEST_CASE("Tests that the correct position is set")
     ///auto _watch = StopWatch{};
     auto cannon = Cannon{};
     const std::string filename = "../executables/resources/Laser_Cannon.png";
-    resources.loadResources(ResourceID::Default, filename);
+    resources.loadResources(ResourceID::LowerCannon, filename);
     cannon.setTexture(resources.get(ResourceID::LowerCannon),0);
     cannon.setInitPosOfCannon(sf::Vector2f(600, 250));
     cannon.update(elapsedTime);
@@ -48,7 +48,7 @@ TEST_CASE("Tests that the correct position is set")
     CHECK(cannon.getSprite().getPosition().y == expectedy);
 }
 
-TEST_CASE("Tests that the cannon can move left to right")
+TEST_CASE("Tests that the cannon can move left to right - CANNON1")
 {
     auto elapsedTime = 0.1f;
     auto expected = 300.f + (elapsedTime*320.f);
@@ -56,7 +56,7 @@ TEST_CASE("Tests that the cannon can move left to right")
     ///auto _watch = StopWatch{};
     auto cannon = Cannon{};
     const std::string filename = "../executables/resources/Laser_Cannon.png";
-    resources.loadResources(ResourceID::Default, filename);
+    resources.loadResources(ResourceID::LowerCannon, filename);
     cannon.setTexture(resources.get(ResourceID::LowerCannon),0);
     cannon.setInitPosOfCannon(sf::Vector2f(600, 250));
      cannon.move(Direction::Right, EntityId::Cannon1);
@@ -65,7 +65,7 @@ TEST_CASE("Tests that the cannon can move left to right")
 }
 
 
-TEST_CASE("Tests that the cannon doesnot move up or down instead of right")
+TEST_CASE("Tests that the cannon doesnot move up or down instead of right - CANNON1")
 {
     auto elapsedTime = 0.1f;
     auto expected = 220;
@@ -73,7 +73,7 @@ TEST_CASE("Tests that the cannon doesnot move up or down instead of right")
     ///auto _watch = StopWatch{};
     auto cannon = Cannon{};
     const std::string filename = "../executables/resources/Laser_Cannon.png";
-    resources.loadResources(ResourceID::Default, filename);
+    resources.loadResources(ResourceID::LowerCannon, filename);
     cannon.setTexture(resources.get(ResourceID::LowerCannon),0);
     cannon.setInitPosOfCannon(sf::Vector2f(600, 250));
     cannon.move(Direction::Right, EntityId::Cannon1);
@@ -81,14 +81,14 @@ TEST_CASE("Tests that the cannon doesnot move up or down instead of right")
     CHECK(cannon.getSprite().getPosition().y == expected);
 }
 
-TEST_CASE("Tests that the cannon can move right to left")
+TEST_CASE("Tests that the cannon can move right to left - CANNON1")
 {
     auto elapsedTime = 0.1f;
     auto expected = 300.f - (elapsedTime*320.f);
     auto resources = ResourceManager{};
     auto cannon = Cannon{};
     const std::string filename = "../executables/resources/Laser_Cannon.png";
-    resources.loadResources(ResourceID::Default, filename);
+    resources.loadResources(ResourceID::LowerCannon, filename);
     cannon.setTexture(resources.get(ResourceID::LowerCannon),0);
     cannon.setInitPosOfCannon(sf::Vector2f(600, 250));
      cannon.update(elapsedTime);
@@ -99,26 +99,115 @@ TEST_CASE("Tests that the cannon can move right to left")
 }
 
 
-TEST_CASE("Tests that the cannon cannon is able to stop")
+TEST_CASE("Tests that the cannon cannon is able to stop - CANNON1")
 {
     auto elapsedTime = 0.1f;
     auto expected = 300.f - (elapsedTime*320.f);
     auto resources = ResourceManager{};
     auto cannon = Cannon{};
     const std::string filename = "../executables/resources/Laser_Cannon.png";
-    resources.loadResources(ResourceID::Default, filename);
+    resources.loadResources(ResourceID::LowerCannon, filename);
     cannon.setTexture(resources.get(ResourceID::LowerCannon),0);
     cannon.setInitPosOfCannon(sf::Vector2f(600, 250));
      cannon.update(elapsedTime);
      cannon.move(Direction::Left , EntityId::Cannon1);
      cannon.update(elapsedTime);
-   /// cannon.update(elapsedTime);
     cannon.stopMove(Direction::Left, EntityId::Cannon1);
-    //update move should not chnage the current position of the cannon the is because
+    //update() should not chnage the current position of the cannon the is because
     //the move has been stopped
     cannon.update(elapsedTime);
     cannon.update(elapsedTime);
     cannon.update(elapsedTime);
     cannon.update(elapsedTime);
     CHECK(cannon.getSprite().getPosition().x == expected);
+}
+
+
+// Test for the cannon at the top of the Screen
+
+
+TEST_CASE("Tests that the correct position is set - CANNON2")
+{
+    auto elapsedTime = 0.1f;
+    auto expectedx = 300.f;
+    auto expectedy = 220.f;
+    auto resources = ResourceManager{};
+    auto cannon = Cannon{};
+    const std::string filename = "../executables/resources/Laser_Cannonc.png";
+    resources.loadResources(ResourceID::UpperCannon, filename);
+    cannon.setTexture(resources.get(ResourceID::UpperCannon),0);
+    cannon.setInitPosOfCannon(sf::Vector2f(600, 250));
+    cannon.update(elapsedTime);
+    CHECK(cannon.getSprite().getPosition().x == expectedx);
+    CHECK(cannon.getSprite().getPosition().y == expectedy);
+}
+
+TEST_CASE("Tests that the cannon can move left to right  - CANNON2")
+{
+    auto elapsedTime = 0.1f;
+    auto expected = 300.f + (elapsedTime*320.f);
+    auto resources = ResourceManager{};
+    ///auto _watch = StopWatch{};
+    auto cannon = Cannon{};
+    const std::string filename = "../executables/resources/Laser_Cannonc.png";
+    resources.loadResources(ResourceID::UpperCannon, filename);
+    cannon.setTexture(resources.get(ResourceID::UpperCannon),0);
+    cannon.setInitPosOfCannon(sf::Vector2f(600, 250));
+     cannon.move(Direction::Right, EntityId::Cannon2);
+    cannon.update(elapsedTime);
+    CHECK(cannon.getSprite2().getPosition().x == expected);
+}
+
+
+TEST_CASE("Tests that the cannon doesnot move up or down instead of right  - CANNON2")
+{
+    auto elapsedTime = 0.1f;
+    auto expected = 45.f;
+    auto resources = ResourceManager{};
+    auto cannon = Cannon{};
+    const std::string filename = "../executables/resources/Laser_Cannonc.png";
+    resources.loadResources(ResourceID::UpperCannon, filename);
+    cannon.setTexture(resources.get(ResourceID::UpperCannon),1);
+    cannon.setInitPosOfCannon(sf::Vector2f(600, 250));
+    cannon.update(elapsedTime);
+    cannon.move(Direction::Right, EntityId::Cannon2);
+    //cannon.update(elapsedTime);
+    CHECK(cannon.getSprite2().getPosition().y == expected);
+}
+
+TEST_CASE("Tests that the cannon can move right to left  - CANNON2")
+{
+    auto elapsedTime = 0.1f;
+    auto expected = 300.f - (elapsedTime*320.f);
+    auto resources = ResourceManager{};
+    auto cannon = Cannon{};
+    const std::string filename = "../executables/resources/Laser_Cannonc.png";
+    resources.loadResources(ResourceID::UpperCannon, filename);
+    cannon.setTexture(resources.get(ResourceID::UpperCannon),1);
+    cannon.setInitPosOfCannon(sf::Vector2f(600, 250));
+     cannon.update(elapsedTime);
+    cannon.move(Direction::Left , EntityId::Cannon2);
+    cannon.update(elapsedTime);
+    CHECK(cannon.getSprite2().getPosition().x == expected);
+}
+
+
+TEST_CASE("Tests that the cannon cannon is able to stop  - CANNON2")
+{
+    auto elapsedTime = 0.1f;
+    auto expected = 300.f - (elapsedTime*320.f);
+    auto resources = ResourceManager{};
+    auto cannon = Cannon{};
+    const std::string filename = "../executables/resources/Laser_Cannonc.png";
+    resources.loadResources(ResourceID::UpperCannon, filename);
+    cannon.setTexture(resources.get(ResourceID::UpperCannon),1);
+    cannon.setInitPosOfCannon(sf::Vector2f(600, 250));
+     cannon.update(elapsedTime);
+     cannon.move(Direction::Left , EntityId::Cannon2);
+     cannon.update(elapsedTime);
+    cannon.stopMove(Direction::Left, EntityId::Cannon2);
+    //update() should not chnage the current position of the cannon the is because
+    //the move has been stopped
+    cannon.update(elapsedTime);
+    CHECK(cannon.getSprite2().getPosition().x == expected);
 }
