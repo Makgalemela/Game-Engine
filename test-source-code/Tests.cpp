@@ -211,3 +211,42 @@ TEST_CASE("Tests that the cannon cannon is able to stop  - CANNON2")
     cannon.update(elapsedTime);
     CHECK(cannon.getSprite2().getPosition().x == expected);
 }
+
+
+TEST_CASE("Tests that the cannon does not move out of window,RIGHT - CANNON2")
+{
+    auto elapsedTime = 0.1f;
+    auto expected = 15.f - (elapsedTime*320.f);
+    auto resources = ResourceManager{};
+    auto cannon = Cannon{};
+    const std::string filename = "../executables/resources/Laser_Cannonc.png";
+    resources.loadResources(ResourceID::UpperCannon, filename);
+    cannon.setTexture(resources.get(ResourceID::UpperCannon),1);
+    cannon.setInitPosOfCannon(sf::Vector2f(1800, 250));
+     cannon.update(elapsedTime);
+     cannon.move(Direction::Left , EntityId::Cannon2);
+     cannon.update(elapsedTime);
+     CHECK_FALSE(cannon.getSprite2().getPosition().x == expected);
+}
+
+TEST_CASE("Tests that the cannon does not move out of window,LEFT - CANNON2")
+{
+    auto elapsedTime = 0.1f;
+    auto expected = 15.f - (elapsedTime*320.f);
+    auto resources = ResourceManager{};
+    auto cannon = Cannon{};
+    const std::string filename = "../executables/resources/Laser_Cannonc.png";
+    resources.loadResources(ResourceID::UpperCannon, filename);
+    cannon.setTexture(resources.get(ResourceID::UpperCannon),1);
+    cannon.setInitPosOfCannon(sf::Vector2f(30, 250));
+     cannon.update(elapsedTime);
+     cannon.move(Direction::Left , EntityId::Cannon2);
+     cannon.update(elapsedTime);
+     CHECK_FALSE(cannon.getSprite2().getPosition().x == expected);
+}
+
+//test for bullet out of the screen
+//test for bullet to bullet collusion
+
+
+
