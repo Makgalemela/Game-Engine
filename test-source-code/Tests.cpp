@@ -158,9 +158,7 @@ TEST_CASE("Tests that the cannon does not move out of window,LEFT - CANNON1")
 }
 
 
-
 //This section Test for the cannon at the Top of the Screen
-
 
 TEST_CASE("Tests that the correct position is set - CANNON2")
 {
@@ -247,7 +245,6 @@ TEST_CASE("Tests that the cannon cannon is able to stop  - CANNON2")
     cannon.update(elapsedTime);
     CHECK(cannon.getSprite2().getPosition().x == expected);
 }
-
 
 TEST_CASE("Tests that the cannon does not move out of window,RIGHT - CANNON2")
 {

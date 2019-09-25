@@ -50,10 +50,10 @@ void Game::start(){
         }
          _window.display();
             if((event.type == sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::Up) && gamePlaying)
-                       _cannon.startFiring(FiringDirection::down, _cannon.getCannon2CenterFirePosition());
+                       _cannon.startFiring(FiringDirection::down, _cannon.getCannon2CenterFirePosition(), false);
                        
             if((event.type == sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::F) && gamePlaying)
-                      _cannon.startFiring(FiringDirection::up ,_cannon.getCannonCenterFirePosition());
+                      _cannon.startFiring(FiringDirection::up ,_cannon.getCannonCenterFirePosition(), false);
         }
 
         if(_gamestate.GameOver(_cannon, aliens)){
@@ -89,7 +89,6 @@ void Game::input(){
     else 
         _cannon.stopMove(Direction::Right , EntityId::Cannon1);
         
-
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
         _cannon.move(Direction::Left , EntityId::Cannon2);
     else 
@@ -149,10 +148,11 @@ void Game::powerAliens(){
     
     int firingTimes = 0;
     if(_watch.alienFiringInterval()){
-        while(firingTimes < 3){
+        while(firingTimes < 6){
         for(auto itr  = 0u ; itr != 2; ++itr){
-            auto[_pos , orientation] = aliens.getAlienFiringPosition(itr);
-            _cannon.aliensFiring(_pos, orientation);
+            auto[_pos ,alive, orientation] = aliens.getAlienFiringPosition(itr);
+               if(alive)
+                    _cannon.aliensFiring(_pos, orientation);
             }
                 firingTimes++;
         }

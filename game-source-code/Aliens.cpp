@@ -184,19 +184,16 @@ bool Aliens::allAliensKilled() const{
     return true;
 }
 
-tuple<sf::Vector2<float> , AliensDirection> Aliens::getAlienFiringPosition(const int& itr){
+tuple<sf::Vector2<float> , bool , AliensDirection> Aliens::getAlienFiringPosition(const int& itr){
     int index_;
     
     srand(time(0));
-    do {
-        index_ = rand()%aliens[itr].size();
-    }while(!alienIsAlive[itr].at(index_));
- 
+    index_ = rand()%aliens[itr].size();
     sf::Vector2<float> _pos;
     _pos.x = aliens[itr].at(index_).getPosition().x;
     _pos.y = aliens[itr].at(index_).getPosition().y;
     
-    return {_pos , alienOrientation[itr].at(index_)};
+    return {_pos ,alienIsAlive[itr].at(index_), alienOrientation[itr].at(index_)};
 }
 
 Aliens::~Aliens()

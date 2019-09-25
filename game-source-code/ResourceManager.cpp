@@ -13,8 +13,7 @@ void ResourceManager::loadResources(ResourceID _id , const std::string& _filenam
 }
 
 
- sf::Texture ResourceManager::get(ResourceID _id) const{
-    
+ sf::Texture ResourceManager::get(ResourceID _id) const{    
     return resourseHolder.find(_id)->second;
 }
 ResourceManager::~ResourceManager()

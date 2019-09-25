@@ -102,6 +102,8 @@ void Cannon::update(const float& elapsedTime){
         
     _cannon[0].setPosition(_position[0]);
     _cannon[1].setPosition(_position[1]);
+    
+    return;
 }
 
 

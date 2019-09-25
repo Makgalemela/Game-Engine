@@ -22,7 +22,7 @@ double StopWatch::getProcessTime()
  }
  
  bool StopWatch::alienFiringInterval(){
-     if(getProcessTime() - alienFiringInt >=1){
+     if(getProcessTime() - alienFiringInt >=0.1f){
          alienFiringInt = getProcessTime();
          return true;
      }
