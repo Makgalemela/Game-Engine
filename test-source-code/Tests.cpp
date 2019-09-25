@@ -94,7 +94,31 @@ TEST_CASE("Tests that the cannon can move right to left")
      cannon.update(elapsedTime);
     cannon.move(Direction::Left , EntityId::Cannon1);
     cannon.update(elapsedTime);
+    ///cannon.update(elapsedTime);
+    CHECK(cannon.getSprite().getPosition().x == expected);
+}
+
+
+TEST_CASE("Tests that the cannon cannon is able to stop")
+{
+    auto elapsedTime = 0.1f;
+    auto expected = 300.f - (elapsedTime*320.f);
+    auto resources = ResourceManager{};
+    auto cannon = Cannon{};
+    const std::string filename = "../executables/resources/Laser_Cannon.png";
+    resources.loadResources(ResourceID::Default, filename);
+    cannon.setTexture(resources.get(ResourceID::LowerCannon),0);
+    cannon.setInitPosOfCannon(sf::Vector2f(600, 250));
+     cannon.update(elapsedTime);
+     cannon.move(Direction::Left , EntityId::Cannon1);
+     cannon.update(elapsedTime);
+   /// cannon.update(elapsedTime);
+    cannon.stopMove(Direction::Left, EntityId::Cannon1);
+    //update move should not chnage the current position of the cannon the is because
+    //the move has been stopped
     cannon.update(elapsedTime);
-    cannon.stopMove(Direction::Left , EntityId::Cannon1);
+    cannon.update(elapsedTime);
+    cannon.update(elapsedTime);
+    cannon.update(elapsedTime);
     CHECK(cannon.getSprite().getPosition().x == expected);
 }

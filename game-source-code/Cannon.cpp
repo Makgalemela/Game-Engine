@@ -7,6 +7,10 @@ Cannon::Cannon()
     _cannonSpeed = 320.f;
     cannonDown[0] =false;
     cannonDown[1] =false;
+    _moveLeft = false;
+    _moveRight =false;
+    _moveRightTop = false;
+    _moveLeftTop = false;
     _cannonLives = 3;
     cannonOrientation[0] = FiringDirection::up;
     cannonOrientation[1] = FiringDirection::down; 
