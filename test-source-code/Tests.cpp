@@ -123,7 +123,43 @@ TEST_CASE("Tests that the cannon cannon is able to stop - CANNON1")
 }
 
 
-// Test for the cannon at the top of the Screen
+
+
+TEST_CASE("Tests that the cannon does not move out of window,RIGHT - CANNON1")
+{
+    auto elapsedTime = 0.1f;
+    auto expected = 15.f - (elapsedTime*320.f);
+    auto resources = ResourceManager{};
+    auto cannon = Cannon{};
+    const std::string filename = "../executables/resources/Laser_Cannon.png";
+    resources.loadResources(ResourceID::LowerCannon, filename);
+    cannon.setTexture(resources.get(ResourceID::LowerCannon),0);
+    cannon.setInitPosOfCannon(sf::Vector2f(1800, 250));
+     cannon.update(elapsedTime);
+     cannon.move(Direction::Left , EntityId::Cannon1);
+     cannon.update(elapsedTime);
+     CHECK_FALSE(cannon.getSprite().getPosition().x == expected);
+}
+
+TEST_CASE("Tests that the cannon does not move out of window,LEFT - CANNON1")
+{
+    auto elapsedTime = 0.1f;
+    auto expected = 15.f - (elapsedTime*320.f);
+    auto resources = ResourceManager{};
+    auto cannon = Cannon{};
+    const std::string filename = "../executables/resources/Laser_Cannonc.png";
+    resources.loadResources(ResourceID::LowerCannon, filename);
+    cannon.setTexture(resources.get(ResourceID::LowerCannon),1);
+    cannon.setInitPosOfCannon(sf::Vector2f(30, 250));
+     cannon.update(elapsedTime);
+     cannon.move(Direction::Left , EntityId::Cannon1);
+     cannon.update(elapsedTime);
+     CHECK_FALSE(cannon.getSprite().getPosition().x == expected);
+}
+
+
+
+//This section Test for the cannon at the Top of the Screen
 
 
 TEST_CASE("Tests that the correct position is set - CANNON2")
