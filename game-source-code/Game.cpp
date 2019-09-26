@@ -7,6 +7,7 @@ Game::Game()
     _resolution.y = 600.f;
     shotFired = false;
     gameOver = false;
+    _window.SetFramerateLimit(60);
     _window.create(sf::VideoMode(_resolution.x, _resolution.y), "Duel Invader", sf::Style::Default);
    if(! _backgroundTexture.loadFromFile("../executables/resources/background.png") ||
     ! _GameOverTexture.loadFromFile("../executables/resources/GameOver.png")){
@@ -21,7 +22,7 @@ Game::Game()
 
 void Game::start(){
    aliens.loadAliens();
-   //_defense.loadBlocks();
+   
    _cannon.setInitPosOfCannon(_resolution);
    _window.setKeyRepeatEnabled(false);
     aliens.setAlienPosition();
@@ -144,6 +145,8 @@ void Game::draw(){
    _window.display();
 }
 
+
+//Aliens fire power direvation, not tested  -- 24 . Sept . 2019
 void Game::powerAliens(){
     
     int firingTimes = 0;

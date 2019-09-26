@@ -29,10 +29,29 @@ enum class AliensDirection{
 class Aliens :public Entity
 {
 public:
+
+    /**
+     * @brief Aliens() is the default contructor of the alien object, the function
+     *          is responsible for instantiation of the alien object.
+     */
+    
     Aliens();
     ~Aliens();
     
+    /**
+     * @brief The utility function load the aliens and queue them to be drawn on the 
+     *      screen.This is done by pushing alien objects inside  the vector in the pre-
+     *         determined order. This is essential for the presentation fo the the aliens
+     */
+    
     void loadAliens();
+    
+    /**
+     * @brief The utility function is used to get the alien objects in terms of the 
+     *          sprite. The alien of objects return by this function can be used to query
+     *          the state of aliens at the later stage.
+     */
+    
     tuple<vector<sf::Sprite> ,vector<sf::Sprite>> aliensSprite() const;
     std::vector<sf::Sprite> aliensSpriteAlone() const;
     void alienIsMoving(sf::RenderWindow &_windows);
@@ -53,7 +72,6 @@ private:
     bool _changeAlienDirection[2];
     StopWatch _watch;
     Score _score;
-    
     std::vector<bool> alienIsAlive[2];
     std::vector<AliensDirection> alienOrientation[2];
     ResourceManager _rm;
