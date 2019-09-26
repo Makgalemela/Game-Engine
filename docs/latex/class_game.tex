@@ -24,7 +24,7 @@ void \mbox{\hyperlink{class_game_a60de64d75454385b23995437f1d72669}{start}} ()
 \item 
 void \mbox{\hyperlink{class_game_a56c5cf8a568cff737ff95520cbe6b405}{draw}} ()
 \begin{DoxyCompactList}\small\item\em This need to be factored out. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_game_abfbee20b241e7d5bbbef9ab36fb201a4}{game\+Loop}} ()
+bool \mbox{\hyperlink{class_game_aaa2fcb1278f83e01f198a0910461a346}{Game\+Over}} () const
 \item 
 void \mbox{\hyperlink{class_game_ac3bdbc826d19fb41ffb25470527c3801}{input}} ()
 \item 
@@ -45,13 +45,9 @@ sf\+::\+Texture \mbox{\hyperlink{class_game_a30211d651d3fc8659af378168ac74aa3}{\
 \item 
 sf\+::\+Clock \mbox{\hyperlink{class_game_a401785e005bbb6a8dd0a1dc0e01f6b91}{\+\_\+clock}}
 \item 
-Defense\+Blocks \mbox{\hyperlink{class_game_a9a692eb461ea52d9233bf38e56eecbe8}{\+\_\+defense}}
-\item 
 sf\+::\+Sprite \mbox{\hyperlink{class_game_ae08fd31dd9d4bf3177b10f1e414b2661}{\+\_\+\+Game\+Over\+Sprite}}
 \item 
 sf\+::\+Texture \mbox{\hyperlink{class_game_a9c5a3a74c2acd362b5d528749057f4f1}{\+\_\+\+Game\+Over\+Texture}}
-\item 
-\mbox{\hyperlink{class_game_state}{Game\+State}} \mbox{\hyperlink{class_game_ada001a1765b4aba47dc5977bc74c5d3f}{\+\_\+gamestate}}
 \item 
 sf\+::\+Vector2f \mbox{\hyperlink{class_game_a48cc20bef785f858ce1278a150805d86}{\+\_\+resolution}}
 \item 
@@ -101,11 +97,11 @@ bool \mbox{\hyperlink{class_game_ae3181c6fecc9a401c394d92b3d2ebd51}{shot\+Fired}
 
 This need to be factored out. 
 
-\mbox{\Hypertarget{class_game_abfbee20b241e7d5bbbef9ab36fb201a4}\label{class_game_abfbee20b241e7d5bbbef9ab36fb201a4}} 
-\index{Game@{Game}!gameLoop@{gameLoop}}
-\index{gameLoop@{gameLoop}!Game@{Game}}
-\doxysubsubsection{\texorpdfstring{gameLoop()}{gameLoop()}}
-{\footnotesize\ttfamily void game\+Loop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+\mbox{\Hypertarget{class_game_aaa2fcb1278f83e01f198a0910461a346}\label{class_game_aaa2fcb1278f83e01f198a0910461a346}} 
+\index{Game@{Game}!GameOver@{GameOver}}
+\index{GameOver@{GameOver}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{GameOver()}{GameOver()}}
+{\footnotesize\ttfamily bool Game\+Over (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
 
 \mbox{\Hypertarget{class_game_ac3bdbc826d19fb41ffb25470527c3801}\label{class_game_ac3bdbc826d19fb41ffb25470527c3801}} 
 \index{Game@{Game}!input@{input}}
@@ -164,12 +160,6 @@ This need to be factored out.
 \doxysubsubsection{\texorpdfstring{\_clock}{\_clock}}
 {\footnotesize\ttfamily sf\+::\+Clock \+\_\+clock\hspace{0.3cm}{\ttfamily [private]}}
 
-\mbox{\Hypertarget{class_game_a9a692eb461ea52d9233bf38e56eecbe8}\label{class_game_a9a692eb461ea52d9233bf38e56eecbe8}} 
-\index{Game@{Game}!\_defense@{\_defense}}
-\index{\_defense@{\_defense}!Game@{Game}}
-\doxysubsubsection{\texorpdfstring{\_defense}{\_defense}}
-{\footnotesize\ttfamily Defense\+Blocks \+\_\+defense\hspace{0.3cm}{\ttfamily [private]}}
-
 \mbox{\Hypertarget{class_game_ae08fd31dd9d4bf3177b10f1e414b2661}\label{class_game_ae08fd31dd9d4bf3177b10f1e414b2661}} 
 \index{Game@{Game}!\_GameOverSprite@{\_GameOverSprite}}
 \index{\_GameOverSprite@{\_GameOverSprite}!Game@{Game}}
@@ -181,12 +171,6 @@ This need to be factored out.
 \index{\_GameOverTexture@{\_GameOverTexture}!Game@{Game}}
 \doxysubsubsection{\texorpdfstring{\_GameOverTexture}{\_GameOverTexture}}
 {\footnotesize\ttfamily sf\+::\+Texture \+\_\+\+Game\+Over\+Texture\hspace{0.3cm}{\ttfamily [private]}}
-
-\mbox{\Hypertarget{class_game_ada001a1765b4aba47dc5977bc74c5d3f}\label{class_game_ada001a1765b4aba47dc5977bc74c5d3f}} 
-\index{Game@{Game}!\_gamestate@{\_gamestate}}
-\index{\_gamestate@{\_gamestate}!Game@{Game}}
-\doxysubsubsection{\texorpdfstring{\_gamestate}{\_gamestate}}
-{\footnotesize\ttfamily \mbox{\hyperlink{class_game_state}{Game\+State}} \+\_\+gamestate\hspace{0.3cm}{\ttfamily [private]}}
 
 \mbox{\Hypertarget{class_game_a48cc20bef785f858ce1278a150805d86}\label{class_game_a48cc20bef785f858ce1278a150805d86}} 
 \index{Game@{Game}!\_resolution@{\_resolution}}
@@ -234,7 +218,7 @@ This need to be factored out.
 \index{Game@{Game}!gameOver@{gameOver}}
 \index{gameOver@{gameOver}!Game@{Game}}
 \doxysubsubsection{\texorpdfstring{gameOver}{gameOver}}
-{\footnotesize\ttfamily bool \mbox{\hyperlink{classgame_over}{game\+Over}}\hspace{0.3cm}{\ttfamily [private]}}
+{\footnotesize\ttfamily bool game\+Over\hspace{0.3cm}{\ttfamily [private]}}
 
 \mbox{\Hypertarget{class_game_a4dd9a8ee272d7e2f4cb8fc59e32fdb07}\label{class_game_a4dd9a8ee272d7e2f4cb8fc59e32fdb07}} 
 \index{Game@{Game}!gamePlaying@{gamePlaying}}

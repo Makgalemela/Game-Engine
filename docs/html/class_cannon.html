@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Duel-Invader
-   &#160;<span id="projectnumber">3</span>
+   &#160;<span id="projectnumber">v3.0</span>
    </div>
   </td>
  </tr>
@@ -91,9 +91,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ab7bc3616aed7d070f159b53d2880299e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cannon.html#ab7bc3616aed7d070f159b53d2880299e">~Cannon</a> ()</td></tr>
 <tr class="separator:ab7bc3616aed7d070f159b53d2880299e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa3ce2c4b92ac2a60eb57238762cddee1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cannon.html#aa3ce2c4b92ac2a60eb57238762cddee1">cannonIsShot</a> ()</td></tr>
+<tr class="memdesc:aa3ce2c4b92ac2a60eb57238762cddee1"><td class="mdescLeft">&#160;</td><td class="mdescRight">The utility function to check the collusion of the cannon object with bullet object. When the collusion happens both the cannon and, the bullet loses lives. The bullets is destroyed and cannon is give another chance if there is still live remaining.  <a href="class_cannon.html#aa3ce2c4b92ac2a60eb57238762cddee1">More...</a><br /></td></tr>
 <tr class="separator:aa3ce2c4b92ac2a60eb57238762cddee1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa78e198952380cbcc4032d3831116799"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cannon.html#aa78e198952380cbcc4032d3831116799">DrawCannon</a> (sf::RenderWindow &amp;_window)</td></tr>
-<tr class="separator:aa78e198952380cbcc4032d3831116799"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a145077090893e5a91342f2eb8441a52f"><td class="memItemLeft" align="right" valign="top">sf::Vector2f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cannon.html#a145077090893e5a91342f2eb8441a52f">getCannon2CenterFirePosition</a> () const</td></tr>
 <tr class="memdesc:a145077090893e5a91342f2eb8441a52f"><td class="mdescLeft">&#160;</td><td class="mdescRight">The function return the current position of cannon1, cannon at bottom of the screen initially.  <a href="class_cannon.html#a145077090893e5a91342f2eb8441a52f">More...</a><br /></td></tr>
 <tr class="separator:a145077090893e5a91342f2eb8441a52f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -101,6 +100,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a95acb315feacb91063dd273fa224699a"><td class="mdescLeft">&#160;</td><td class="mdescRight">The function return the current position of cannon2, cannon at Top of the screen initially.  <a href="class_cannon.html#a95acb315feacb91063dd273fa224699a">More...</a><br /></td></tr>
 <tr class="separator:a95acb315feacb91063dd273fa224699a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af79337487f7bfd6c0491a07d11c48057"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cannon.html#af79337487f7bfd6c0491a07d11c48057">getCannonLives</a> () const</td></tr>
+<tr class="memdesc:af79337487f7bfd6c0491a07d11c48057"><td class="mdescLeft">&#160;</td><td class="mdescRight">The two cannons share lives, they both have three lives. If the cannon is shot or collide with the object the cannons loses one live until no lives are left in which way the game ends and the player loses.  <a href="class_cannon.html#af79337487f7bfd6c0491a07d11c48057">More...</a><br /></td></tr>
 <tr class="separator:af79337487f7bfd6c0491a07d11c48057"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a232e8db9251540a2899dfd95d22d6f48"><td class="memItemLeft" align="right" valign="top">sf::Sprite&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cannon.html#a232e8db9251540a2899dfd95d22d6f48">getSprite</a> () const</td></tr>
 <tr class="memdesc:a232e8db9251540a2899dfd95d22d6f48"><td class="mdescLeft">&#160;</td><td class="mdescRight">The utility method return the sprite object which is essensially cannon1, cannon1, cannon at the bottom of the screen.  <a href="class_cannon.html#a232e8db9251540a2899dfd95d22d6f48">More...</a><br /></td></tr>
@@ -116,7 +116,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:aa721462120e133645feb122d4073e862"><td class="mdescLeft">&#160;</td><td class="mdescRight">The utility set the initial starting points of the two cannons.  <a href="class_cannon.html#aa721462120e133645feb122d4073e862">More...</a><br /></td></tr>
 <tr class="separator:aa721462120e133645feb122d4073e862"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5132f17fa0b5165bd86e14fbe13a2369"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cannon.html#a5132f17fa0b5165bd86e14fbe13a2369">setTexture</a> (sf::Texture <a class="el" href="class_cannon.html#a37a11b51a13626cae6839d6f9899df6f">_texture</a>, const int &amp;i) override</td></tr>
-<tr class="memdesc:a5132f17fa0b5165bd86e14fbe13a2369"><td class="mdescLeft">&#160;</td><td class="mdescRight">The method is inherited from the \Entity Class, it is used to set the texture of the sprite object. <a class="el" href="class_bullet.html">Bullet</a> class overide the method.  <a href="class_cannon.html#a5132f17fa0b5165bd86e14fbe13a2369">More...</a><br /></td></tr>
+<tr class="memdesc:a5132f17fa0b5165bd86e14fbe13a2369"><td class="mdescLeft">&#160;</td><td class="mdescRight">The method is inherited from the <a class="el" href="class_entity.html">Entity</a> Class, it is used to set the texture of the sprite object. <a class="el" href="class_cannon.html">Cannon</a> class overide this method.  <a href="class_cannon.html#a5132f17fa0b5165bd86e14fbe13a2369">More...</a><br /></td></tr>
 <tr class="separator:a5132f17fa0b5165bd86e14fbe13a2369"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af3e87f0095c31745b0e63408ff54dfbe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cannon.html#af3e87f0095c31745b0e63408ff54dfbe">stopMove</a> (<a class="el" href="_entity_8hpp.html#a224b9163917ac32fc95a60d8c1eec3aa">Direction</a> _dir, <a class="el" href="_entity_8hpp.html#ae2ad47c2b6fe6fe93090e7a6a90126c1">EntityId</a> _id) override</td></tr>
 <tr class="memdesc:af3e87f0095c31745b0e63408ff54dfbe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utility function for Stopping movement of the cannon object, <br  />
@@ -239,23 +239,7 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a id="aa78e198952380cbcc4032d3831116799"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa78e198952380cbcc4032d3831116799">&#9670;&nbsp;</a></span>DrawCannon()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void DrawCannon </td>
-          <td>(</td>
-          <td class="paramtype">sf::RenderWindow &amp;&#160;</td>
-          <td class="paramname"><em>_window</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
+<p>The utility function to check the collusion of the cannon object with bullet object. When the collusion happens both the cannon and, the bullet loses lives. The bullets is destroyed and cannon is give another chance if there is still live remaining. </p>
 
 </div>
 </div>
@@ -311,6 +295,8 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>The two cannons share lives, they both have three lives. If the cannon is shot or collide with the object the cannons loses one live until no lives are left in which way the game ends and the player loses. </p>
 
 </div>
 </div>
@@ -445,7 +431,7 @@ Private Attributes</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const int &amp;&#160;</td>
-          <td class="paramname"><em>_index</em>&#160;</td>
+          <td class="paramname"><em>i</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -460,7 +446,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>The method is inherited from the \Entity Class, it is used to set the texture of the sprite object. <a class="el" href="class_bullet.html">Bullet</a> class overide the method. </p>
+<p>The method is inherited from the <a class="el" href="class_entity.html">Entity</a> Class, it is used to set the texture of the sprite object. <a class="el" href="class_cannon.html">Cannon</a> class overide this method. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">_texture</td><td>Texture argument, </td></tr>

@@ -18,15 +18,13 @@ Inheritance diagram for Cannon\+:\begin{figure}[H]
 \mbox{\hyperlink{class_cannon_ab7bc3616aed7d070f159b53d2880299e}{$\sim$\+Cannon}} ()
 \item 
 void \mbox{\hyperlink{class_cannon_aa3ce2c4b92ac2a60eb57238762cddee1}{cannon\+Is\+Shot}} ()
-\item 
-void \mbox{\hyperlink{class_cannon_aa78e198952380cbcc4032d3831116799}{Draw\+Cannon}} (sf\+::\+Render\+Window \&\+\_\+window)
-\item 
+\begin{DoxyCompactList}\small\item\em The utility function to check the collusion of the cannon object with bullet object. When the collusion happens both the cannon and, the bullet loses lives. The bullets is destroyed and cannon is give another chance if there is still live remaining. \end{DoxyCompactList}\item 
 sf\+::\+Vector2f \mbox{\hyperlink{class_cannon_a145077090893e5a91342f2eb8441a52f}{get\+Cannon2\+Center\+Fire\+Position}} () const
 \begin{DoxyCompactList}\small\item\em The function return the current position of cannon1, cannon at bottom of the screen initially. \end{DoxyCompactList}\item 
 sf\+::\+Vector2f \mbox{\hyperlink{class_cannon_a95acb315feacb91063dd273fa224699a}{get\+Cannon\+Center\+Fire\+Position}} () const
 \begin{DoxyCompactList}\small\item\em The function return the current position of cannon2, cannon at Top of the screen initially. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{class_cannon_af79337487f7bfd6c0491a07d11c48057}{get\+Cannon\+Lives}} () const
-\item 
+\begin{DoxyCompactList}\small\item\em The two cannons share lives, they both have three lives. If the cannon is shot or collide with the object the cannons loses one live until no lives are left in which way the game ends and the player loses. \end{DoxyCompactList}\item 
 sf\+::\+Sprite \mbox{\hyperlink{class_cannon_a232e8db9251540a2899dfd95d22d6f48}{get\+Sprite}} () const
 \begin{DoxyCompactList}\small\item\em The utility method return the sprite object which is essensially cannon1, cannon1, cannon at the bottom of the screen. \end{DoxyCompactList}\item 
 sf\+::\+Sprite \mbox{\hyperlink{class_cannon_a9a60603b8b4d8149ed7e91b283540738}{get\+Sprite2}} () const
@@ -37,7 +35,7 @@ void \mbox{\hyperlink{class_cannon_abc1bc0af64454e9afe4f204ddd29937e}{move}} (\m
 void \mbox{\hyperlink{class_cannon_aa721462120e133645feb122d4073e862}{set\+Init\+Pos\+Of\+Cannon}} (sf\+::\+Vector2f \mbox{\hyperlink{class_cannon_a5c0305ea4b944e7c8cf1933f101a715b}{\+\_\+position}})
 \begin{DoxyCompactList}\small\item\em The utility set the initial starting points of the two cannons. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_cannon_a5132f17fa0b5165bd86e14fbe13a2369}{set\+Texture}} (sf\+::\+Texture \mbox{\hyperlink{class_cannon_a37a11b51a13626cae6839d6f9899df6f}{\+\_\+texture}}, const int \&i) override
-\begin{DoxyCompactList}\small\item\em The method is inherited from the \textbackslash{}\+Entity Class, it is used to set the texture of the sprite object. \mbox{\hyperlink{class_bullet}{Bullet}} class overide the method. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em The method is inherited from the \mbox{\hyperlink{class_entity}{Entity}} Class, it is used to set the texture of the sprite object. \mbox{\hyperlink{class_cannon}{Cannon}} class overide this method. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_cannon_af3e87f0095c31745b0e63408ff54dfbe}{stop\+Move}} (\mbox{\hyperlink{_entity_8hpp_a224b9163917ac32fc95a60d8c1eec3aa}{Direction}} \+\_\+dir, \mbox{\hyperlink{_entity_8hpp_ae2ad47c2b6fe6fe93090e7a6a90126c1}{Entity\+Id}} \+\_\+id) override
 \begin{DoxyCompactList}\small\item\em Utility function for Stopping movement of the cannon object, ~\newline
  the stop\+Move function is derived from an enterface, \mbox{\hyperlink{class_entity}{Entity}}. \mbox{\hyperlink{class_cannon}{Cannon}} class overides the stop\+Move function. \end{DoxyCompactList}\item 
@@ -105,11 +103,9 @@ This is constructor which instetiate the \mbox{\hyperlink{class_cannon}{Cannon}}
 \doxysubsubsection{\texorpdfstring{cannonIsShot()}{cannonIsShot()}}
 {\footnotesize\ttfamily void cannon\+Is\+Shot (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{class_cannon_aa78e198952380cbcc4032d3831116799}\label{class_cannon_aa78e198952380cbcc4032d3831116799}} 
-\index{Cannon@{Cannon}!DrawCannon@{DrawCannon}}
-\index{DrawCannon@{DrawCannon}!Cannon@{Cannon}}
-\doxysubsubsection{\texorpdfstring{DrawCannon()}{DrawCannon()}}
-{\footnotesize\ttfamily void Draw\+Cannon (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{\+\_\+window }\end{DoxyParamCaption})}
+
+
+The utility function to check the collusion of the cannon object with bullet object. When the collusion happens both the cannon and, the bullet loses lives. The bullets is destroyed and cannon is give another chance if there is still live remaining. 
 
 \mbox{\Hypertarget{class_cannon_a145077090893e5a91342f2eb8441a52f}\label{class_cannon_a145077090893e5a91342f2eb8441a52f}} 
 \index{Cannon@{Cannon}!getCannon2CenterFirePosition@{getCannon2CenterFirePosition}}
@@ -136,6 +132,10 @@ The function return the current position of cannon2, cannon at Top of the screen
 \index{getCannonLives@{getCannonLives}!Cannon@{Cannon}}
 \doxysubsubsection{\texorpdfstring{getCannonLives()}{getCannonLives()}}
 {\footnotesize\ttfamily int get\+Cannon\+Lives (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+The two cannons share lives, they both have three lives. If the cannon is shot or collide with the object the cannons loses one live until no lives are left in which way the game ends and the player loses. 
 
 \mbox{\Hypertarget{class_cannon_a232e8db9251540a2899dfd95d22d6f48}\label{class_cannon_a232e8db9251540a2899dfd95d22d6f48}} 
 \index{Cannon@{Cannon}!getSprite@{getSprite}}
@@ -198,11 +198,11 @@ The utility set the initial starting points of the two cannons.
 \index{Cannon@{Cannon}!setTexture@{setTexture}}
 \index{setTexture@{setTexture}!Cannon@{Cannon}}
 \doxysubsubsection{\texorpdfstring{setTexture()}{setTexture()}}
-{\footnotesize\ttfamily void set\+Texture (\begin{DoxyParamCaption}\item[{sf\+::\+Texture}]{\+\_\+texture,  }\item[{const int \&}]{\+\_\+index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily void set\+Texture (\begin{DoxyParamCaption}\item[{sf\+::\+Texture}]{\+\_\+texture,  }\item[{const int \&}]{i }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
-The method is inherited from the \textbackslash{}\+Entity Class, it is used to set the texture of the sprite object. \mbox{\hyperlink{class_bullet}{Bullet}} class overide the method. 
+The method is inherited from the \mbox{\hyperlink{class_entity}{Entity}} Class, it is used to set the texture of the sprite object. \mbox{\hyperlink{class_cannon}{Cannon}} class overide this method. 
 
 
 \begin{DoxyParams}{Parameters}

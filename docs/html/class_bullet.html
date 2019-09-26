@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Duel-Invader
-   &#160;<span id="projectnumber">3</span>
+   &#160;<span id="projectnumber">v3.0</span>
    </div>
   </td>
  </tr>
@@ -109,7 +109,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a66ecd4c27859fd14c6cf208b7717f0a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tuple function, it returns the bullet object and the firing direction of the bullet.  <a href="class_bullet.html#a66ecd4c27859fd14c6cf208b7717f0a7">More...</a><br /></td></tr>
 <tr class="separator:a66ecd4c27859fd14c6cf208b7717f0a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9ff8900f1eea666f8140881be3b50856"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bullet.html#a9ff8900f1eea666f8140881be3b50856">setTexture</a> (sf::Texture _texture, const int &amp;_index=0) override</td></tr>
-<tr class="memdesc:a9ff8900f1eea666f8140881be3b50856"><td class="mdescLeft">&#160;</td><td class="mdescRight">The method is inherited from the \Entity Class, it is used to set the texture of the sprite object. <a class="el" href="class_bullet.html">Bullet</a> class overide the method.  <a href="class_bullet.html#a9ff8900f1eea666f8140881be3b50856">More...</a><br /></td></tr>
+<tr class="memdesc:a9ff8900f1eea666f8140881be3b50856"><td class="mdescLeft">&#160;</td><td class="mdescRight">The method is inherited from the <a class="el" href="class_entity.html">Entity</a> Class, it is used to set the texture of the sprite object. <a class="el" href="class_bullet.html">Bullet</a> class overide the method.  <a href="class_bullet.html#a9ff8900f1eea666f8140881be3b50856">More...</a><br /></td></tr>
 <tr class="separator:a9ff8900f1eea666f8140881be3b50856"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeeaa0d05742d341591cb432f1f799d29"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bullet.html#aeeaa0d05742d341591cb432f1f799d29">startFiring</a> (const <a class="el" href="_bullet_8hpp.html#a43068221be0df614286e1025997c8853">FiringDirection</a> &amp;fd, sf::Vector2f <a class="el" href="class_bullet.html#a5bbbc3e228ef6c31d9b840f4bef31a24">_bulletPosition</a>)</td></tr>
 <tr class="memdesc:aeeaa0d05742d341591cb432f1f799d29"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instentiate the firing of the bullet, the method set up the initial position to which the bullet is to be fired from and initiate the direction the bullet is fired towards.  <a href="class_bullet.html#aeeaa0d05742d341591cb432f1f799d29">More...</a><br /></td></tr>
@@ -120,10 +120,13 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:afc5841acbe7bc7152ea8afd8950c2f91 inherit pub_methods_class_entity"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#afc5841acbe7bc7152ea8afd8950c2f91">~Entity</a> ()</td></tr>
 <tr class="separator:afc5841acbe7bc7152ea8afd8950c2f91 inherit pub_methods_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac687ea28df3132fd1fce5cab9fb156da inherit pub_methods_class_entity"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#ac687ea28df3132fd1fce5cab9fb156da">move</a> (<a class="el" href="_entity_8hpp.html#a224b9163917ac32fc95a60d8c1eec3aa">Direction</a> _dir=<a class="el" href="_entity_8hpp.html#a224b9163917ac32fc95a60d8c1eec3aaa945d5e233cf7d6240f6b783b36a374ff">Direction::Left</a>, <a class="el" href="_entity_8hpp.html#ae2ad47c2b6fe6fe93090e7a6a90126c1">EntityId</a> _Id=<a class="el" href="_entity_8hpp.html#ae2ad47c2b6fe6fe93090e7a6a90126c1a3b6020573f70c7fcf802d39c24e884fe">EntityId::Cannon1</a>)</td></tr>
+<tr class="memdesc:ac687ea28df3132fd1fce5cab9fb156da inherit pub_methods_class_entity"><td class="mdescLeft">&#160;</td><td class="mdescRight">The virtual move class, this is just an interface method which is overidden by the the entity classes.  <a href="class_entity.html#ac687ea28df3132fd1fce5cab9fb156da">More...</a><br /></td></tr>
 <tr class="separator:ac687ea28df3132fd1fce5cab9fb156da inherit pub_methods_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac828b2dd954fe7acc11adf28898f6168 inherit pub_methods_class_entity"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#ac828b2dd954fe7acc11adf28898f6168">stopMove</a> (<a class="el" href="_entity_8hpp.html#a224b9163917ac32fc95a60d8c1eec3aa">Direction</a> _dir=<a class="el" href="_entity_8hpp.html#a224b9163917ac32fc95a60d8c1eec3aaa945d5e233cf7d6240f6b783b36a374ff">Direction::Left</a>, <a class="el" href="_entity_8hpp.html#ae2ad47c2b6fe6fe93090e7a6a90126c1">EntityId</a> _Id=<a class="el" href="_entity_8hpp.html#ae2ad47c2b6fe6fe93090e7a6a90126c1a3b6020573f70c7fcf802d39c24e884fe">EntityId::Cannon1</a>)</td></tr>
+<tr class="memdesc:ac828b2dd954fe7acc11adf28898f6168 inherit pub_methods_class_entity"><td class="mdescLeft">&#160;</td><td class="mdescRight">The virtual stopMove class, this is just an interface method which is overidden by the the entity classes.  <a href="class_entity.html#ac828b2dd954fe7acc11adf28898f6168">More...</a><br /></td></tr>
 <tr class="separator:ac828b2dd954fe7acc11adf28898f6168 inherit pub_methods_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adc162c338427558bffd86c9429dde6c3 inherit pub_methods_class_entity"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#adc162c338427558bffd86c9429dde6c3">update</a> (const float &amp;elapsedTime=0.0)</td></tr>
+<tr class="memdesc:adc162c338427558bffd86c9429dde6c3 inherit pub_methods_class_entity"><td class="mdescLeft">&#160;</td><td class="mdescRight">The virtual update function is responsible for updating the position of <a class="el" href="class_entity.html">Entity</a> after movement is initiated.  <a href="class_entity.html#adc162c338427558bffd86c9429dde6c3">More...</a><br /></td></tr>
 <tr class="separator:adc162c338427558bffd86c9429dde6c3 inherit pub_methods_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
@@ -387,7 +390,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>The method is inherited from the \Entity Class, it is used to set the texture of the sprite object. <a class="el" href="class_bullet.html">Bullet</a> class overide the method. </p>
+<p>The method is inherited from the <a class="el" href="class_entity.html">Entity</a> Class, it is used to set the texture of the sprite object. <a class="el" href="class_bullet.html">Bullet</a> class overide the method. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">_texture</td><td>Texture argument, </td></tr>
