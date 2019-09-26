@@ -90,9 +90,34 @@ public:
     
     
     void setInitPosOfCannon(sf::Vector2f _position);
+    
+    /**
+     * @brief The utility function to check the collusion of the cannon object
+     *          with bullet object. When the collusion happens both the cannon and,
+     *          the bullet loses lives. The bullets is destroyed and cannon is give another
+     *          chance if there is still live remaining
+     */
+    
     void cannonIsShot();
-    void DrawCannon(sf::RenderWindow & _window);
+   
+    /**
+     * @brief The two cannons share lives, they both have three lives. If the cannon
+     *          is shot or  collide with the object the cannons loses one live until
+     *          no lives are left in which way the game ends and the player loses.
+     */
+    
+    
     int getCannonLives() const;
+    
+    
+    /**
+     * @brief The method is inherited from the Entity Class, it is used to set the
+     *          texture of the sprite object.  Cannon class overide this method.
+     * @param _texture Texture argument,
+     * @param _index A constant variable optionally used to determine the
+     *          index of the texture, wherein the texture exist in an array
+     */
+    
     void setTexture(sf::Texture _texture ,const int& i) override;
 private: 
     //first cannon
@@ -101,7 +126,6 @@ private:
     sf::Texture _texture[2];
     bool cannonDown[2];
     FiringDirection cannonOrientation[2];
-    //Direction direction;
     bool _moveLeft;
     bool _moveRight;
     bool _moveLeftTop;

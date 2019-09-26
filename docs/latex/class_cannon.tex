@@ -14,7 +14,7 @@ Inheritance diagram for Cannon\+:\begin{figure}[H]
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{class_cannon_aaee7cef05f656f31d7f8fa444a669387}{Cannon}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em This is constructor which instetiate the \mbox{\hyperlink{class_cannon}{Cannon}} Object. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_cannon_ab7bc3616aed7d070f159b53d2880299e}{$\sim$\+Cannon}} ()
 \item 
 void \mbox{\hyperlink{class_cannon_aa3ce2c4b92ac2a60eb57238762cddee1}{cannon\+Is\+Shot}} ()
@@ -22,25 +22,27 @@ void \mbox{\hyperlink{class_cannon_aa3ce2c4b92ac2a60eb57238762cddee1}{cannon\+Is
 void \mbox{\hyperlink{class_cannon_aa78e198952380cbcc4032d3831116799}{Draw\+Cannon}} (sf\+::\+Render\+Window \&\+\_\+window)
 \item 
 sf\+::\+Vector2f \mbox{\hyperlink{class_cannon_a145077090893e5a91342f2eb8441a52f}{get\+Cannon2\+Center\+Fire\+Position}} () const
-\item 
+\begin{DoxyCompactList}\small\item\em The function return the current position of cannon1, cannon at bottom of the screen initially. \end{DoxyCompactList}\item 
 sf\+::\+Vector2f \mbox{\hyperlink{class_cannon_a95acb315feacb91063dd273fa224699a}{get\+Cannon\+Center\+Fire\+Position}} () const
-\item 
+\begin{DoxyCompactList}\small\item\em The function return the current position of cannon2, cannon at Top of the screen initially. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{class_cannon_af79337487f7bfd6c0491a07d11c48057}{get\+Cannon\+Lives}} () const
 \item 
 sf\+::\+Sprite \mbox{\hyperlink{class_cannon_a232e8db9251540a2899dfd95d22d6f48}{get\+Sprite}} () const
-\item 
+\begin{DoxyCompactList}\small\item\em The utility method return the sprite object which is essensially cannon1, cannon1, cannon at the bottom of the screen. \end{DoxyCompactList}\item 
 sf\+::\+Sprite \mbox{\hyperlink{class_cannon_a9a60603b8b4d8149ed7e91b283540738}{get\+Sprite2}} () const
-\item 
+\begin{DoxyCompactList}\small\item\em The utility method return the sprite object which is essensially cannon2, cannon2, cannon at the bottom of the screen. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_cannon_abc1bc0af64454e9afe4f204ddd29937e}{move}} (\mbox{\hyperlink{_entity_8hpp_a224b9163917ac32fc95a60d8c1eec3aa}{Direction}} \+\_\+dir, \mbox{\hyperlink{_entity_8hpp_ae2ad47c2b6fe6fe93090e7a6a90126c1}{Entity\+Id}} \+\_\+id) override
-\item 
+\begin{DoxyCompactList}\small\item\em Utility function for the movement of the cannon object, ~\newline
+ the move function is derived from an enterface, \mbox{\hyperlink{class_entity}{Entity}}. \mbox{\hyperlink{class_cannon}{Cannon}} class overides the move function. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_cannon_aa721462120e133645feb122d4073e862}{set\+Init\+Pos\+Of\+Cannon}} (sf\+::\+Vector2f \mbox{\hyperlink{class_cannon_a5c0305ea4b944e7c8cf1933f101a715b}{\+\_\+position}})
-\item 
+\begin{DoxyCompactList}\small\item\em The utility set the initial starting points of the two cannons. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_cannon_a5132f17fa0b5165bd86e14fbe13a2369}{set\+Texture}} (sf\+::\+Texture \mbox{\hyperlink{class_cannon_a37a11b51a13626cae6839d6f9899df6f}{\+\_\+texture}}, const int \&i) override
 \begin{DoxyCompactList}\small\item\em The method is inherited from the \textbackslash{}\+Entity Class, it is used to set the texture of the sprite object. \mbox{\hyperlink{class_bullet}{Bullet}} class overide the method. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_cannon_af3e87f0095c31745b0e63408ff54dfbe}{stop\+Move}} (\mbox{\hyperlink{_entity_8hpp_a224b9163917ac32fc95a60d8c1eec3aa}{Direction}} \+\_\+dir, \mbox{\hyperlink{_entity_8hpp_ae2ad47c2b6fe6fe93090e7a6a90126c1}{Entity\+Id}} \+\_\+id) override
-\item 
+\begin{DoxyCompactList}\small\item\em Utility function for Stopping movement of the cannon object, ~\newline
+ the stop\+Move function is derived from an enterface, \mbox{\hyperlink{class_entity}{Entity}}. \mbox{\hyperlink{class_cannon}{Cannon}} class overides the stop\+Move function. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_cannon_a7ea4473e411853b25695bc5224fd2a4d}{update}} (const float \&elapsed\+Time) override
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em The class update the position of the \mbox{\hyperlink{class_cannon}{Cannon}}, this is done when the cannon movement is initiated. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -68,12 +70,25 @@ bool \mbox{\hyperlink{class_cannon_ae7181cc06f59ac59054b8ee8902837de}{cannon\+Do
 \end{DoxyCompactItemize}
 
 
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Matome Makgalemela 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+26/09/2019 
+\end{DoxyDate}
+
+
 \doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{class_cannon_aaee7cef05f656f31d7f8fa444a669387}\label{class_cannon_aaee7cef05f656f31d7f8fa444a669387}} 
 \index{Cannon@{Cannon}!Cannon@{Cannon}}
 \index{Cannon@{Cannon}!Cannon@{Cannon}}
 \doxysubsubsection{\texorpdfstring{Cannon()}{Cannon()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{class_cannon}{Cannon}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+This is constructor which instetiate the \mbox{\hyperlink{class_cannon}{Cannon}} Object. 
 
 \mbox{\Hypertarget{class_cannon_ab7bc3616aed7d070f159b53d2880299e}\label{class_cannon_ab7bc3616aed7d070f159b53d2880299e}} 
 \index{Cannon@{Cannon}!````~Cannon@{$\sim$Cannon}}
@@ -102,11 +117,19 @@ bool \mbox{\hyperlink{class_cannon_ae7181cc06f59ac59054b8ee8902837de}{cannon\+Do
 \doxysubsubsection{\texorpdfstring{getCannon2CenterFirePosition()}{getCannon2CenterFirePosition()}}
 {\footnotesize\ttfamily sf\+::\+Vector2f get\+Cannon2\+Center\+Fire\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
+
+
+The function return the current position of cannon1, cannon at bottom of the screen initially. 
+
 \mbox{\Hypertarget{class_cannon_a95acb315feacb91063dd273fa224699a}\label{class_cannon_a95acb315feacb91063dd273fa224699a}} 
 \index{Cannon@{Cannon}!getCannonCenterFirePosition@{getCannonCenterFirePosition}}
 \index{getCannonCenterFirePosition@{getCannonCenterFirePosition}!Cannon@{Cannon}}
 \doxysubsubsection{\texorpdfstring{getCannonCenterFirePosition()}{getCannonCenterFirePosition()}}
 {\footnotesize\ttfamily sf\+::\+Vector2f get\+Cannon\+Center\+Fire\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+The function return the current position of cannon2, cannon at Top of the screen initially. 
 
 \mbox{\Hypertarget{class_cannon_af79337487f7bfd6c0491a07d11c48057}\label{class_cannon_af79337487f7bfd6c0491a07d11c48057}} 
 \index{Cannon@{Cannon}!getCannonLives@{getCannonLives}}
@@ -120,11 +143,19 @@ bool \mbox{\hyperlink{class_cannon_ae7181cc06f59ac59054b8ee8902837de}{cannon\+Do
 \doxysubsubsection{\texorpdfstring{getSprite()}{getSprite()}}
 {\footnotesize\ttfamily sf\+::\+Sprite get\+Sprite (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
+
+
+The utility method return the sprite object which is essensially cannon1, cannon1, cannon at the bottom of the screen. 
+
 \mbox{\Hypertarget{class_cannon_a9a60603b8b4d8149ed7e91b283540738}\label{class_cannon_a9a60603b8b4d8149ed7e91b283540738}} 
 \index{Cannon@{Cannon}!getSprite2@{getSprite2}}
 \index{getSprite2@{getSprite2}!Cannon@{Cannon}}
 \doxysubsubsection{\texorpdfstring{getSprite2()}{getSprite2()}}
 {\footnotesize\ttfamily sf\+::\+Sprite get\+Sprite2 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+The utility method return the sprite object which is essensially cannon2, cannon2, cannon at the bottom of the screen. 
 
 \mbox{\Hypertarget{class_cannon_abc1bc0af64454e9afe4f204ddd29937e}\label{class_cannon_abc1bc0af64454e9afe4f204ddd29937e}} 
 \index{Cannon@{Cannon}!move@{move}}
@@ -132,6 +163,18 @@ bool \mbox{\hyperlink{class_cannon_ae7181cc06f59ac59054b8ee8902837de}{cannon\+Do
 \doxysubsubsection{\texorpdfstring{move()}{move()}}
 {\footnotesize\ttfamily void move (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_entity_8hpp_a224b9163917ac32fc95a60d8c1eec3aa}{Direction}}}]{\+\_\+dir,  }\item[{\mbox{\hyperlink{_entity_8hpp_ae2ad47c2b6fe6fe93090e7a6a90126c1}{Entity\+Id}}}]{\+\_\+id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
+
+
+Utility function for the movement of the cannon object, ~\newline
+ the move function is derived from an enterface, \mbox{\hyperlink{class_entity}{Entity}}. \mbox{\hyperlink{class_cannon}{Cannon}} class overides the move function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+dir} & The direction of movement of the \mbox{\hyperlink{class_cannon}{Cannon}} ; Left, Right \\
+\hline
+{\em \+\_\+id} & The cannon Identifier; Upper\+Cannon or Lower\+Cannon \\
+\hline
+\end{DoxyParams}
 
 
 Reimplemented from \mbox{\hyperlink{class_entity_ac687ea28df3132fd1fce5cab9fb156da}{Entity}}.
@@ -142,6 +185,15 @@ Reimplemented from \mbox{\hyperlink{class_entity_ac687ea28df3132fd1fce5cab9fb156
 \doxysubsubsection{\texorpdfstring{setInitPosOfCannon()}{setInitPosOfCannon()}}
 {\footnotesize\ttfamily void set\+Init\+Pos\+Of\+Cannon (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2f}]{\+\_\+position }\end{DoxyParamCaption})}
 
+
+
+The utility set the initial starting points of the two cannons. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+position} & The start \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{class_cannon_a5132f17fa0b5165bd86e14fbe13a2369}\label{class_cannon_a5132f17fa0b5165bd86e14fbe13a2369}} 
 \index{Cannon@{Cannon}!setTexture@{setTexture}}
 \index{setTexture@{setTexture}!Cannon@{Cannon}}
@@ -171,6 +223,18 @@ Reimplemented from \mbox{\hyperlink{class_bullet_a9ff8900f1eea666f8140881be3b508
 
 
 
+Utility function for Stopping movement of the cannon object, ~\newline
+ the stop\+Move function is derived from an enterface, \mbox{\hyperlink{class_entity}{Entity}}. \mbox{\hyperlink{class_cannon}{Cannon}} class overides the stop\+Move function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+dir} & The direction of movement of the \mbox{\hyperlink{class_cannon}{Cannon}} ; Left, Right \\
+\hline
+{\em \+\_\+id} & The cannon Identifier; Upper\+Cannon or Lower\+Cannon \\
+\hline
+\end{DoxyParams}
+
+
 Reimplemented from \mbox{\hyperlink{class_entity_ac828b2dd954fe7acc11adf28898f6168}{Entity}}.
 
 \mbox{\Hypertarget{class_cannon_a7ea4473e411853b25695bc5224fd2a4d}\label{class_cannon_a7ea4473e411853b25695bc5224fd2a4d}} 
@@ -179,6 +243,15 @@ Reimplemented from \mbox{\hyperlink{class_entity_ac828b2dd954fe7acc11adf28898f61
 \doxysubsubsection{\texorpdfstring{update()}{update()}}
 {\footnotesize\ttfamily void update (\begin{DoxyParamCaption}\item[{const float \&}]{elapsed\+Time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
+
+
+The class update the position of the \mbox{\hyperlink{class_cannon}{Cannon}}, this is done when the cannon movement is initiated. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em elapsed\+Time} & This variable is the factor that isused to move the cannon object. \\
+\hline
+\end{DoxyParams}
 
 
 Reimplemented from \mbox{\hyperlink{class_entity_adc162c338427558bffd86c9429dde6c3}{Entity}}.

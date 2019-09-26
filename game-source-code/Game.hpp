@@ -7,9 +7,7 @@
 #include "Aliens.hpp"
 #include "Bullet.hpp"
 #include "ResourceManager.hpp"
-//#include "collusion.hpp"
 #include "Screen.hpp"
-#include "GameState.hpp"
 #include "StopWatch.h"
 
 
@@ -21,7 +19,8 @@ public:
 
 private:
     
-    void gameLoop();
+    //void gameLoop();
+    bool GameOver() const;
     void loadCannon(ResourceManager _rm);
     sf::RenderWindow _window;
     sf::Sprite _backgroundSprite;
@@ -30,8 +29,6 @@ private:
     Cannon _cannon;
     Aliens aliens;
     Bullet bullet;
-    //collusion _collide;
-    DefenseBlocks _defense;
     sf::Vector2f _resolution;
     bool shotFired;
     sf::Sprite _GameOverSprite;
@@ -44,7 +41,7 @@ private:
     bool gameOver;
     bool gamePlaying;
     sf::Clock _clock;
-    GameState _gamestate;
+    
     StopWatch _watch;
 };
 

@@ -93,7 +93,7 @@ public:
     std::tuple<std::vector<sf::Sprite>*, std::vector<FiringDirection>*> getBullets() ;
     
     /**
-     * @brief The method is inherited from the \Entity Class, it is used to set the
+     * @brief The method is inherited from the Entity Class, it is used to set the
      *          texture of the sprite object.  Bullet class overide the method.
      * @param _texture Texture argument,
      * @param _index A constant variable optionally used to determine the

@@ -21,7 +21,7 @@ Game::Game()
 
 void Game::start(){
    aliens.loadAliens();
-   _defense.loadBlocks();
+   //_defense.loadBlocks();
    _cannon.setInitPosOfCannon(_resolution);
    _window.setKeyRepeatEnabled(false);
     aliens.setAlienPosition();
@@ -56,7 +56,7 @@ void Game::start(){
                       _cannon.startFiring(FiringDirection::up ,_cannon.getCannonCenterFirePosition());
         }
 
-        if(_gamestate.GameOver(_cannon, aliens)){
+       if(GameOver()){
                 gamePlaying =false;
                 gameOver = true;
                 _window.draw(_GameOverSprite);
@@ -136,7 +136,7 @@ void Game::draw(){
     }
    
     
-    _cannon.BulletsCollusion(_window);
+    _cannon.BulletsCollusion();
     CannonLives(_window,_cannon);
     elapsedTime(_window);
     ScoreDraw(_window);
@@ -191,7 +191,14 @@ void Game::powerAliens(){
         _rm.loadResources(ResourceID:: Splash, "../executables/resources/splash.png" );
         _splash.setTexture(_rm.get(ResourceID:: Splash));
   }
-  
+
+
+bool Game::GameOver() const{
+    if(aliens.allAliensKilled() || aliens.aliensAtBottonOrTop()||
+    _cannon.getCannonLives() ==0 ) return true;
+    
+    else return false;
+}
   
 Game::~Game()
 {
