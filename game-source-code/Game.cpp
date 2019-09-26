@@ -68,7 +68,7 @@ void Game::start(){
             update(dtAsSeconds);
             draw();
             _cannon.cannonIsShot();
-            powerAliens();
+           // powerAliens();
         }
         
     }
