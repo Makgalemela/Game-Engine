@@ -13,13 +13,13 @@
 
 // This section of tests test for the correct behaviour when loading the resources
 
-//TEST_CASE("Throw Exception when Loading resources which do not exists")
-//{
-//    auto resources = ResourceManager{};
-//    const std::string filename = "Laser_Cannon.png";
-//    const std::string Exception = "Failed to load the resource at "+ filename;
-//    CHECK_THROWS_AS(resources.loadResources(ResourceID::Default, filename), std::runtime_error(&Exception));
-//}
+TEST_CASE("Throw Exception when Loading resources which do not exists")
+{
+    auto resources = ResourceManager{};
+    const std::string filename = "Laser_Cannon.png";
+    const std::string Exception = "Failed to load the resource at "+ filename;
+    CHECK_THROWS(resources.loadResources(ResourceID::Default, filenamell));
+}
 
 
 TEST_CASE("No Exception throw when Loading resources which exist")
